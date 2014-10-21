@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHttpHeaders.h"
+
 
 @interface KSViewController : UIViewController
 

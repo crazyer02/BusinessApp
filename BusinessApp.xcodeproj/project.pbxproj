@@ -7,6 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE25F5B319F5790900439FC2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B119F5790900439FC2 /* CFNetwork.framework */; };
+		AE25F5B419F5790900439FC2 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B219F5790900439FC2 /* libz.1.2.5.dylib */; };
+		AE25F5B719F5792900439FC2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B519F5792900439FC2 /* MobileCoreServices.framework */; };
+		AE25F5B819F5792900439FC2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B619F5792900439FC2 /* SystemConfiguration.framework */; };
+		AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5BB19F57D9F00439FC2 /* ASIAuthenticationDialog.m */; };
+		AE25F5EE19F57D9F00439FC2 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5BE19F57D9F00439FC2 /* ASIDownloadCache.m */; };
+		AE25F5EF19F57D9F00439FC2 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C019F57D9F00439FC2 /* ASIFormDataRequest.m */; };
+		AE25F5F019F57D9F00439FC2 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C319F57D9F00439FC2 /* ASIHTTPRequest.m */; };
+		AE25F5F119F57D9F00439FC2 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C719F57D9F00439FC2 /* ASIInputStream.m */; };
+		AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C919F57D9F00439FC2 /* ASINetworkQueue.m */; };
+		AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5CC19F57D9F00439FC2 /* Reachability.m */; };
+		AE25F5F419F57D9F00439FC2 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5D019F57D9F00439FC2 /* NSObject+SBJSON.m */; };
+		AE25F5F519F57D9F00439FC2 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5D219F57D9F00439FC2 /* NSString+SBJSON.m */; };
+		AE25F5F619F57D9F00439FC2 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5D419F57D9F00439FC2 /* SBJSON.m */; };
+		AE25F5F719F57D9F00439FC2 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5D619F57D9F00439FC2 /* SBJsonBase.m */; };
+		AE25F5F819F57D9F00439FC2 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5D819F57D9F00439FC2 /* SBJsonParser.m */; };
+		AE25F5F919F57D9F00439FC2 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5DA19F57D9F00439FC2 /* SBJsonStreamParser.m */; };
+		AE25F5FA19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5DC19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.m */; };
+		AE25F5FB19F57D9F00439FC2 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5DE19F57D9F00439FC2 /* SBJsonStreamParserAdapter.m */; };
+		AE25F5FC19F57D9F00439FC2 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5E019F57D9F00439FC2 /* SBJsonStreamParserState.m */; };
+		AE25F5FD19F57D9F00439FC2 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5E219F57D9F00439FC2 /* SBJsonStreamWriter.m */; };
+		AE25F5FE19F57D9F00439FC2 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5E419F57D9F00439FC2 /* SBJsonStreamWriterAccumulator.m */; };
+		AE25F5FF19F57D9F00439FC2 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5E619F57D9F00439FC2 /* SBJsonStreamWriterState.m */; };
+		AE25F60019F57D9F00439FC2 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5E819F57D9F00439FC2 /* SBJsonTokeniser.m */; };
+		AE25F60119F57D9F00439FC2 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5EA19F57D9F00439FC2 /* SBJsonUTF8Stream.m */; };
+		AE25F60219F57D9F00439FC2 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5EC19F57D9F00439FC2 /* SBJsonWriter.m */; };
+		AE25F60419F5803000439FC2 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F60319F5803000439FC2 /* libxml2.2.dylib */; };
+		AE25F60619F581E800439FC2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F60519F581E800439FC2 /* libz.dylib */; };
 		AE5B304F19EFCCC400E44365 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5B304E19EFCCC400E44365 /* Foundation.framework */; };
 		AE5B305119EFCCC400E44365 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5B305019EFCCC400E44365 /* CoreGraphics.framework */; };
 		AE5B305319EFCCC400E44365 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5B305219EFCCC400E44365 /* UIKit.framework */; };
@@ -34,6 +62,62 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE25F5B119F5790900439FC2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		AE25F5B219F5790900439FC2 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		AE25F5B519F5792900439FC2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		AE25F5B619F5792900439FC2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AE25F5BA19F57D9F00439FC2 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		AE25F5BB19F57D9F00439FC2 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		AE25F5BC19F57D9F00439FC2 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		AE25F5BD19F57D9F00439FC2 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		AE25F5BE19F57D9F00439FC2 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		AE25F5BF19F57D9F00439FC2 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		AE25F5C019F57D9F00439FC2 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		AE25F5C119F57D9F00439FC2 /* ASIHttpHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHttpHeaders.h; sourceTree = "<group>"; };
+		AE25F5C219F57D9F00439FC2 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		AE25F5C319F57D9F00439FC2 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		AE25F5C419F57D9F00439FC2 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		AE25F5C519F57D9F00439FC2 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		AE25F5C619F57D9F00439FC2 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		AE25F5C719F57D9F00439FC2 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		AE25F5C819F57D9F00439FC2 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		AE25F5C919F57D9F00439FC2 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		AE25F5CA19F57D9F00439FC2 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		AE25F5CB19F57D9F00439FC2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AE25F5CC19F57D9F00439FC2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		AE25F5CE19F57D9F00439FC2 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		AE25F5CF19F57D9F00439FC2 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		AE25F5D019F57D9F00439FC2 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		AE25F5D119F57D9F00439FC2 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		AE25F5D219F57D9F00439FC2 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		AE25F5D319F57D9F00439FC2 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		AE25F5D419F57D9F00439FC2 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		AE25F5D519F57D9F00439FC2 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		AE25F5D619F57D9F00439FC2 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		AE25F5D719F57D9F00439FC2 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		AE25F5D819F57D9F00439FC2 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		AE25F5D919F57D9F00439FC2 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		AE25F5DA19F57D9F00439FC2 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		AE25F5DB19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		AE25F5DC19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		AE25F5DD19F57D9F00439FC2 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		AE25F5DE19F57D9F00439FC2 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		AE25F5DF19F57D9F00439FC2 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		AE25F5E019F57D9F00439FC2 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		AE25F5E119F57D9F00439FC2 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		AE25F5E219F57D9F00439FC2 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		AE25F5E319F57D9F00439FC2 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		AE25F5E419F57D9F00439FC2 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		AE25F5E519F57D9F00439FC2 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		AE25F5E619F57D9F00439FC2 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		AE25F5E719F57D9F00439FC2 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		AE25F5E819F57D9F00439FC2 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		AE25F5E919F57D9F00439FC2 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		AE25F5EA19F57D9F00439FC2 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		AE25F5EB19F57D9F00439FC2 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		AE25F5EC19F57D9F00439FC2 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		AE25F60319F5803000439FC2 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		AE25F60519F581E800439FC2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		AE5B304B19EFCCC400E44365 /* BusinessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5B304E19EFCCC400E44365 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AE5B305019EFCCC400E44365 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +144,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE25F60619F581E800439FC2 /* libz.dylib in Frameworks */,
+				AE25F60419F5803000439FC2 /* libxml2.2.dylib in Frameworks */,
+				AE25F5B719F5792900439FC2 /* MobileCoreServices.framework in Frameworks */,
+				AE25F5B819F5792900439FC2 /* SystemConfiguration.framework in Frameworks */,
+				AE25F5B319F5790900439FC2 /* CFNetwork.framework in Frameworks */,
+				AE25F5B419F5790900439FC2 /* libz.1.2.5.dylib in Frameworks */,
 				AE5B305119EFCCC400E44365 /* CoreGraphics.framework in Frameworks */,
 				AE5B305319EFCCC400E44365 /* UIKit.framework in Frameworks */,
 				AE5B304F19EFCCC400E44365 /* Foundation.framework in Frameworks */,
@@ -79,6 +169,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE25F5B919F57D9F00439FC2 /* ASIHttp */ = {
+			isa = PBXGroup;
+			children = (
+				AE25F5BA19F57D9F00439FC2 /* ASIAuthenticationDialog.h */,
+				AE25F5BB19F57D9F00439FC2 /* ASIAuthenticationDialog.m */,
+				AE25F5BC19F57D9F00439FC2 /* ASICacheDelegate.h */,
+				AE25F5BD19F57D9F00439FC2 /* ASIDownloadCache.h */,
+				AE25F5BE19F57D9F00439FC2 /* ASIDownloadCache.m */,
+				AE25F5BF19F57D9F00439FC2 /* ASIFormDataRequest.h */,
+				AE25F5C019F57D9F00439FC2 /* ASIFormDataRequest.m */,
+				AE25F5C119F57D9F00439FC2 /* ASIHttpHeaders.h */,
+				AE25F5C219F57D9F00439FC2 /* ASIHTTPRequest.h */,
+				AE25F5C319F57D9F00439FC2 /* ASIHTTPRequest.m */,
+				AE25F5C419F57D9F00439FC2 /* ASIHTTPRequestConfig.h */,
+				AE25F5C519F57D9F00439FC2 /* ASIHTTPRequestDelegate.h */,
+				AE25F5C619F57D9F00439FC2 /* ASIInputStream.h */,
+				AE25F5C719F57D9F00439FC2 /* ASIInputStream.m */,
+				AE25F5C819F57D9F00439FC2 /* ASINetworkQueue.h */,
+				AE25F5C919F57D9F00439FC2 /* ASINetworkQueue.m */,
+				AE25F5CA19F57D9F00439FC2 /* ASIProgressDelegate.h */,
+				AE25F5CB19F57D9F00439FC2 /* Reachability.h */,
+				AE25F5CC19F57D9F00439FC2 /* Reachability.m */,
+			);
+			path = ASIHttp;
+			sourceTree = "<group>";
+		};
+		AE25F5CD19F57D9F00439FC2 /* SBJSON */ = {
+			isa = PBXGroup;
+			children = (
+				AE25F5CE19F57D9F00439FC2 /* JSON.h */,
+				AE25F5CF19F57D9F00439FC2 /* NSObject+SBJSON.h */,
+				AE25F5D019F57D9F00439FC2 /* NSObject+SBJSON.m */,
+				AE25F5D119F57D9F00439FC2 /* NSString+SBJSON.h */,
+				AE25F5D219F57D9F00439FC2 /* NSString+SBJSON.m */,
+				AE25F5D319F57D9F00439FC2 /* SBJSON.h */,
+				AE25F5D419F57D9F00439FC2 /* SBJSON.m */,
+				AE25F5D519F57D9F00439FC2 /* SBJsonBase.h */,
+				AE25F5D619F57D9F00439FC2 /* SBJsonBase.m */,
+				AE25F5D719F57D9F00439FC2 /* SBJsonParser.h */,
+				AE25F5D819F57D9F00439FC2 /* SBJsonParser.m */,
+				AE25F5D919F57D9F00439FC2 /* SBJsonStreamParser.h */,
+				AE25F5DA19F57D9F00439FC2 /* SBJsonStreamParser.m */,
+				AE25F5DB19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.h */,
+				AE25F5DC19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.m */,
+				AE25F5DD19F57D9F00439FC2 /* SBJsonStreamParserAdapter.h */,
+				AE25F5DE19F57D9F00439FC2 /* SBJsonStreamParserAdapter.m */,
+				AE25F5DF19F57D9F00439FC2 /* SBJsonStreamParserState.h */,
+				AE25F5E019F57D9F00439FC2 /* SBJsonStreamParserState.m */,
+				AE25F5E119F57D9F00439FC2 /* SBJsonStreamWriter.h */,
+				AE25F5E219F57D9F00439FC2 /* SBJsonStreamWriter.m */,
+				AE25F5E319F57D9F00439FC2 /* SBJsonStreamWriterAccumulator.h */,
+				AE25F5E419F57D9F00439FC2 /* SBJsonStreamWriterAccumulator.m */,
+				AE25F5E519F57D9F00439FC2 /* SBJsonStreamWriterState.h */,
+				AE25F5E619F57D9F00439FC2 /* SBJsonStreamWriterState.m */,
+				AE25F5E719F57D9F00439FC2 /* SBJsonTokeniser.h */,
+				AE25F5E819F57D9F00439FC2 /* SBJsonTokeniser.m */,
+				AE25F5E919F57D9F00439FC2 /* SBJsonUTF8Stream.h */,
+				AE25F5EA19F57D9F00439FC2 /* SBJsonUTF8Stream.m */,
+				AE25F5EB19F57D9F00439FC2 /* SBJsonWriter.h */,
+				AE25F5EC19F57D9F00439FC2 /* SBJsonWriter.m */,
+			);
+			path = SBJSON;
+			sourceTree = "<group>";
+		};
 		AE5B304219EFCCC400E44365 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +255,12 @@
 		AE5B304D19EFCCC400E44365 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE25F60519F581E800439FC2 /* libz.dylib */,
+				AE25F60319F5803000439FC2 /* libxml2.2.dylib */,
+				AE25F5B519F5792900439FC2 /* MobileCoreServices.framework */,
+				AE25F5B619F5792900439FC2 /* SystemConfiguration.framework */,
+				AE25F5B119F5790900439FC2 /* CFNetwork.framework */,
+				AE25F5B219F5790900439FC2 /* libz.1.2.5.dylib */,
 				AE5B304E19EFCCC400E44365 /* Foundation.framework */,
 				AE5B305019EFCCC400E44365 /* CoreGraphics.framework */,
 				AE5B305219EFCCC400E44365 /* UIKit.framework */,
@@ -112,8 +272,8 @@
 		AE5B305419EFCCC400E44365 /* BusinessApp */ = {
 			isa = PBXGroup;
 			children = (
-				AE5B305D19EFCCC400E44365 /* KSAppDelegate.h */,
-				AE5B305E19EFCCC400E44365 /* KSAppDelegate.m */,
+				AE25F5B919F57D9F00439FC2 /* ASIHttp */,
+				AE25F5CD19F57D9F00439FC2 /* SBJSON */,
 				AE5B306019EFCCC400E44365 /* Main.storyboard */,
 				AE5B306319EFCCC400E44365 /* KSViewController.h */,
 				AE5B306419EFCCC400E44365 /* KSViewController.m */,
@@ -126,6 +286,8 @@
 		AE5B305519EFCCC400E44365 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE5B305D19EFCCC400E44365 /* KSAppDelegate.h */,
+				AE5B305E19EFCCC400E44365 /* KSAppDelegate.m */,
 				AE5B305619EFCCC400E44365 /* BusinessApp-Info.plist */,
 				AE5B305719EFCCC400E44365 /* InfoPlist.strings */,
 				AE5B305A19EFCCC400E44365 /* main.m */,
@@ -251,8 +413,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5B306519EFCCC400E44365 /* KSViewController.m in Sources */,
+				AE25F5EF19F57D9F00439FC2 /* ASIFormDataRequest.m in Sources */,
+				AE25F5FA19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.m in Sources */,
+				AE25F5FD19F57D9F00439FC2 /* SBJsonStreamWriter.m in Sources */,
+				AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */,
+				AE25F5F819F57D9F00439FC2 /* SBJsonParser.m in Sources */,
+				AE25F5F719F57D9F00439FC2 /* SBJsonBase.m in Sources */,
+				AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */,
+				AE25F60019F57D9F00439FC2 /* SBJsonTokeniser.m in Sources */,
+				AE25F5F619F57D9F00439FC2 /* SBJSON.m in Sources */,
+				AE25F5FC19F57D9F00439FC2 /* SBJsonStreamParserState.m in Sources */,
+				AE25F5F919F57D9F00439FC2 /* SBJsonStreamParser.m in Sources */,
+				AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */,
+				AE25F5F419F57D9F00439FC2 /* NSObject+SBJSON.m in Sources */,
+				AE25F5EE19F57D9F00439FC2 /* ASIDownloadCache.m in Sources */,
+				AE25F5F119F57D9F00439FC2 /* ASIInputStream.m in Sources */,
+				AE25F5FF19F57D9F00439FC2 /* SBJsonStreamWriterState.m in Sources */,
+				AE25F5F019F57D9F00439FC2 /* ASIHTTPRequest.m in Sources */,
 				AE5B305F19EFCCC400E44365 /* KSAppDelegate.m in Sources */,
+				AE25F5FE19F57D9F00439FC2 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				AE25F5F519F57D9F00439FC2 /* NSString+SBJSON.m in Sources */,
+				AE25F60219F57D9F00439FC2 /* SBJsonWriter.m in Sources */,
 				AE5B305B19EFCCC400E44365 /* main.m in Sources */,
+				AE25F5FB19F57D9F00439FC2 /* SBJsonStreamParserAdapter.m in Sources */,
+				AE25F60119F57D9F00439FC2 /* SBJsonUTF8Stream.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,9 +561,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusinessApp/BusinessApp-Prefix.pch";
 				INFOPLIST_FILE = "BusinessApp/BusinessApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -390,9 +576,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusinessApp/BusinessApp-Prefix.pch";
 				INFOPLIST_FILE = "BusinessApp/BusinessApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -457,6 +645,7 @@
 				AE5B307F19EFCCC400E44365 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE5B308019EFCCC400E44365 /* Build configuration list for PBXNativeTarget "BusinessAppTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +654,7 @@
 				AE5B308219EFCCC400E44365 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
