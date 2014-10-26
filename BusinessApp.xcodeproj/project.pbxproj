@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */; };
 		AE25F5B319F5790900439FC2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B119F5790900439FC2 /* CFNetwork.framework */; };
 		AE25F5B419F5790900439FC2 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B219F5790900439FC2 /* libz.1.2.5.dylib */; };
 		AE25F5B719F5792900439FC2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B519F5792900439FC2 /* MobileCoreServices.framework */; };
@@ -49,6 +50,7 @@
 		AE5B307019EFCCC400E44365 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5B305219EFCCC400E44365 /* UIKit.framework */; };
 		AE5B307819EFCCC400E44365 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE5B307619EFCCC400E44365 /* InfoPlist.strings */; };
 		AE5B307A19EFCCC400E44365 /* BusinessAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5B307919EFCCC400E44365 /* BusinessAppTests.m */; };
+		AE73E1FE19FA207900292837 /* KSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE73E1FD19FA207900292837 /* KSMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE0AFE4319FA5DC8008381B5 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = ../../../../Downloads/ThemeParser/Classes/GDataXMLNode.h; sourceTree = "<group>"; };
+		AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = ../../../../Downloads/ThemeParser/Classes/GDataXMLNode.m; sourceTree = "<group>"; };
 		AE25F5B119F5790900439FC2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AE25F5B219F5790900439FC2 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		AE25F5B519F5792900439FC2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -137,6 +141,8 @@
 		AE5B307519EFCCC400E44365 /* BusinessAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BusinessAppTests-Info.plist"; sourceTree = "<group>"; };
 		AE5B307719EFCCC400E44365 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE5B307919EFCCC400E44365 /* BusinessAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessAppTests.m; sourceTree = "<group>"; };
+		AE73E1FC19FA207900292837 /* KSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMainViewController.h; sourceTree = "<group>"; };
+		AE73E1FD19FA207900292837 /* KSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE0AFE4219FA5DB0008381B5 /* GXML */ = {
+			isa = PBXGroup;
+			children = (
+				AE0AFE4319FA5DC8008381B5 /* GDataXMLNode.h */,
+				AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */,
+			);
+			name = GXML;
+			sourceTree = "<group>";
+		};
 		AE25F5B919F57D9F00439FC2 /* ASIHttp */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,10 +287,13 @@
 		AE5B305419EFCCC400E44365 /* BusinessApp */ = {
 			isa = PBXGroup;
 			children = (
+				AE0AFE4219FA5DB0008381B5 /* GXML */,
 				AE25F5B919F57D9F00439FC2 /* ASIHttp */,
 				AE25F5CD19F57D9F00439FC2 /* SBJSON */,
 				AE5B306019EFCCC400E44365 /* Main.storyboard */,
 				AE5B306319EFCCC400E44365 /* KSViewController.h */,
+				AE73E1FC19FA207900292837 /* KSMainViewController.h */,
+				AE73E1FD19FA207900292837 /* KSMainViewController.m */,
 				AE5B306419EFCCC400E44365 /* KSViewController.m */,
 				AE5B306619EFCCC400E44365 /* Images.xcassets */,
 				AE5B305519EFCCC400E44365 /* Supporting Files */,
@@ -417,6 +435,7 @@
 				AE25F5FA19F57D9F00439FC2 /* SBJsonStreamParserAccumulator.m in Sources */,
 				AE25F5FD19F57D9F00439FC2 /* SBJsonStreamWriter.m in Sources */,
 				AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */,
+				AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */,
 				AE25F5F819F57D9F00439FC2 /* SBJsonParser.m in Sources */,
 				AE25F5F719F57D9F00439FC2 /* SBJsonBase.m in Sources */,
 				AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */,
@@ -427,6 +446,7 @@
 				AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */,
 				AE25F5F419F57D9F00439FC2 /* NSObject+SBJSON.m in Sources */,
 				AE25F5EE19F57D9F00439FC2 /* ASIDownloadCache.m in Sources */,
+				AE73E1FE19FA207900292837 /* KSMainViewController.m in Sources */,
 				AE25F5F119F57D9F00439FC2 /* ASIInputStream.m in Sources */,
 				AE25F5FF19F57D9F00439FC2 /* SBJsonStreamWriterState.m in Sources */,
 				AE25F5F019F57D9F00439FC2 /* ASIHTTPRequest.m in Sources */,
@@ -564,8 +584,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusinessApp/BusinessApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "BusinessApp/BusinessApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -579,8 +601,10 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BusinessApp/BusinessApp-Prefix.pch";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "BusinessApp/BusinessApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

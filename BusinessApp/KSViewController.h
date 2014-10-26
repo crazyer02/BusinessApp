@@ -11,5 +11,7 @@
 
 
 @interface KSViewController : UIViewController
+@property (retain, nonatomic) IBOutlet UITextField *logidLabel;
+@property (retain, nonatomic) IBOutlet UITextField *pwdLabel;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "KSViewController.h"
+#import "GDataXMLNode.h"
+#import "Reachability.h"
 
 @interface KSViewController ()
 
@@ -18,11 +20,49 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    BOOL canConnectNetwork=[self isExiststenceNetwork];
+    NSLog(@"Can connect network?----- %d",canConnectNetwork);
 }
+
+//检查是否存在网络
+-(BOOL)isExiststenceNetwork
+{
+    BOOL isExistenceNetwork = FALSE;
+    Reachability *r=[Reachability reachabilityWithHostName:@"http://192.168.8.4:8800/IApp"];
+    switch ([r currentReachabilityStatus])
+    {
+        case NotReachable:
+            isExistenceNetwork=FALSE;
+            break;
+        case ReachableViaWWAN:
+            isExistenceNetwork=TRUE;
+            break;
+        case ReachableViaWiFi:
+            isExistenceNetwork=TRUE;
+            break;
+    }
+    return isExistenceNetwork;
+}
+
 - (IBAction)doLoginBtn:(UIButton *)sender {
-    NSURL *url = [NSURL URLWithString: @ "http://192.268.0.11:9422/Service1.svc/LogInf/111/111"];
+    
+    if (![self isExiststenceNetwork]) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"网络连接"
+                                                            message:@"连接到康圣达服务器中断！"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        [alertView release];
+        return;
+    }
+    NSString * loginMessage=[NSString  stringWithFormat:@"http://192.168.1.104:8800/IApp/GetUser_Login/%@/%@",self.logidLabel.text,self.pwdLabel.text];
+    
+    NSLog(@"%@",loginMessage);
+    
+    NSURL *url = [NSURL URLWithString: loginMessage];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setRequestMethod:@"POST"];
+    //[request setRequestMethod:@"POST"];
     
     [request startSynchronous];
     
@@ -30,12 +70,19 @@
     
     if (!error) {
         NSString *response = [request responseString];
+        NSLog(@"%@",response);
+        GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
         
+        NSArray* nodes=[doc.rootElement children];
+        GDataXMLNode* nod=[nodes objectAtIndex:1];
+        NSLog(@"%@", [nod stringValue]);
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"测试"
-                                                            message:response
+                                                            message:[nod stringValue]
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
+        
+        
         [alertView show];
         [alertView release];
         
@@ -48,4 +95,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+    [_logidLabel release];
+    [_pwdLabel release];
+    [super dealloc];
+}
 @end
