@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "ASIHttpHeaders.h"
+#import "KSUser.h"
+#import "KSUserDB.h"
+#import "MBProgressHUD.h"
+//#import <sqlite3.h>
 
 
 @interface KSViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UITextField *logidLabel;
 @property (retain, nonatomic) IBOutlet UITextField *pwdLabel;
+
+@property (nonatomic, strong) KSUser * user;
+
+@property (nonatomic, strong) KSUserDB * userDB;
+
 
 @end

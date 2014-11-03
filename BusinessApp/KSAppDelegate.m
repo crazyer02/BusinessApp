@@ -8,11 +8,19 @@
 
 #import "KSAppDelegate.h"
 
+@interface KSAppDelegate ()
+
+@property (nonatomic, strong) UIWindow * statusWindow;
+@property (nonatomic, strong) UILabel * statusLabel;
+
+@end
+
 @implementation KSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+  
     return YES;
 }
 							
@@ -43,4 +51,43 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+/**
+ * @brief 在状态栏显示 一些Log
+ *
+ * @param string 需要显示的内容
+ * @param duration  需要显示多长时间
+ */
++ (void) showStatusWithText:(NSString *) string duration:(NSTimeInterval) duration {
+    
+    KSAppDelegate * delegate = (KSAppDelegate *) [UIApplication sharedApplication].delegate;
+    
+    delegate.statusLabel.text = string;
+    [delegate.statusLabel sizeToFit];
+    CGRect rect = [UIApplication sharedApplication].statusBarFrame;
+    CGFloat width = delegate.statusLabel.frame.size.width;
+    CGFloat height = rect.size.height;
+    rect.origin.x = rect.size.width - width - 5;
+    rect.size.width = width;
+    delegate.statusWindow.frame = rect;
+    delegate.statusLabel.frame = CGRectMake(0, 0, width, height);
+    
+    if (duration < 1.0) {
+        duration = 1.0;
+    }
+    if (duration > 4.0) {
+        duration = 4.0;
+    }
+    [delegate performSelector:@selector(dismissStatus) withObject:nil afterDelay:duration];
+}
+
+/**
+ * @brief 干掉状态栏文字
+ */
+- (void) dismissStatus {
+    CGRect rect = self.statusWindow.frame;
+    rect.origin.y -= rect.size.height;
+    [UIView animateWithDuration:0.5 animations:^{
+        self.statusWindow.frame = rect;
+    }];
+}
 @end

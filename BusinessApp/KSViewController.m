@@ -9,6 +9,11 @@
 #import "KSViewController.h"
 #import "GDataXMLNode.h"
 #import "Reachability.h"
+#import "KSDataBase.h"
+#import "KSUserDB.h"
+
+#define kReachabilityUrl @"http://192.168.8.4:8800/IApp"
+#define kindstarUrl @"www.kindstar.com.cn"
 
 @interface KSViewController ()
 
@@ -22,13 +27,17 @@
 	// Do any additional setup after loading the view, typically from a nib.
     BOOL canConnectNetwork=[self isExiststenceNetwork];
     NSLog(@"Can connect network?----- %d",canConnectNetwork);
+    self.userDB=[[KSUserDB alloc] init];
+    _user= [[KSUser alloc] init];
+    
 }
+
 
 //检查是否存在网络
 -(BOOL)isExiststenceNetwork
 {
     BOOL isExistenceNetwork = FALSE;
-    Reachability *r=[Reachability reachabilityWithHostName:@"http://192.168.8.4:8800/IApp"];
+    Reachability *r=[Reachability reachabilityWithHostName:kindstarUrl];
     switch ([r currentReachabilityStatus])
     {
         case NotReachable:
@@ -44,11 +53,10 @@
     return isExistenceNetwork;
 }
 
-- (IBAction)doLoginBtn:(UIButton *)sender {
-    
+- (void)Login {
     if (![self isExiststenceNetwork]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"网络连接"
-                                                            message:@"连接到康圣达服务器中断！"
+                                                            message:@"无法连接到网络！"
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
@@ -56,7 +64,9 @@
         [alertView release];
         return;
     }
-    NSString * loginMessage=[NSString  stringWithFormat:@"http://192.168.1.104:8800/IApp/GetUser_Login/%@/%@",self.logidLabel.text,self.pwdLabel.text];
+    
+    
+    NSString * loginMessage=[kReachabilityUrl stringByAppendingString:[NSString stringWithFormat:@"/GetUser_Login/%@/%@",self.logidLabel.text,self.pwdLabel.text]];
     
     NSLog(@"%@",loginMessage);
     
@@ -74,19 +84,66 @@
         GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
         
         NSArray* nodes=[doc.rootElement children];
-        GDataXMLNode* nod=[nodes objectAtIndex:1];
-        NSLog(@"%@", [nod stringValue]);
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"测试"
-                                                            message:[nod stringValue]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
         
+        for (int i=0; i<[nodes count]; i++) {
+            GDataXMLElement* ele=[nodes objectAtIndex:i];
+            
+            if([[ele name] isEqualToString:@"LogId"]){
+                //根据<name value="wusj"/>
+                //[[ele attributeForName:@"value"] stringValue]);
+                _user.logid=[ele stringValue];
+            }
+            if([[ele name] isEqualToString:@"UserName"]){
+                //根据<name value="wusj"/>
+                //[[ele attributeForName:@"value"] stringValue]);
+                _user.username=[ele stringValue];
+            }
+            if([[ele name] isEqualToString:@"ErrMessage"]){
+                //根据<name value="wusj"/>
+                //[[ele attributeForName:@"value"] stringValue]);
+                _user.description=[ele stringValue];
+            }
+        }
         
-        [alertView show];
-        [alertView release];
+        if (self.user) {
+            [_userDB deleteUserWithId:nil];
+            [_userDB saveUser:self.user];
+            //self.user=[_userDB findWithUid:nil limit:10];
+        }
+        
+        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"测试"
+        //                                                            message:[nod stringValue]
+        //                                                           delegate:nil
+        //                                                  cancelButtonTitle:@"OK"
+        //                                                  otherButtonTitles:nil];
+        //
+        //
+        //        [alertView show];
+        //        [alertView release];
         
     }
+}
+
+//登录事件
+- (IBAction)doLoginBtn:(UIButton *)sender {
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.mode = MBProgressHUDModeIndeterminate;
+//    hud.labelText = @"登录中...";
+//
+//    hud.removeFromSuperViewOnHide = YES;
+//    [hud hide:YES afterDelay:10];
+    
+    MBProgressHUD* HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.labelText = @"登录中...";
+    HUD.dimBackground = YES; 
+    [HUD showAnimated:YES whileExecutingBlock:^{
+        NSLog(@"%@",@"登录中.......");
+        [self Login];
+    } completionBlock:^{
+        [HUD removeFromSuperview];
+        [HUD release];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

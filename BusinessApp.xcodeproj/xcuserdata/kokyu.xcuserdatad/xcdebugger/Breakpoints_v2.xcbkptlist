@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BusinessApp/ASIHttp/ASIDownloadCache.m"
-            timestampString = "435512086.520389"
+            filePath = "BusinessApp/KSViewController.h"
+            timestampString = "436210912.599523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-storagePath"
-            landmarkType = "5">
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "@interface KSViewController"
+            landmarkType = "2">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KSUser.h"
+#import "KSUserDB.h"
 
 @interface KSMainViewController : UIViewController
+
+@property (nonatomic, strong) KSUser * user;
+@property (nonatomic, strong) KSUserDB * userDB;
 
 @end
