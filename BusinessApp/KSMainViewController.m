@@ -8,11 +8,12 @@
 
 #import "KSMainViewController.h"
 #import "KSUserDB.h"
+#import "RKTabView.h"
 
 @interface KSMainViewController ()
-@property (retain, nonatomic) IBOutlet UILabel *logidLabel;
-@property (retain, nonatomic) IBOutlet UILabel *userLabel;
+
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *loginBarButtonItem;
+@property (nonatomic,strong) IBOutlet RKTabView *titledTabsView;
 
 @end
 
@@ -27,7 +28,26 @@
     return self;
 }
 
-
+/**
+ *   初始化页面
+ */
+- (void)initMainPage
+{
+    if(!_userDB)
+    {
+        _userDB=[[KSUserDB alloc]init];
+        [_userDB createDataBase];
+    }
+    NSMutableArray * _userData=[NSMutableArray arrayWithArray:[_userDB findWithUid:nil limit:100]];
+    if([_userData count]>0)
+    {
+        _user=[_userData objectAtIndex:0];
+        self.loginBarButtonItem.title=_user.username;
+        NSLog(@"%@",_user.username);
+        //        self.logidLabel.text=_user.logid;
+        //        self.userLabel.text=_user.username;
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -35,20 +55,42 @@
     
     [self initMainWindowBackgroundImage];
     
-    self.view.tintColor = [UIColor whiteColor];
     
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    RKTabItem *globeTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"globe_enabled"] imageDisabled:[UIImage imageNamed:@"globe_disabled"]];
+    globeTabItem.titleString=@"globe";
+    RKTabItem *cameraTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled"] imageDisabled:[UIImage imageNamed:@"camera_disabled"]];
+    cameraTabItem.titleString=@"camera";
+    RKTabItem *cloudTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"cloud_enabled"] imageDisabled:[UIImage imageNamed:@"cloud_disabled"]];
+    cloudTabItem.titleString=@"cloud";
+    RKTabItem *userTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"user_enabled"] imageDisabled:[UIImage imageNamed:@"user_disabled"]];
+    userTabItem.titleString=@"user";
+    RKTabItem *watchTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"watch_enabled"] imageDisabled:[UIImage imageNamed:@"watch_disabled"]];
+    watchTabItem.titleString=@"watch";
     
-    _userDB=[[KSUserDB alloc]init];
-    [_userDB createDataBase];
-    NSMutableArray * _userData=[NSMutableArray arrayWithArray:[_userDB findWithUid:nil limit:100]];
-    if([_userData count]>0)
-    {
-        _user=[_userData objectAtIndex:0];
-        self.loginBarButtonItem.title=_user.username;
-//        self.logidLabel.text=_user.logid;
-//        self.userLabel.text=_user.username;
-    }
+   
+    
+    self.titledTabsView.darkensBackgroundForEnabledTabs = YES;
+    self.titledTabsView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
+    self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
+    self.titledTabsView.enabledTabBackgrondColor = [UIColor colorWithRed:103.0f/256.0f green:87.0f/256.0f blue:226.0f/256.0f alpha:0.5];
+    //self.titledTabsView.tabItems=[[NSArray alloc] init];
+    self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
+    
+}
+
+#pragma mark - RKTabViewDelegate
+
+- (void)tabView:(RKTabView *)tabView tabBecameEnabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
+    NSLog(@"Tab  %d became enabled on tab view", index);
+}
+
+- (void)tabView:(RKTabView *)tabView tabBecameDisabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
+    NSLog(@"Tab  %d became disabled on tab view", index);
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [self initMainPage];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +98,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation
@@ -99,6 +142,10 @@
     UIWindow *keyWindow=[UIApplication sharedApplication].windows[0];
     imageView.frame = keyWindow.bounds;
     [keyWindow insertSubview:imageView atIndex:0];
+    
+    //self.title.
+    self.view.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 /**
@@ -115,9 +162,10 @@
     }
 }
 - (void)dealloc {
-    [_logidLabel release];
-    [_userLabel release];
-    [_loginBarButtonItem release];
+    //[_loginBarButtonItem release];
+    //_titledTabsView=nil;
+    [self.titledTabsView release];
+
     [super dealloc];
 }
 @end

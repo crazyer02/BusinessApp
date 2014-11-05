@@ -12,7 +12,7 @@
 #import "KSDataBase.h"
 #import "KSUserDB.h"
 
-#define kReachabilityUrl @"http://192.168.8.4:8800/IApp"
+#define kReachabilityUrl @"http://192.168.8.4:8900/IApp"
 #define kindstarUrl @"www.kindstar.com.cn"
 
 @interface KSViewController ()
@@ -98,19 +98,26 @@
                 //[[ele attributeForName:@"value"] stringValue]);
                 _user.username=[ele stringValue];
             }
-            if([[ele name] isEqualToString:@"ErrMessage"]){
-                //根据<name value="wusj"/>
-                //[[ele attributeForName:@"value"] stringValue]);
-                _user.description=[ele stringValue];
+            if([[ele name] isEqualToString:@"DepartmentName"]){
+                _user.departmentName=[ele stringValue];
             }
+//            if([[ele name] isEqualToString:@"ErrMessage"]){
+//                //根据<name value="wusj"/>
+//                //[[ele attributeForName:@"value"] stringValue]);
+//                _user.description=[ele stringValue];
+//            }
         }
         
         if (self.user) {
             [_userDB deleteUserWithId:nil];
             [_userDB saveUser:self.user];
+            NSLog(@"qingkong user");
+            //[self performSegueWithIdentifier:@"doLoginReturnMain" sender:self];
             //self.user=[_userDB findWithUid:nil limit:10];
+            //[self.navigationController pushViewController:KSM animated:<#(BOOL)#>]
         }
         
+//
         //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"测试"
         //                                                            message:[nod stringValue]
         //                                                           delegate:nil
@@ -138,12 +145,16 @@
     HUD.labelText = @"登录中...";
     HUD.dimBackground = YES; 
     [HUD showAnimated:YES whileExecutingBlock:^{
-        NSLog(@"%@",@"登录中.......");
         [self Login];
+        NSLog(@"%@",@"登录中.......");
     } completionBlock:^{
         [HUD removeFromSuperview];
         [HUD release];
+        if (self.user) {
+        [self performSegueWithIdentifier:@"doLoginReturnMain" sender:self];
+    }
     }];
+    
 }
 
 - (void)didReceiveMemoryWarning

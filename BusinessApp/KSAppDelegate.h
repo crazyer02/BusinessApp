@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class KSViewController;
+//@class KSViewController;
 
 @interface KSAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) KSViewController *viewController;
+//@property (strong, nonatomic) KSViewController *viewController;
 /**
  * @brief 在状态栏显示 一些Log
  *

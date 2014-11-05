@@ -33,9 +33,10 @@
         //@"数据库已经存在" duration:2];
     } else {
         // TODO: 插入新的数据库 
-        NSString * sql = @"CREATE TABLE KSUser (uid INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL,logid VARCHAR(50),  username VARCHAR(50), description VARCHAR(100))";
+        NSString * sql = @"CREATE TABLE KSUser (uid INTEGER PRIMARY KEY AUTOINCREMENT  NOT NULL,logid VARCHAR(10),  username VARCHAR(20), description VARCHAR(100),departmentName VARCHAR(20))";
         BOOL res = [_db executeUpdate:sql];
-        if (!res) {
+        if (!res)
+        {
             NSLog(@"数据库创建失败");
             //[KSAppDelegate showStatusWithText:@"数据库创建失败" duration:2];
         } else {
@@ -66,6 +67,11 @@
         [values appendString:@"?,"];
         [arguments addObject:user.username];
     }
+    if (user.departmentName) {
+        [keys appendString:@"departmentName,"];
+        [values appendString:@"?,"];
+        [arguments addObject:user.departmentName];
+    }
     if (user.description) {
         [keys appendString:@"description,"];
         [values appendString:@"?,"];
@@ -93,7 +99,7 @@
         query = [query stringByAppendingFormat:@"WHERE uid = '%@'",uid];
     }
     
-    NSLog(@"删除一条数据");
+    NSLog(@"删除数据");
     //[AppDelegate showStatusWithText:@"删除一条数据" duration:2.0];
     [_db executeUpdate:query];
 }
@@ -135,7 +141,7 @@
  * @param limit 每页取多少个
  */
 - (NSArray *) findWithUid:(NSString *) uid limit:(int) limit {
-    NSString * query = @"SELECT uid,logid,username,description FROM KSUser";
+    NSString * query = @"SELECT uid,logid,username,description,departmentName FROM KSUser";
     if (!uid) {
         query = [query stringByAppendingFormat:@" ORDER BY uid DESC limit %d",limit];
     } else {
@@ -144,15 +150,18 @@
     
     FMResultSet * rs = [_db executeQuery:query];
     NSMutableArray * array = [NSMutableArray arrayWithCapacity:[rs columnCount]];
-    NSLog(@"查询user的条数位： %i" ,[array count]);
+    
 	while ([rs next]) {
         KSUser * user = [KSUser new];
         user.uid = [rs stringForColumn:@"uid"];
         user.logid = [rs stringForColumn:@"logid"];
         user.username = [rs stringForColumn:@"username"];
-        user.description = [rs stringForColumn:@"description"];
+        //user.description = [rs stringForColumn:@"description"];
+        user.departmentName=[rs stringForColumn:@"departmentName"];
+        NSLog(@"%@" ,user.username);
         [array addObject:user];
 	}
+    NSLog(@"查询user的条数位： %i" ,[array count]);
 	[rs close];
     return array;
 }
