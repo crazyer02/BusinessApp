@@ -10,7 +10,7 @@
 #import "KSUserDB.h"
 #import "RKTabView.h"
 
-@interface KSMainViewController ()
+@interface KSMainViewController()<RKTabViewDelegate>
 
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *loginBarButtonItem;
 @property (nonatomic,strong) IBOutlet RKTabView *titledTabsView;
@@ -54,17 +54,19 @@
     [super viewDidLoad];
     
     [self initMainWindowBackgroundImage];
+//    
+//    RKTabItem *mastercardTabItem = [RKTabItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"mastercard"]];
     
-    
-    RKTabItem *globeTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"globe_enabled"] imageDisabled:[UIImage imageNamed:@"globe_disabled"]];
+    RKTabItem *globeTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"globe_enabled"] imageDisabled:[UIImage imageNamed:@"globe_disabled"]];
     globeTabItem.titleString=@"globe";
-    RKTabItem *cameraTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled"] imageDisabled:[UIImage imageNamed:@"camera_disabled"]];
+    globeTabItem.tabState = TabStateEnabled;
+    RKTabItem *cameraTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled"] imageDisabled:[UIImage imageNamed:@"camera_disabled"]];
     cameraTabItem.titleString=@"camera";
-    RKTabItem *cloudTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"cloud_enabled"] imageDisabled:[UIImage imageNamed:@"cloud_disabled"]];
+    RKTabItem *cloudTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"cloud_enabled"] imageDisabled:[UIImage imageNamed:@"cloud_disabled"]];
     cloudTabItem.titleString=@"cloud";
-    RKTabItem *userTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"user_enabled"] imageDisabled:[UIImage imageNamed:@"user_disabled"]];
+    RKTabItem *userTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"user_enabled"] imageDisabled:[UIImage imageNamed:@"user_disabled"]];
     userTabItem.titleString=@"user";
-    RKTabItem *watchTabItem = [RKTabItem createUnexcludableItemWithImageEnabled:[UIImage imageNamed:@"watch_enabled"] imageDisabled:[UIImage imageNamed:@"watch_disabled"]];
+    RKTabItem *watchTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"watch_enabled"] imageDisabled:[UIImage imageNamed:@"watch_disabled"]];
     watchTabItem.titleString=@"watch";
     
    
@@ -72,8 +74,7 @@
     self.titledTabsView.darkensBackgroundForEnabledTabs = YES;
     self.titledTabsView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
     self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
-    self.titledTabsView.enabledTabBackgrondColor = [UIColor colorWithRed:103.0f/256.0f green:87.0f/256.0f blue:226.0f/256.0f alpha:0.5];
-    //self.titledTabsView.tabItems=[[NSArray alloc] init];
+
     self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
     
 }
@@ -162,7 +163,7 @@
     }
 }
 - (void)dealloc {
-    //[_loginBarButtonItem release];
+    [_loginBarButtonItem release];
     //_titledTabsView=nil;
     [self.titledTabsView release];
 
