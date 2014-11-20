@@ -53,7 +53,6 @@
 {
     [super viewDidLoad];
     
-    [self initMainWindowBackgroundImage];
 //    
 //    RKTabItem *mastercardTabItem = [RKTabItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"mastercard"]];
     
@@ -132,21 +131,6 @@
         id theSegue=segue.destinationViewController;
         [theSegue setValue:_user forKey:@"reciveUser"];
     }
-}
-
-/**
- *  初始化页面的背景图片，同时设置导航的字体颜色
- */
-- (void)initMainWindowBackgroundImage
-{
-    UIImageView *imageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blurred_background.png"]];
-    UIWindow *keyWindow=[UIApplication sharedApplication].windows[0];
-    imageView.frame = keyWindow.bounds;
-    [keyWindow insertSubview:imageView atIndex:0];
-    
-    //self.title.
-    self.view.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 /**

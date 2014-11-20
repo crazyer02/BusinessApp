@@ -5,8 +5,10 @@
 //  Created by 喻雷 on 14-10-16.
 //  Copyright (c) 2014年 Kindstar. All rights reserved.
 //
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0] 
 
 #import "KSAppDelegate.h"
+
 
 @interface KSAppDelegate ()
 
@@ -20,10 +22,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-  
+    [[UINavigationBar appearance] setTranslucent:YES];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    //    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
+    
+    UIImageView *imageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blurred_background.png"]];
+    UIWindow *keyWindow=[UIApplication sharedApplication].windows[0];
+    imageView.frame = keyWindow.bounds;
+    [keyWindow insertSubview:imageView atIndex:0];
+    [keyWindow setTintColor:[UIColor whiteColor]];
+
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
