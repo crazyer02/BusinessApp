@@ -9,7 +9,6 @@
 #import "KSViewController.h"
 #import "GDataXMLNode.h"
 #import "Reachability.h"
-#import "KSDataBase.h"
 #import "KSUserDB.h"
 
 #define kReachabilityUrl @"http://192.168.8.4:8900/IApp"
@@ -61,7 +60,7 @@
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
         [alertView show];
-        [alertView release];
+//        [alertView release];
         return;
     }
     
@@ -149,7 +148,7 @@
         NSLog(@"%@",@"登录中.......");
     } completionBlock:^{
         [HUD removeFromSuperview];
-        [HUD release];
+//        [HUD release];
         if (self.user) {
         [self performSegueWithIdentifier:@"doLoginReturnMain" sender:self];
     }
@@ -163,9 +162,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc {
-    [_logidLabel release];
-    [_pwdLabel release];
-    [super dealloc];
-}
+//- (void)dealloc {
+//    [_logidLabel release];
+//    [_pwdLabel release];
+//    [super dealloc];
+//}
 @end

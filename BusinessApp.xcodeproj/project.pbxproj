@@ -19,13 +19,12 @@
 		AE0893441A0A08CD006D860F /* watch_enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE08933A1A0A08CD006D860F /* watch_enabled@2x.png */; };
 		AE0893491A0A259F006D860F /* RKTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0893461A0A259F006D860F /* RKTabItem.m */; };
 		AE08934A1A0A259F006D860F /* RKTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0893481A0A259F006D860F /* RKTabView.m */; };
-		AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */; };
+		AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AE0AFE4719FD42B5008381B5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0AFE4619FD42B5008381B5 /* libsqlite3.dylib */; };
-		AE0AFE4B19FD5714008381B5 /* KSDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4A19FD5714008381B5 /* KSDataBase.m */; };
-		AE0AFE5719FD65AE008381B5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4E19FD65AE008381B5 /* FMDatabase.m */; };
+		AE0AFE5719FD65AE008381B5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4E19FD65AE008381B5 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AE0AFE5819FD65AE008381B5 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5019FD65AE008381B5 /* FMDatabaseAdditions.m */; };
-		AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5219FD65AE008381B5 /* FMDatabasePool.m */; };
-		AE0AFE5A19FD65AE008381B5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5419FD65AE008381B5 /* FMDatabaseQueue.m */; };
+		AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5219FD65AE008381B5 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AE0AFE5A19FD65AE008381B5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5419FD65AE008381B5 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AE0AFE5B19FD65AE008381B5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5619FD65AE008381B5 /* FMResultSet.m */; };
 		AE0AFE5E19FD6687008381B5 /* KSDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5D19FD6687008381B5 /* KSDBManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		AE0AFE6119FD7394008381B5 /* KSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE6019FD7394008381B5 /* KSUser.m */; };
@@ -36,13 +35,13 @@
 		AE25F5B419F5790900439FC2 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B219F5790900439FC2 /* libz.1.2.5.dylib */; };
 		AE25F5B719F5792900439FC2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B519F5792900439FC2 /* MobileCoreServices.framework */; };
 		AE25F5B819F5792900439FC2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F5B619F5792900439FC2 /* SystemConfiguration.framework */; };
-		AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5BB19F57D9F00439FC2 /* ASIAuthenticationDialog.m */; };
-		AE25F5EE19F57D9F00439FC2 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5BE19F57D9F00439FC2 /* ASIDownloadCache.m */; };
-		AE25F5EF19F57D9F00439FC2 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C019F57D9F00439FC2 /* ASIFormDataRequest.m */; };
-		AE25F5F019F57D9F00439FC2 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C319F57D9F00439FC2 /* ASIHTTPRequest.m */; };
-		AE25F5F119F57D9F00439FC2 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C719F57D9F00439FC2 /* ASIInputStream.m */; };
-		AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C919F57D9F00439FC2 /* ASINetworkQueue.m */; };
-		AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5CC19F57D9F00439FC2 /* Reachability.m */; };
+		AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5BB19F57D9F00439FC2 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AE25F5EE19F57D9F00439FC2 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5BE19F57D9F00439FC2 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AE25F5EF19F57D9F00439FC2 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C019F57D9F00439FC2 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AE25F5F019F57D9F00439FC2 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C319F57D9F00439FC2 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AE25F5F119F57D9F00439FC2 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C719F57D9F00439FC2 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5C919F57D9F00439FC2 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AE25F5CC19F57D9F00439FC2 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AE25F60419F5803000439FC2 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F60319F5803000439FC2 /* libxml2.2.dylib */; };
 		AE25F60619F581E800439FC2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE25F60519F581E800439FC2 /* libz.dylib */; };
 		AE5B304F19EFCCC400E44365 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5B304E19EFCCC400E44365 /* Foundation.framework */; };
@@ -62,10 +61,10 @@
 		AE73E1FE19FA207900292837 /* KSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE73E1FD19FA207900292837 /* KSMainViewController.m */; };
 		AEAD4CEA19FF8C2D0078F89F /* index_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEAD4CE919FF8C2D0078F89F /* index_01.jpg */; };
 		AEAD4CF019FF8ED60078F89F /* KSLogedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAD4CEF19FF8ED60078F89F /* KSLogedViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		AED834111A14FD86008B151E /* BEMAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8340A1A14FD85008B151E /* BEMAnimations.m */; };
-		AED834121A14FD86008B151E /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8340C1A14FD85008B151E /* BEMCircle.m */; };
-		AED834131A14FD86008B151E /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8340E1A14FD86008B151E /* BEMLine.m */; };
-		AED834141A14FD86008B151E /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834101A14FD86008B151E /* BEMSimpleLineGraphView.m */; };
+		AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59C81A1CF06A0033DC9F /* BEMAnimations.m */; };
+		AECE59D01A1CF06A0033DC9F /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CA1A1CF06A0033DC9F /* BEMCircle.m */; };
+		AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CC1A1CF06A0033DC9F /* BEMLine.m */; };
+		AECE59D21A1CF06A0033DC9F /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */; };
 		AED834171A14FF5F008B151E /* KSLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834161A14FF5F008B151E /* KSLineViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -97,8 +96,6 @@
 		AE0AFE4319FA5DC8008381B5 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = ../../../../Downloads/ThemeParser/Classes/GDataXMLNode.h; sourceTree = "<group>"; };
 		AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = ../../../../Downloads/ThemeParser/Classes/GDataXMLNode.m; sourceTree = "<group>"; };
 		AE0AFE4619FD42B5008381B5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		AE0AFE4919FD5714008381B5 /* KSDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDataBase.h; sourceTree = "<group>"; };
-		AE0AFE4A19FD5714008381B5 /* KSDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDataBase.m; sourceTree = "<group>"; };
 		AE0AFE4D19FD65AE008381B5 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabase.h"; sourceTree = "<group>"; };
 		AE0AFE4E19FD65AE008381B5 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabase.m"; sourceTree = "<group>"; };
 		AE0AFE4F19FD65AE008381B5 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabaseAdditions.h"; sourceTree = "<group>"; };
@@ -167,14 +164,14 @@
 		AEAD4CE919FF8C2D0078F89F /* index_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = index_01.jpg; path = ../../../../Downloads/index_01.jpg; sourceTree = "<group>"; };
 		AEAD4CEE19FF8ED60078F89F /* KSLogedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLogedViewController.h; sourceTree = "<group>"; };
 		AEAD4CEF19FF8ED60078F89F /* KSLogedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLogedViewController.m; sourceTree = "<group>"; };
-		AED834091A14FD85008B151E /* BEMAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimations.h; sourceTree = "<group>"; };
-		AED8340A1A14FD85008B151E /* BEMAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimations.m; sourceTree = "<group>"; };
-		AED8340B1A14FD85008B151E /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
-		AED8340C1A14FD85008B151E /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
-		AED8340D1A14FD85008B151E /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
-		AED8340E1A14FD86008B151E /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
-		AED8340F1A14FD86008B151E /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
-		AED834101A14FD86008B151E /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		AECE59C71A1CF06A0033DC9F /* BEMAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimations.h; sourceTree = "<group>"; };
+		AECE59C81A1CF06A0033DC9F /* BEMAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMAnimations.m; sourceTree = "<group>"; };
+		AECE59C91A1CF06A0033DC9F /* BEMCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMCircle.h; sourceTree = "<group>"; };
+		AECE59CA1A1CF06A0033DC9F /* BEMCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMCircle.m; sourceTree = "<group>"; };
+		AECE59CB1A1CF06A0033DC9F /* BEMLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMLine.h; sourceTree = "<group>"; };
+		AECE59CC1A1CF06A0033DC9F /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
+		AECE59CD1A1CF06A0033DC9F /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
+		AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 		AED834151A14FF5F008B151E /* KSLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSLineViewController.h; path = ../KSLineViewController.h; sourceTree = "<group>"; };
 		AED834161A14FF5F008B151E /* KSLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSLineViewController.m; path = ../KSLineViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,8 +247,6 @@
 		AE0AFE4819FD56D9008381B5 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				AE0AFE4919FD5714008381B5 /* KSDataBase.h */,
-				AE0AFE4A19FD5714008381B5 /* KSDataBase.m */,
 				AE0AFE5C19FD6687008381B5 /* KSDBManager.h */,
 				AE0AFE5D19FD6687008381B5 /* KSDBManager.m */,
 				AE0AFE5F19FD7394008381B5 /* KSUser.h */,
@@ -413,14 +408,14 @@
 		AED82D6B1A14FCF4008B151E /* LineGraph */ = {
 			isa = PBXGroup;
 			children = (
-				AED834091A14FD85008B151E /* BEMAnimations.h */,
-				AED8340A1A14FD85008B151E /* BEMAnimations.m */,
-				AED8340B1A14FD85008B151E /* BEMCircle.h */,
-				AED8340C1A14FD85008B151E /* BEMCircle.m */,
-				AED8340D1A14FD85008B151E /* BEMLine.h */,
-				AED8340E1A14FD86008B151E /* BEMLine.m */,
-				AED8340F1A14FD86008B151E /* BEMSimpleLineGraphView.h */,
-				AED834101A14FD86008B151E /* BEMSimpleLineGraphView.m */,
+				AECE59C71A1CF06A0033DC9F /* BEMAnimations.h */,
+				AECE59C81A1CF06A0033DC9F /* BEMAnimations.m */,
+				AECE59C91A1CF06A0033DC9F /* BEMCircle.h */,
+				AECE59CA1A1CF06A0033DC9F /* BEMCircle.m */,
+				AECE59CB1A1CF06A0033DC9F /* BEMLine.h */,
+				AECE59CC1A1CF06A0033DC9F /* BEMLine.m */,
+				AECE59CD1A1CF06A0033DC9F /* BEMSimpleLineGraphView.h */,
+				AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */,
 			);
 			name = LineGraph;
 			sourceTree = "<group>";
@@ -538,20 +533,19 @@
 			files = (
 				AE5B306519EFCCC400E44365 /* KSViewController.m in Sources */,
 				AE25F5EF19F57D9F00439FC2 /* ASIFormDataRequest.m in Sources */,
-				AED834141A14FD86008B151E /* BEMSimpleLineGraphView.m in Sources */,
-				AE0AFE4B19FD5714008381B5 /* KSDataBase.m in Sources */,
 				AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */,
+				AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */,
+				AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */,
 				AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */,
 				AE08934A1A0A259F006D860F /* RKTabView.m in Sources */,
-				AED834131A14FD86008B151E /* BEMLine.m in Sources */,
 				AE0F67001A000D2500B94238 /* MBProgressHUD.m in Sources */,
 				AE0AFE5E19FD6687008381B5 /* KSDBManager.m in Sources */,
-				AED834111A14FD86008B151E /* BEMAnimations.m in Sources */,
 				AE0AFE5719FD65AE008381B5 /* FMDatabase.m in Sources */,
 				AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */,
 				AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */,
 				AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */,
 				AE0AFE6119FD7394008381B5 /* KSUser.m in Sources */,
+				AECE59D21A1CF06A0033DC9F /* BEMSimpleLineGraphView.m in Sources */,
 				AE25F5EE19F57D9F00439FC2 /* ASIDownloadCache.m in Sources */,
 				AE73E1FE19FA207900292837 /* KSMainViewController.m in Sources */,
 				AE25F5F119F57D9F00439FC2 /* ASIInputStream.m in Sources */,
@@ -561,11 +555,11 @@
 				AE0AFE5A19FD65AE008381B5 /* FMDatabaseQueue.m in Sources */,
 				AEAD4CF019FF8ED60078F89F /* KSLogedViewController.m in Sources */,
 				AE5B305B19EFCCC400E44365 /* main.m in Sources */,
-				AED834121A14FD86008B151E /* BEMCircle.m in Sources */,
 				AE0AFE6419FD7441008381B5 /* KSUserDB.m in Sources */,
 				AE0AFE5B19FD65AE008381B5 /* FMResultSet.m in Sources */,
 				AED834171A14FF5F008B151E /* KSLineViewController.m in Sources */,
 				AE0AFE5819FD65AE008381B5 /* FMDatabaseAdditions.m in Sources */,
+				AECE59D01A1CF06A0033DC9F /* BEMCircle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,7 +616,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -660,7 +654,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;

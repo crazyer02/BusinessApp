@@ -162,11 +162,11 @@
         [self performSegueWithIdentifier:@"doLogedPage" sender:self];
     }
 }
-- (void)dealloc {
-    [_loginBarButtonItem release];
-    //_titledTabsView=nil;
-    [self.titledTabsView release];
-
-    [super dealloc];
-}
+//- (void)dealloc {
+//    [_loginBarButtonItem release];
+//    //_titledTabsView=nil;
+//    [self.titledTabsView release];
+//
+//    [super dealloc];
+//}
 @end

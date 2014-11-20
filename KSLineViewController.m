@@ -41,7 +41,7 @@
     self.myGraph.widthLine = 3.0;
     self.myGraph.enableTouchReport = YES;
     
-    [self.myGraph reloadGraph];
+    //[self.myGraph reloadGraph];
 }
 
 - (void)didReceiveMemoryWarning {
