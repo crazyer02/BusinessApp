@@ -11,7 +11,7 @@
 #import "GDataXMLNode.h"
 
 #define kindstarUrl @"www.kindstar.com.cn"
-#define kReachabilityUrl @"http://192.168.8.4:8900/IApp"
+#define kReachabilityUrl @"http://58.48.110.2:8900/IApp"
 
 @implementation KSWebAccess
 

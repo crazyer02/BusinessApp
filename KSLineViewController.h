@@ -19,4 +19,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *labelValues;
 @property (strong, nonatomic) IBOutlet UILabel *labelDates;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *graphTimeCycleChoice;
+
 @end
