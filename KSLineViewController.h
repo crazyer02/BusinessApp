@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSMutableArray *ArrayOfValues;
 @property (strong, nonatomic) NSMutableArray *ArrayOfDates;
 
-//@property (strong, nonatomic) IBOutlet UILabel *labelValues;
-//@property (strong, nonatomic) IBOutlet UILabel *labelDates;
+@property (strong, nonatomic) IBOutlet UILabel *labelValues;
+@property (strong, nonatomic) IBOutlet UILabel *labelDates;
 
 @end

@@ -8,11 +8,9 @@
 
 #import "KSViewController.h"
 #import "GDataXMLNode.h"
-#import "Reachability.h"
+//import "Reachability.h"
 #import "KSUserDB.h"
-
-#define kReachabilityUrl @"http://192.168.8.4:8900/IApp"
-#define kindstarUrl @"www.kindstar.com.cn"
+#import "KSWebAccess.h"
 
 @interface KSViewController ()
 
@@ -24,7 +22,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    BOOL canConnectNetwork=[self isExiststenceNetwork];
+    KSWebAccess *webAccess=[[KSWebAccess alloc]init];
+    BOOL canConnectNetwork=[webAccess isExiststenceNetwork];
     NSLog(@"Can connect network?----- %d",canConnectNetwork);
     self.userDB=[[KSUserDB alloc] init];
     _user= [[KSUser alloc] init];
@@ -32,54 +31,21 @@
 }
 
 
-//检查是否存在网络
--(BOOL)isExiststenceNetwork
-{
-    BOOL isExistenceNetwork = FALSE;
-    Reachability *r=[Reachability reachabilityWithHostName:kindstarUrl];
-    switch ([r currentReachabilityStatus])
-    {
-        case NotReachable:
-            isExistenceNetwork=FALSE;
-            break;
-        case ReachableViaWWAN:
-            isExistenceNetwork=TRUE;
-            break;
-        case ReachableViaWiFi:
-            isExistenceNetwork=TRUE;
-            break;
-    }
-    return isExistenceNetwork;
-}
-
 - (void)Login {
-    if (![self isExiststenceNetwork]) {
+    KSWebAccess *webAccess=[[KSWebAccess alloc]init];
+    if (![webAccess isExiststenceNetwork]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"网络连接"
                                                             message:@"无法连接到网络！"
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
         [alertView show];
-//        [alertView release];
         return;
     }
+    NSString *response=[webAccess AccessLogin:self.logidLabel.text pwd:self.pwdLabel.text];
     
-    
-    NSString * loginMessage=[kReachabilityUrl stringByAppendingString:[NSString stringWithFormat:@"/GetUser_Login/%@/%@",self.logidLabel.text,self.pwdLabel.text]];
-    
-    NSLog(@"%@",loginMessage);
-    
-    NSURL *url = [NSURL URLWithString: loginMessage];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    //[request setRequestMethod:@"POST"];
-    
-    [request startSynchronous];
-    
-    NSError *error = [request error];
-    
-    if (!error) {
-        NSString *response = [request responseString];
-        NSLog(@"%@",response);
+    if (nil!=response||response.length>0||![response isEqualToString:@""]) {
+
         GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
         
         NSArray* nodes=[doc.rootElement children];
@@ -100,11 +66,6 @@
             if([[ele name] isEqualToString:@"DepartmentName"]){
                 _user.departmentName=[ele stringValue];
             }
-//            if([[ele name] isEqualToString:@"ErrMessage"]){
-//                //根据<name value="wusj"/>
-//                //[[ele attributeForName:@"value"] stringValue]);
-//                _user.description=[ele stringValue];
-//            }
         }
         
         if (self.user) {
@@ -115,17 +76,6 @@
             //self.user=[_userDB findWithUid:nil limit:10];
             //[self.navigationController pushViewController:KSM animated:<#(BOOL)#>]
         }
-        
-//
-        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"测试"
-        //                                                            message:[nod stringValue]
-        //                                                           delegate:nil
-        //                                                  cancelButtonTitle:@"OK"
-        //                                                  otherButtonTitles:nil];
-        //
-        //
-        //        [alertView show];
-        //        [alertView release];
         
     }
 }

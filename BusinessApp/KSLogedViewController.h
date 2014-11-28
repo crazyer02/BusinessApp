@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "KSUser.h"
 
-@interface KSLogedViewController : UIViewController
-@property (retain, nonatomic) IBOutlet UILabel *logidLabel;
-@property (retain, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (retain, nonatomic) IBOutlet UILabel *departmentNameLabel;
+@interface KSLogedViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UILabel *logidLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *departmentNameLabel;
 
 /**
  *  接受过来的user实体

@@ -7,6 +7,10 @@
 //
 
 #import "KSLineViewController.h"
+#import "KSWebAccess.h"
+#import "GDataXMLNode.h"
+
+NSInteger totalNumber;
 
 @interface KSLineViewController ()
 
@@ -19,13 +23,39 @@
     // Do any additional setup after loading the view.
     self.ArrayOfValues=[[NSMutableArray alloc]init];
     self.ArrayOfDates=[[NSMutableArray alloc]init];
+    totalNumber = 0;
     
-    for (int i=0; i < 11; i++) {
-        [self.ArrayOfValues addObject:[NSNumber numberWithInteger:(arc4random() % 70000)]]; // Random values for the graph
-        [self.ArrayOfDates addObject:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:2000 + i]]]; // Dates for the X-Axis of the graph
+    KSWebAccess *webAccess=[[KSWebAccess alloc]init];
+    NSString *response=[webAccess AccessSpecimenNum:@"0384" type:@"1"];
+    if (nil!=response||response.length>0||![response isEqualToString:@""])
+    {
+        GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
         
-        //totalNumber = totalNumber + [[self.ArrayOfValues objectAtIndex:i] intValue]; // All of the values added together
+        NSArray* nodes=[doc.rootElement elementsForName:@"QueryItem"];
+        
+        for (GDataXMLElement *ele in nodes) {
+            GDataXMLElement *numElement=[[ele elementsForName:@"YbidNum"]objectAtIndex:0];
+            [self.ArrayOfValues addObject:[numElement stringValue]];
+            
+            GDataXMLElement *unitElement=[[ele elementsForName:@"Unit"]objectAtIndex:0];
+            [self.ArrayOfDates addObject:[unitElement stringValue]];
+//            NSArray *subNodes=ele.sub
+//            if([[ele name] isEqualToString:@"LogId"]){
+//                [self.ArrayOfValues addObject:[ele stringValue]];
+//            }
+//            if([[ele name] isEqualToString:@"Unit"]){
+//                [self.ArrayOfDates addObject:[ele stringValue]];
+//            }
+            
+            totalNumber = totalNumber + [[numElement stringValue] integerValue] ;
+        }
     }
+    
+//    for (int i=0; i < 30; i++) {
+//        [self.ArrayOfValues addObject:[NSNumber numberWithInteger:(arc4random() % 70000)]]; // Random values for the graph
+//        [self.ArrayOfDates addObject:[NSString stringWithFormat:@"%@",[NSNumber numberWithInt:2000 + i]]]; // Dates for the X-Axis of the graph
+//       // All of the values added together
+//    }
     
     /* This is commented out because the graph is created in the interface with this sample app. However, the code remains as an example for creating the graph using code.
      BEMSimpleLineGraphView *myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 60, 320, 250)];
@@ -80,23 +110,23 @@
 }
 
 - (void)didTouchGraphWithClosestIndex:(int)index {
-//    self.labelValues.text = [NSString stringWithFormat:@"%@", [self.ArrayOfValues objectAtIndex:index]];
-//    
-//    self.labelDates.text = [NSString stringWithFormat:@"in %@", [self.ArrayOfDates objectAtIndex:index]];
+    self.labelValues.text = [NSString stringWithFormat:@"标本个数：%@", [self.ArrayOfValues objectAtIndex:index]];
+    
+    self.labelDates.text = [NSString stringWithFormat:@"时间：%@", [self.ArrayOfDates objectAtIndex:index]];
 }
 
 - (void)didReleaseGraphWithClosestIndex:(float)index {
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-//        self.labelValues.alpha = 0.0;
-//        self.labelDates.alpha = 0.0;
+        self.labelValues.alpha = 0.0;
+        self.labelDates.alpha = 0.0;
     } completion:^(BOOL finished){
         
-//        self.labelValues.text = [NSString stringWithFormat:@"%i", totalNumber];
-//        self.labelDates.text = @"between 2000 and 2010";
+        self.labelValues.text = [NSString stringWithFormat:@"总标本数：%d", totalNumber];
+        self.labelDates.text = @"近12个月";
         
         [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-//            self.labelValues.alpha = 1.0;
-//            self.labelDates.alpha = 1.0;
+            self.labelValues.alpha = 1.0;
+            self.labelDates.alpha = 1.0;
         } completion:nil];
     }];
     

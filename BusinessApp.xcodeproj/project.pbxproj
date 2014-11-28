@@ -66,6 +66,7 @@
 		AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CC1A1CF06A0033DC9F /* BEMLine.m */; };
 		AECE59D21A1CF06A0033DC9F /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */; };
 		AED834171A14FF5F008B151E /* KSLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834161A14FF5F008B151E /* KSLineViewController.m */; };
+		AED9C2891A25833B003D6741 /* KSWebAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9C2881A25833B003D6741 /* KSWebAccess.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,8 @@
 		AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
 		AED834151A14FF5F008B151E /* KSLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSLineViewController.h; path = ../KSLineViewController.h; sourceTree = "<group>"; };
 		AED834161A14FF5F008B151E /* KSLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSLineViewController.m; path = ../KSLineViewController.m; sourceTree = "<group>"; };
+		AED9C2871A25833B003D6741 /* KSWebAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWebAccess.h; sourceTree = "<group>"; };
+		AED9C2881A25833B003D6741 /* KSWebAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWebAccess.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -349,6 +352,7 @@
 		AE5B305419EFCCC400E44365 /* BusinessApp */ = {
 			isa = PBXGroup;
 			children = (
+				AED9C2861A25822E003D6741 /* Function */,
 				AED82D6B1A14FCF4008B151E /* LineGraph */,
 				AE0893291A0A00FF006D860F /* RKTabView */,
 				AE0F66FA1A00057500B94238 /* MBProgressHUD */,
@@ -418,6 +422,15 @@
 				AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */,
 			);
 			name = LineGraph;
+			sourceTree = "<group>";
+		};
+		AED9C2861A25822E003D6741 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				AED9C2871A25833B003D6741 /* KSWebAccess.h */,
+				AED9C2881A25833B003D6741 /* KSWebAccess.m */,
+			);
+			name = Function;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,6 +550,7 @@
 				AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */,
 				AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */,
 				AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */,
+				AED9C2891A25833B003D6741 /* KSWebAccess.m in Sources */,
 				AE08934A1A0A259F006D860F /* RKTabView.m in Sources */,
 				AE0F67001A000D2500B94238 /* MBProgressHUD.m in Sources */,
 				AE0AFE5E19FD6687008381B5 /* KSDBManager.m in Sources */,

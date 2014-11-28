@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ASIHttpHeaders.h"
+//#import "ASIHttpHeaders.h"
 #import "KSUser.h"
 #import "KSUserDB.h"
 #import "MBProgressHUD.h"

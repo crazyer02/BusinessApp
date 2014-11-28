@@ -28,9 +28,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     if (_reciveUser) {
-        self.logidLabel.text=[NSString stringWithFormat:@"ID：%@",_reciveUser.logid];
-        self.usernameLabel.text=[NSString stringWithFormat:@"用户名：%@",_reciveUser.username];
-        self.departmentNameLabel.text=[NSString stringWithFormat:@"部门：%@",_reciveUser.departmentName];
+        self.logidLabel.text=[NSString stringWithFormat:@"%@",_reciveUser.logid];
+        self.usernameLabel.text=[NSString stringWithFormat:@"%@",_reciveUser.username];
+        self.departmentNameLabel.text=[NSString stringWithFormat:@"%@",_reciveUser.departmentName];
     }
 }
 

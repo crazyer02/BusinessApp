@@ -23,14 +23,14 @@
 {
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setTranslucent:YES];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    //[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     //    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
     
 //    UIImageView *imageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blurred_background.png"]];
     UIWindow *keyWindow=[UIApplication sharedApplication].windows[0];
 //    imageView.frame = keyWindow.bounds;
 //    [keyWindow insertSubview:imageView atIndex:0];
-    [keyWindow setTintColor:[UIColor whiteColor]];
+    //[keyWindow setTintColor:[UIColor whiteColor]];
 
     return YES;
 }
