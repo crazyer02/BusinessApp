@@ -60,10 +60,10 @@
 }
 */
 
-- (void)dealloc {
-    //[_departmentNameLabel release];
-//    [_logidLabel release];
-//    [_usernameLabel release];
-//    [super dealloc];
-}
+//- (void)dealloc {
+//    //[_departmentNameLabel release];
+////    [_logidLabel release];
+////    [_usernameLabel release];
+////    [super dealloc];
+//}
 @end

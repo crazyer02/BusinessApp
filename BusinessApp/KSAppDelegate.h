@@ -21,4 +21,6 @@
  * @param duration  需要显示多长时间
  */
 + (void) showStatusWithText:(NSString *) string duration:(NSTimeInterval) duration;
+
+@property NSString *loginId;
 @end

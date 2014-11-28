@@ -9,6 +9,7 @@
 #import "KSMainViewController.h"
 #import "KSUserDB.h"
 #import "RKTabView.h"
+#import "KSAppDelegate.h"
 
 @interface KSMainViewController()<RKTabViewDelegate>
 
@@ -42,7 +43,20 @@
     if([_userData count]>0)
     {
         _user=[_userData objectAtIndex:0];
-        self.loginBarButtonItem.title=_user.username;
+        if (_user.logid.length>0) {
+            self.loginBarButtonItem.title=_user.username;
+        }
+        else
+        {
+            self.loginBarButtonItem.title=@"登录";
+            return;
+        }
+        
+        
+        // 设置全局登陆变量
+        KSAppDelegate *delegate=(KSAppDelegate*)[[UIApplication sharedApplication]delegate];
+        delegate.loginId=_user.logid;
+        
         NSLog(@"%@",_user.username);
         //        self.logidLabel.text=_user.logid;
         //        self.userLabel.text=_user.username;
@@ -53,8 +67,8 @@
 {
     [super viewDidLoad];
     
-//    
-//    RKTabItem *mastercardTabItem = [RKTabItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"mastercard"]];
+    //
+    //    RKTabItem *mastercardTabItem = [RKTabItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"mastercard"]];
     
     RKTabItem *globeTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"globe_enabled"] imageDisabled:[UIImage imageNamed:@"globe_disabled"]];
     globeTabItem.titleString=@"globe";
@@ -68,12 +82,12 @@
     RKTabItem *watchTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"watch_enabled"] imageDisabled:[UIImage imageNamed:@"watch_disabled"]];
     watchTabItem.titleString=@"watch";
     
-   
+    
     
     self.titledTabsView.darkensBackgroundForEnabledTabs = YES;
     self.titledTabsView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
     self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
-
+    
     self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
     
 }

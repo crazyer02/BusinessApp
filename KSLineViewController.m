@@ -9,6 +9,7 @@
 #import "KSLineViewController.h"
 #import "KSWebAccess.h"
 #import "GDataXMLNode.h"
+#import "KSAppDelegate.h"
 
 NSInteger totalNumber;
 
@@ -24,10 +25,11 @@ NSInteger totalNumber;
     self.ArrayOfValues=[[NSMutableArray alloc]init];
     self.ArrayOfDates=[[NSMutableArray alloc]init];
     
-    NSString *logid=[[NSString alloc]init];
-    logid=@"0384";
-    [self ReloadSpecimenNumData:logid];
+//    NSString *logid=[[NSString alloc]init];
+//    logid=@"0384";
     
+    
+    [self ReloadSpecimenNumData];
     /* This is commented out because the graph is created in the interface with this sample app. However, the code remains as an example for creating the graph using code.
      BEMSimpleLineGraphView *myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 60, 320, 250)];
      myGraph.delegate = self;
@@ -77,7 +79,10 @@ NSInteger totalNumber;
 }
 
 - (NSString *)labelOnXAxisForIndex:(NSInteger)index {
-    return [self.ArrayOfDates objectAtIndex:index];
+    if (self.ArrayOfDates.count>0) {
+        return [self.ArrayOfDates objectAtIndex:index];
+    }
+    return nil;
 }
 
 - (void)didTouchGraphWithClosestIndex:(int)index {
@@ -114,8 +119,13 @@ NSInteger totalNumber;
 }
 
 #pragma mark - TimeCycleChanged
-- (void)ReloadSpecimenNumData:(NSString *)logid
+- (void)ReloadSpecimenNumData
 {
+    KSAppDelegate *delegate=(KSAppDelegate*)[[UIApplication sharedApplication]delegate];
+    if (nil==delegate.loginId||delegate.loginId.length==0||[delegate.loginId isEqualToString:@""])
+    {
+        return;
+    }
     totalNumber = 0;
     NSString *type=[[NSString alloc]init];
     switch (self.graphTimeCycleChoice.selectedSegmentIndex) {
@@ -134,7 +144,7 @@ NSInteger totalNumber;
     }
     
     KSWebAccess *webAccess=[[KSWebAccess alloc]init];
-    NSString *response=[webAccess AccessSpecimenNum:logid type:type];
+    NSString *response=[webAccess AccessSpecimenNum:delegate.loginId type:type];
     if (nil!=response||response.length>0||![response isEqualToString:@""])
     {
         GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
@@ -157,11 +167,11 @@ NSInteger totalNumber;
 {
     [self.ArrayOfValues removeAllObjects];
     [self.ArrayOfDates removeAllObjects];
-    NSString *logid=[[NSString alloc]init];
-    
-    logid=@"0384";
+//    NSString *logid=[[NSString alloc]init];
+//    
+//    logid=@"0384";
    
-    [self ReloadSpecimenNumData:logid];
+    [self ReloadSpecimenNumData];
     [self.myGraph reloadGraph];
     
 }
