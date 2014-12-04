@@ -12,6 +12,7 @@
 #import "KSUserDB.h"
 #import "KSWebAccess.h"
 #import "KSAppDelegate.h"
+#import "User.h"
 
 @interface KSViewController ()
 
@@ -28,8 +29,10 @@ BOOL isSuccess;
     KSWebAccess *webAccess=[[KSWebAccess alloc]init];
     BOOL canConnectNetwork=[webAccess isExiststenceNetwork];
     NSLog(@"Can connect network?----- %d",canConnectNetwork);
-    self.userDB=[[KSUserDB alloc] init];
-    _user= [[KSUser alloc] init];
+    //self.userDB=[[KSUserDB alloc] init];
+    //_user= [[KSUser alloc] init];
+    self.userDal=[[KSUserDal alloc]init];
+    _user= [[User alloc] init];
     
 }
 
@@ -59,8 +62,6 @@ BOOL isSuccess;
         GDataXMLElement* ele=[nodes objectAtIndex:i];
         
         if([[ele name] isEqualToString:@"LogId"]){
-            //根据<name value="wusj"/>
-            //[[ele attributeForName:@"value"] stringValue]);
             _user.logid=[ele stringValue];
         }
         if([[ele name] isEqualToString:@"UserName"]){
@@ -74,14 +75,24 @@ BOOL isSuccess;
     }
     
     if (self.user) {
-        [_userDB deleteUserWithId:nil];
-        [_userDB saveUser:self.user];
+//        [_userDB deleteUserWithId:nil];
+//        [_userDB saveUser:self.user];
         
+//        User *u=(User *)[NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:objectContext];
+//        User *u=[[User alloc]init];
+//        u.logid=self.user.logid;
+//        u.username=self.user.username;
+//        u.departmentName=self.user.departmentName;
+        //清空数据
+        [_userDal deleteData];
         NSLog(@"qingkong user");
+        //然后插入数据
+        NSMutableArray *mutableArray = [[NSMutableArray alloc] initWithObjects:self.user,nil];//[NSMutableArray arrayWithCapacity:1];
+        //[mutableArray addObject:self.user];
+        [_userDal insertCoreData:mutableArray];
+        
         return YES;
-        //[self performSegueWithIdentifier:@"doLoginReturnMain" sender:self];
-        //self.user=[_userDB findWithUid:nil limit:10];
-        //[self.navigationController pushViewController:KSM animated:<#(BOOL)#>]
+
     }
     return NO;
     

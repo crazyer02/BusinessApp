@@ -265,10 +265,28 @@
             </objects>
             <point key="canvasLocation" x="788" y="360"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="KY5-Ve-ymw">
+            <objects>
+                <viewController id="IbZ-9e-e8O" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uhJ-LU-T1z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="xlg-d6-jyf" kind="push" id="8a1-kD-9tE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8Z-9o-LKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-585" y="163"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Mdj-NC-oOE">
             <objects>
                 <tabBarController id="xlg-d6-jyf" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aX3-mj-llq"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="4CI-Yg-Gkv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

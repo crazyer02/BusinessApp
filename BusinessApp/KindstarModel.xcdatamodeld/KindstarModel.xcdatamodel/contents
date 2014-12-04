@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CheckOut" representedClassName="CheckOut" syncable="YES">
+        <attribute name="hospitalName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="" syncable="YES">
+        <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="logid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CheckOut" positionX="-1026" positionY="-234" width="128" height="105"/>
+        <element name="User" positionX="-1071" positionY="-306" width="135" height="105"/>
+    </elements>
+</model>

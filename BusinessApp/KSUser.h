@@ -13,5 +13,5 @@
 @property (nonatomic,copy)NSString* logid;
 @property (nonatomic,copy)NSString* username;
 @property (nonatomic,copy)NSString* departmentName;
-@property (nonatomic,copy)NSString* description;
+@property (nonatomic,copy)NSString* descrip;
 @end

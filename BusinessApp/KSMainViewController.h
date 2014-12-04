@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KSUser.h"
-#import "KSUserDB.h"
+//#import "KSUser.h"
+//#import "KSUserDB.h"
+#import "MYBlurIntroductionView.h"
+#import "KSUserDal.h"
+#import "User.h"
+@interface KSMainViewController : UIViewController<MYIntroductionDelegate>
 
-@interface KSMainViewController : UIViewController
-
-@property (nonatomic, strong) KSUser * user;
-@property (nonatomic, strong) KSUserDB * userDB;
+//@property (nonatomic, strong) KSUser * user;
+//@property (nonatomic, strong) KSUserDB * userDB;
+@property (nonatomic, strong) KSUserDal * userDal;
+@property (nonatomic, strong) User * user;
 
 @end
