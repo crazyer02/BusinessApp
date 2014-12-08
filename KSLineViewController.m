@@ -11,6 +11,7 @@
 #import "GDataXMLNode.h"
 #import "KSAppDelegate.h"
 
+
 NSInteger totalNumber;
 
 @interface KSLineViewController ()
@@ -44,7 +45,7 @@ NSInteger totalNumber;
     self.myGraph.colorXaxisLabel = [UIColor whiteColor];
     self.myGraph.widthLine = 3.0;
     self.myGraph.enableTouchReport = YES;
-    
+        
 }
 
 - (void)didReceiveMemoryWarning {

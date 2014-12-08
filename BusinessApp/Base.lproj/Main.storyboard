@@ -9,7 +9,7 @@
         <scene sceneID="Qs6-Hv-Wpn">
             <objects>
                 <tableViewController id="iGn-v3-8nw" customClass="KSLogedViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="oaM-yT-rYI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="oaM-yT-rYI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -33,7 +33,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="个人信息" id="ONZ-Db-qQR">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="dUb-Ya-CtS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="15" id="dUb-Ya-CtS">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dUb-Ya-CtS" id="BfH-Bf-6CE">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -216,14 +216,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="B0N-Ci-yqq" customClass="BEMSimpleLineGraphView">
-                                <rect key="frame" x="0.0" y="109" width="320" height="242"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="g0H-TD-G1C" id="gjm-LI-aWl"/>
-                                </connections>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标本个数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mpy-tq-8yz">
                                 <rect key="frame" x="48" y="359" width="224" height="31"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -249,6 +241,14 @@
                                     <action selector="TimeCycleChanged:" destination="g0H-TD-G1C" eventType="valueChanged" id="7Jm-yx-gVa"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" id="B0N-Ci-yqq" customClass="BEMSimpleLineGraphView">
+                                <rect key="frame" x="0.0" y="109" width="320" height="242"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.73333333329999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="g0H-TD-G1C" id="gjm-LI-aWl"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -318,6 +318,11 @@
                                     <outlet property="delegate" destination="7xx-Z4-Bji" id="dtX-nz-xL6"/>
                                 </connections>
                             </view>
+                            <view opaque="NO" contentMode="scaleToFill" id="C8z-z9-U1J" customClass="XCMultiTableView">
+                                <rect key="frame" x="0.0" y="63" width="320" height="368"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -330,6 +335,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="loginBarButtonItem" destination="mPn-wa-tPx" id="bc3-zs-6Ur"/>
+                        <outlet property="tableView" destination="C8z-z9-U1J" id="I3Y-a7-fla"/>
                         <outlet property="titledTabsView" destination="28E-ke-bcn" id="PGQ-qA-IjJ"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="doLogidPage" id="j7D-p5-JMo"/>
                         <segue destination="iGn-v3-8nw" kind="push" identifier="doLogedPage" id="TnT-BH-TVf"/>
@@ -384,7 +390,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="hEj-cs-PkL"/>
         <segue reference="j7D-p5-JMo"/>
+        <segue reference="hEj-cs-PkL"/>
     </inferredMetricsTieBreakers>
 </document>

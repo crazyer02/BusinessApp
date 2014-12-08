@@ -78,6 +78,9 @@
 		AED9C2A41A2C3D53003D6741 /* HeaderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = AED9C2A01A2C3D53003D6741 /* HeaderImage.png */; };
 		AED9C2A51A2C3D53003D6741 /* Toronto, ON.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AED9C2A11A2C3D53003D6741 /* Toronto, ON.jpg */; };
 		AED9C2A61A2C3D53003D6741 /* CheckMarkWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = AED9C2A21A2C3D53003D6741 /* CheckMarkWhite.png */; };
+		AED9DE2F1A30A88700305685 /* UIView+XCMultiSortTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9DE291A30A88700305685 /* UIView+XCMultiSortTableView.m */; };
+		AED9DE301A30A88700305685 /* XCMultiSortTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9DE2B1A30A88700305685 /* XCMultiSortTableView.m */; };
+		AED9DE311A30A88700305685 /* XCMultiSortTableViewBGScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9DE2D1A30A88700305685 /* XCMultiSortTableViewBGScrollView.m */; };
 		AEDAC73E1A2D914300B050E2 /* KindstarModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEDAC73C1A2D914300B050E2 /* KindstarModel.xcdatamodeld */; };
 		AEDAC7491A2DC82100B050E2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDAC7481A2DC82100B050E2 /* User.m */; };
 		AEDAC74C1A2DCB9200B050E2 /* BusinessApp.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDAC74B1A2DCB9200B050E2 /* BusinessApp.m */; };
@@ -209,6 +212,13 @@
 		AED9C2A01A2C3D53003D6741 /* HeaderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HeaderImage.png; sourceTree = "<group>"; };
 		AED9C2A11A2C3D53003D6741 /* Toronto, ON.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Toronto, ON.jpg"; sourceTree = "<group>"; };
 		AED9C2A21A2C3D53003D6741 /* CheckMarkWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckMarkWhite.png; sourceTree = "<group>"; };
+		AED9DE281A30A88700305685 /* UIView+XCMultiSortTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XCMultiSortTableView.h"; sourceTree = "<group>"; };
+		AED9DE291A30A88700305685 /* UIView+XCMultiSortTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XCMultiSortTableView.m"; sourceTree = "<group>"; };
+		AED9DE2A1A30A88700305685 /* XCMultiSortTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCMultiSortTableView.h; sourceTree = "<group>"; };
+		AED9DE2B1A30A88700305685 /* XCMultiSortTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCMultiSortTableView.m; sourceTree = "<group>"; };
+		AED9DE2C1A30A88700305685 /* XCMultiSortTableViewBGScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCMultiSortTableViewBGScrollView.h; sourceTree = "<group>"; };
+		AED9DE2D1A30A88700305685 /* XCMultiSortTableViewBGScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCMultiSortTableViewBGScrollView.m; sourceTree = "<group>"; };
+		AED9DE2E1A30A88700305685 /* XCMultiSortTableViewDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCMultiSortTableViewDefault.h; sourceTree = "<group>"; };
 		AEDAC73D1A2D914300B050E2 /* KindstarModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindstarModel.xcdatamodel; sourceTree = "<group>"; };
 		AEDAC7471A2DC82100B050E2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../../User.h; sourceTree = "<group>"; };
 		AEDAC7481A2DC82100B050E2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../../User.m; sourceTree = "<group>"; };
@@ -402,6 +412,7 @@
 		AE5B305419EFCCC400E44365 /* BusinessApp */ = {
 			isa = PBXGroup;
 			children = (
+				AED9DE271A30A85200305685 /* XCMultiSortTableView */,
 				AEE4E7151A2F096000564347 /* CoreData */,
 				AED9C2941A2C3B8C003D6741 /* CustomPanels */,
 				AED9C2931A2C3B44003D6741 /* BlurIntroductionView */,
@@ -521,6 +532,20 @@
 				AED9C2A21A2C3D53003D6741 /* CheckMarkWhite.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		AED9DE271A30A85200305685 /* XCMultiSortTableView */ = {
+			isa = PBXGroup;
+			children = (
+				AED9DE281A30A88700305685 /* UIView+XCMultiSortTableView.h */,
+				AED9DE291A30A88700305685 /* UIView+XCMultiSortTableView.m */,
+				AED9DE2A1A30A88700305685 /* XCMultiSortTableView.h */,
+				AED9DE2B1A30A88700305685 /* XCMultiSortTableView.m */,
+				AED9DE2C1A30A88700305685 /* XCMultiSortTableViewBGScrollView.h */,
+				AED9DE2D1A30A88700305685 /* XCMultiSortTableViewBGScrollView.m */,
+				AED9DE2E1A30A88700305685 /* XCMultiSortTableViewDefault.h */,
+			);
+			name = XCMultiSortTableView;
 			sourceTree = "<group>";
 		};
 		AEE4E7151A2F096000564347 /* CoreData */ = {
@@ -663,6 +688,7 @@
 				AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */,
 				AED9C2891A25833B003D6741 /* KSWebAccess.m in Sources */,
 				AE08934A1A0A259F006D860F /* RKTabView.m in Sources */,
+				AED9DE311A30A88700305685 /* XCMultiSortTableViewBGScrollView.m in Sources */,
 				AE0F67001A000D2500B94238 /* MBProgressHUD.m in Sources */,
 				AEE4E71E1A2F186100564347 /* KSUserDal.m in Sources */,
 				AE0AFE5E19FD6687008381B5 /* KSDBManager.m in Sources */,
@@ -672,6 +698,7 @@
 				AED9C29C1A2C3BC2003D6741 /* MYCustomPanel.m in Sources */,
 				AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */,
 				AED9C2901A2C3B38003D6741 /* AMBlurView.m in Sources */,
+				AED9DE301A30A88700305685 /* XCMultiSortTableView.m in Sources */,
 				AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */,
 				AE0AFE6119FD7394008381B5 /* KSUser.m in Sources */,
 				AECE59D21A1CF06A0033DC9F /* BEMSimpleLineGraphView.m in Sources */,
@@ -690,6 +717,7 @@
 				AE0AFE6419FD7441008381B5 /* KSUserDB.m in Sources */,
 				AE0AFE5B19FD65AE008381B5 /* FMResultSet.m in Sources */,
 				AED834171A14FF5F008B151E /* KSLineViewController.m in Sources */,
+				AED9DE2F1A30A88700305685 /* UIView+XCMultiSortTableView.m in Sources */,
 				AE0AFE5819FD65AE008381B5 /* FMDatabaseAdditions.m in Sources */,
 				AECE59D01A1CF06A0033DC9F /* BEMCircle.m in Sources */,
 			);

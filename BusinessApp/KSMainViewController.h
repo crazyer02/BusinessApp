@@ -12,11 +12,15 @@
 #import "MYBlurIntroductionView.h"
 #import "KSUserDal.h"
 #import "User.h"
-@interface KSMainViewController : UIViewController<MYIntroductionDelegate>
+#import "XCMultiSortTableView.h"
+
+@interface KSMainViewController : UIViewController<MYIntroductionDelegate,XCMultiTableViewDataSource>
 
 //@property (nonatomic, strong) KSUser * user;
 //@property (nonatomic, strong) KSUserDB * userDB;
 @property (nonatomic, strong) KSUserDal * userDal;
 @property (nonatomic, strong) User * user;
+
+@property (strong, nonatomic) IBOutlet XCMultiTableView *tableView;
 
 @end

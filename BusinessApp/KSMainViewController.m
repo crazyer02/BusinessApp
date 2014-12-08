@@ -12,14 +12,18 @@
 #import "KSAppDelegate.h"
 #import "MYCustomPanel.h"
 
-@interface KSMainViewController()<RKTabViewDelegate>
+@interface KSMainViewController()<RKTabViewDelegate,XCMultiTableViewDataSource>
 
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *loginBarButtonItem;
 @property (nonatomic,strong) IBOutlet RKTabView *titledTabsView;
 
 @end
 
-@implementation KSMainViewController
+@implementation KSMainViewController{
+    NSMutableArray *headData;
+    NSMutableArray *leftTableData;
+    NSMutableArray *rightTableData;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,6 +98,21 @@
     self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
     
     self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
+    
+    
+    [self initData];
+    
+    [self.tableView initWithFrame:CGRectInset(self.tableView.bounds,0,0)];
+    //指定是否显示左边冻结的栏
+    self.tableView.leftHeaderEnable = YES;
+    //指定数据委托
+    self.tableView.datasource = self;
+    //[self.view addSubview:tableView];
+    
+//    XCMultiTableView *tableView1 = [[XCMultiTableView alloc] initWithFrame:CGRectInset(self.view.bounds, 0, 44)];
+//    tableView1.leftHeaderEnable = YES;
+//    tableView1.datasource = self;
+//    [self.view addSubview:tableView1];
     
 }
 
@@ -215,4 +234,117 @@
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     NSLog(@"Introduction did finish");
 }
+
+/**
+ *  初始化数据
+ */
+- (void)initData {
+    headData = [NSMutableArray arrayWithCapacity:10];
+    [headData addObject:@"姓名"];
+    [headData addObject:@"年龄"];
+    [headData addObject:@"性别"];
+    [headData addObject:@"身份"];
+    [headData addObject:@"电话"];
+    leftTableData = [NSMutableArray arrayWithCapacity:10];
+    NSMutableArray *one = [NSMutableArray arrayWithCapacity:10];
+    for (int i = 0; i < 10; i++) {
+        [one addObject:[NSString stringWithFormat:@"ki-%d", i]];
+    }
+    [leftTableData addObject:one];
+//    NSMutableArray *two = [NSMutableArray arrayWithCapacity:10];
+//    for (int i = 3; i < 10; i++) {
+//        [two addObject:[NSString stringWithFormat:@"ki-%d", i]];
+//    }
+//    [leftTableData addObject:two];
+    
+    
+    
+    rightTableData = [NSMutableArray arrayWithCapacity:10];
+    
+    NSMutableArray *oneR = [NSMutableArray arrayWithCapacity:10];
+    for (int i = 0; i < 10; i++) {
+        NSMutableArray *ary = [NSMutableArray arrayWithCapacity:10];
+        for (int j = 0; j < 5; j++) {
+            if (j == 1) {
+                [ary addObject:[NSNumber numberWithInt:random() % 5]];
+            }else if (j == 2) {
+                [ary addObject:[NSNumber numberWithInt:random() % 10]];
+            }
+            else {
+                [ary addObject:[NSString stringWithFormat:@"column %d %d", i, j]];
+            }
+        }
+        [oneR addObject:ary];
+    }
+    [rightTableData addObject:oneR];
+    
+//    NSMutableArray *twoR = [NSMutableArray arrayWithCapacity:10];
+//    for (int i = 3; i < 10; i++) {
+//        NSMutableArray *ary = [NSMutableArray arrayWithCapacity:10];
+//        for (int j = 0; j < 5; j++) {
+//            if (j == 1) {
+//                [ary addObject:[NSNumber numberWithInt:random() % 5]];
+//            }else if (j == 2) {
+//                [ary addObject:[NSNumber numberWithInt:random() % 5]];
+//            }else {
+//                [ary addObject:[NSString stringWithFormat:@"column %d %d", i, j]];
+//            }
+//        }
+//        [twoR addObject:ary];
+//    }
+//    [rightTableData addObject:twoR];
+}
+
+
+#pragma mark - XCMultiTableViewDataSource
+
+
+- (NSArray *)arrayDataForTopHeaderInTableView:(XCMultiTableView *)tableView {
+    return [headData copy];
+}
+- (NSArray *)arrayDataForLeftHeaderInTableView:(XCMultiTableView *)tableView InSection:(NSUInteger)section {
+    return [leftTableData objectAtIndex:section];
+}
+
+- (NSArray *)arrayDataForContentInTableView:(XCMultiTableView *)tableView InSection:(NSUInteger)section {
+    return [rightTableData objectAtIndex:section];
+}
+
+
+- (NSUInteger)numberOfSectionsInTableView:(XCMultiTableView *)tableView {
+    return [leftTableData count];
+}
+
+- (CGFloat)tableView:(XCMultiTableView *)tableView contentTableCellWidth:(NSUInteger)column {
+    if (column == 0) {
+        return 100.0f;
+    }
+    return 100.0f;
+}
+
+- (CGFloat)tableView:(XCMultiTableView *)tableView cellHeightInRow:(NSUInteger)row InSection:(NSUInteger)section {
+    if (section == 0) {
+        return 40.0f;
+    }else {
+        return 40.0f;
+    }
+}
+
+//- (UIColor *)tableView:(XCMultiTableView *)tableView bgColorInSection:(NSUInteger)section InRow:(NSUInteger)row InColumn:(NSUInteger)column {
+//    if (row == 1 && section == 0) {
+//        return [UIColor whiteColor];//[UIColor colorWithWhite:223.0f/255.0f alpha:1.0];
+//    }
+//    return [UIColor clearColor];
+//}
+
+- (UIColor *)tableView:(XCMultiTableView *)tableView headerBgColorInColumn:(NSUInteger)column {
+    //这个是表头第一个的颜色
+    if (column == -1) {
+        return [UIColor colorWithWhite:233.0f/255.0f alpha:1.0];
+    }else{ //if (column == 1) {
+        return [UIColor colorWithWhite:233.0f/255.0f alpha:1.0];
+    }
+    //return [UIColor clearColor];
+}
+
 @end
