@@ -340,9 +340,9 @@
 - (UIColor *)tableView:(XCMultiTableView *)tableView headerBgColorInColumn:(NSUInteger)column {
     //这个是表头第一个的颜色
     if (column == -1) {
-        return [UIColor colorWithWhite:233.0f/255.0f alpha:1.0];
+        return [UIColor colorWithWhite:243.0f/255.0f alpha:1.0];
     }else{ //if (column == 1) {
-        return [UIColor colorWithWhite:233.0f/255.0f alpha:1.0];
+        return [UIColor colorWithWhite:243.0f/255.0f alpha:1.0];
     }
     //return [UIColor clearColor];
 }

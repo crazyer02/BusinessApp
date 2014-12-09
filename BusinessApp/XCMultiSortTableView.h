@@ -29,6 +29,7 @@ typedef NS_ENUM(NSUInteger, SortColumnType) {
 
 @property (nonatomic, strong) UIColor *boldSeperatorLineColor;
 @property (nonatomic, strong) UIColor *normalSeperatorLineColor;
+@property (nonatomic, strong) UIColor *topHeaderTextColor;
 
 @property (nonatomic, assign) BOOL leftHeaderEnable;
 

@@ -63,7 +63,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
 }
 
 @synthesize cellWidth, cellHeight, topHeaderHeight, leftHeaderWidth, sectionHeaderHeight, boldSeperatorLineWidth, normalSeperatorLineWidth;
-@synthesize boldSeperatorLineColor, normalSeperatorLineColor;
+@synthesize boldSeperatorLineColor, normalSeperatorLineColor,topHeaderTextColor;
 
 @synthesize leftHeaderEnable;
 
@@ -95,6 +95,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         boldSeperatorLineColor = [UIColor colorWithWhite:XCMultiTableView_DefaultLineGray alpha:1.0];
         normalSeperatorLineColor = [UIColor colorWithWhite:XCMultiTableView_DefaultLineGray alpha:1.0];
         
+        topHeaderTextColor=[UIColor colorWithWhite:XCMultiTableView_DefaultTopHeaderTextGray alpha:1.0];
         vertexView = [[UIView alloc] initWithFrame:CGRectZero];
         vertexView.backgroundColor = [UIColor clearColor];
         vertexView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -107,6 +108,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         topHeaderScrollView.showsHorizontalScrollIndicator = NO;
         topHeaderScrollView.showsVerticalScrollIndicator = NO;
         topHeaderScrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        //topHeaderScrollView.
         [self addSubview:topHeaderScrollView];
         
         leftHeaderTableView = [[UITableView alloc] initWithFrame:CGRectZero];
@@ -238,6 +240,14 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     [target selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
 }
 
+/**
+ *  绘画分区
+ *
+ *  @param tableView <#tableView description#>
+ *  @param section   <#section description#>
+ *
+ *  @return <#return value description#>
+ */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, [tableView rectForHeaderInSection:section].size.height)];;
@@ -350,6 +360,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     [self accessDataSourceData];
     
     vertexView.backgroundColor = [self headerBgColorColumn:-1];
+    [vertexView addBottomLineWithWidth:normalSeperatorLineWidth bgColor:normalSeperatorLineColor];
     [self accessColumnPointCollection];
     [self buildSectionFoledStatus:-1];
     [self setUpTopHeaderScrollView];
@@ -394,6 +405,9 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     }
 }
 
+/**
+ *  重画表头
+ */
 - (void)setUpTopHeaderScrollView {
     
     NSUInteger count = [datasource arrayDataForTopHeaderInTableView:self].count;
@@ -411,7 +425,8 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
         label.text = [[datasource arrayDataForTopHeaderInTableView:self] objectAtIndex:i];
-        
+        [label setTextColor:topHeaderTextColor];
+        label.font = [UIFont boldSystemFontOfSize:14.0f];
         [label sizeToFit];
         label.center = CGPointMake(topHeaderW / 2.0f, topHeaderH / 2.0f);
         
@@ -436,7 +451,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         [topHeaderScrollView addSubview:view];
     }
     
-    //[topHeaderScrollView reDraw];
+    [topHeaderScrollView reDraw];
 
 }
 
@@ -460,7 +475,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
 }
 
 /**
- *  左边表格视图cell布局
+ *  左边表格leftHeader视图cell布局
  *
  *  @param tableView <#tableView description#>
  *  @param indexPath <#indexPath description#>
@@ -473,7 +488,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:inde];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        //这里是给表格进行划线底部线
+        //这里是给表格lefttable进行划线底部线
 //        [cell addBottomLineWithWidth:normalSeperatorLineWidth bgColor:normalSeperatorLineColor];
     }
     
@@ -501,6 +516,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     return cell;
 }
 
+//中间的表格row重画
 - (UITableViewCell *)contentTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSUInteger count = [datasource arrayDataForTopHeaderInTableView:self].count;

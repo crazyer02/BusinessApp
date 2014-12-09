@@ -36,16 +36,14 @@
     }
     
     [lines removeAllObjects];
-
     //添加垂直的线条
-    UIView *hidView = [[UIView alloc] initWithFrame:CGRectMake(0.0f - parent.normalSeperatorLineWidth, 0, parent.normalSeperatorLineWidth, self.bounds.size.height)];
-    hidView.backgroundColor = parent.normalSeperatorLineColor;
-    hidView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
-    [self addSubview:hidView];
-    [lines addObject:hidView];
+//    UIView *hidView = [[UIView alloc] initWithFrame:CGRectMake(0.0f - parent.normalSeperatorLineWidth, 0, parent.normalSeperatorLineWidth, self.bounds.size.height)];
+//    hidView.backgroundColor = parent.normalSeperatorLineColor;
+//    hidView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleHeight;
+//    [self addSubview:hidView];
+//    [lines addObject:hidView];
 
-    
-    UIView *line = nil;
+    //UIView *line = nil;
     CGFloat x = 0.0f;
     NSUInteger columnCount = [parent.datasource arrayDataForTopHeaderInTableView:parent].count;
     for (int i = 0; i < columnCount; i++) {
@@ -58,9 +56,19 @@
         
         x += width + parent.normalSeperatorLineWidth;
         
-        line = [self addVerticalLineWithWidth:parent.normalSeperatorLineWidth bgColor:parent.normalSeperatorLineColor atX:x];
-        [lines addObject:line];
+//        line = [self addVerticalLineWithWidth:parent.normalSeperatorLineWidth bgColor:parent.normalSeperatorLineColor atX:x];
+//        [lines addObject:line];
     }
+    
+    //画水平的表格
+//    UIView *bottomLineView = [[UIView alloc] initWithFrame:CGRectMake(0.0f - parent.leftHeaderWidth, self.parent.topHeaderHeight-1.0f, x, parent.normalSeperatorLineWidth)];
+    
+    //NSLog(@"wwwww %f",self.bounds.size.height);
+//    bottomLineView.backgroundColor = parent.normalSeperatorLineColor;
+//    bottomLineView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
+//    [self addSubview:bottomLineView];
+    [self addBottomLineWithWidth:parent.normalSeperatorLineWidth widthLine:x color:parent.normalSeperatorLineColor indentWidth:parent.leftHeaderWidth];
+    
 }
 
 - (void)dealloc {

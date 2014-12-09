@@ -15,11 +15,11 @@
 
 #define XCMultiTableView_DefaultCellWidth 50.0f
 #define XCMultiTableView_DefaultCellHeight 40.0f
-#define XCMultiTableView_DefaultTopHeaderHeight 40.0f
+#define XCMultiTableView_DefaultTopHeaderHeight 32.0f
 #define XCMultiTableView_DefaultLeftHeaderWidth 100.0f
-#define XCMultiTableView_DefaultSectionHeaderHeight 40.0f
+#define XCMultiTableView_DefaultSectionHeaderHeight 32.0f
 #define XCMultiTableView_DefaultBoldLineWidth 0.0f
 #define XCMultiTableView_DefaultNormalLineWidth 1.0f
 #define XCMultiTableView_DefaultLineGray 223.0f/255.0f
-
+#define XCMultiTableView_DefaultTopHeaderTextGray 75.0f/255.0f
 #endif

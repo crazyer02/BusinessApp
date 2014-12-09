@@ -11,7 +11,7 @@
 @interface UIView (XCMultiTableView)
 
 - (void)addBottomLineWithWidth:(CGFloat)width bgColor:(UIColor *)color;
-
+- (void)addBottomLineWithWidth:(CGFloat)width widthLine:(CGFloat)widthLine color:(UIColor *)color indentWidth:(CGFloat)indentWidth;
 - (UIView *)addVerticalLineWithWidth:(CGFloat)width bgColor:(UIColor *)color atX:(CGFloat)x;
 
 @end
