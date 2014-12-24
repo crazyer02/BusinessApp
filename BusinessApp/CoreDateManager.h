@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 #define TableName @"User"
+#define MonthTableName @"MonthTotal"
 
 @interface CoreDateManager : NSObject
 

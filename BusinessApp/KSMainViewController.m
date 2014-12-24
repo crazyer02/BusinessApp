@@ -11,8 +11,12 @@
 #import "RKTabView.h"
 #import "KSAppDelegate.h"
 #import "MYCustomPanel.h"
+#import "KSWebAccess.h"
+#import "GDataXMLNode.h"
+#import "MonthTotal.h"
+//#import "XCMultiSortTableViewDefault.h"
 
-@interface KSMainViewController()<RKTabViewDelegate,XCMultiTableViewDataSource>
+@interface KSMainViewController()<RKTabViewDelegate>
 
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *loginBarButtonItem;
 @property (nonatomic,strong) IBOutlet RKTabView *titledTabsView;
@@ -20,9 +24,7 @@
 @end
 
 @implementation KSMainViewController{
-    NSMutableArray *headData;
-    NSMutableArray *leftTableData;
-    NSMutableArray *rightTableData;
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -92,28 +94,69 @@
     watchTabItem.titleString=@"watch";
     
     
-    
     self.titledTabsView.darkensBackgroundForEnabledTabs = YES;
     self.titledTabsView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
     self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
     
     self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
     
+    monthDal=[[KSMonthTotalDal alloc]init];
+    //更新时间
+    NSString *updateDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"updateDate"];
     
-    [self initData];
+    if (!updateDate) {
+        //如果无此对象，表示第一次，那么就读数据写到数据库中
+        [self writeDate];
+        
+    }else{
+        //有此对象说明只要从数据库中读数据
+        NSTimeInterval update = updateDate.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        //8小时一更新
+        if ((now - update)>10*60*60) {
+            //如果超出8小时一更新就把数据库清空再重新写
+            //[coreManager deleteData];
+            [self writeDate];
+        }else{
+            //没有超过8小时一更新就从数据库中读
+            NSMutableArray *array = [monthDal selectData:10 andOffset:0];
+            _resultArray = [NSMutableArray arrayWithArray:array];
+            [monthTableView reloadData];
+        }
+    }
+}
+
+-(void)writeDate
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%f",[NSDate timeIntervalSinceReferenceDate]] forKey:@"updateDate"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [self.tableView initWithFrame:CGRectInset(self.tableView.bounds,0,0)];
-    //指定是否显示左边冻结的栏
-    self.tableView.leftHeaderEnable = YES;
-    //指定数据委托
-    self.tableView.datasource = self;
-    //[self.view addSubview:tableView];
+    KSWebAccess *webAccess=[[KSWebAccess alloc]init];
+    NSString *response=[webAccess GetMonthTotal:_user.logid];
+    if (nil!=response||response.length>0||![response isEqualToString:@""])
+    {
+        GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
+        
+        NSArray* nodes=[doc.rootElement elementsForName:@"QueryItem"];
+        
+        for (GDataXMLElement *ele in nodes) {
+            MonthTotal *info=[[MonthTotal alloc]init];
+            GDataXMLElement *totalElement=[[ele elementsForName:@"Total"]objectAtIndex:0];
+            info.total= [totalElement stringValue];
+            
+            GDataXMLElement *unitElement=[[ele elementsForName:@"Unit"]objectAtIndex:0];
+            info.unit= [unitElement stringValue];
+            
+            GDataXMLElement *numElement=[[ele elementsForName:@"YbidNum"]objectAtIndex:0];
+            info.ybidnum= [numElement stringValue];
+
+            [_resultArray addObject:info];
+        }
+    }
     
-//    XCMultiTableView *tableView1 = [[XCMultiTableView alloc] initWithFrame:CGRectInset(self.view.bounds, 0, 44)];
-//    tableView1.leftHeaderEnable = YES;
-//    tableView1.datasource = self;
-//    [self.view addSubview:tableView1];
-    
+    //把数据写到数据库
+    [monthDal insertCoreData:_resultArray];
+    [monthTableView reloadData];
 }
 
 #pragma mark - RKTabViewDelegate
@@ -235,116 +278,45 @@
     NSLog(@"Introduction did finish");
 }
 
-/**
- *  初始化数据
- */
-- (void)initData {
-    headData = [NSMutableArray arrayWithCapacity:10];
-    [headData addObject:@"姓名"];
-    [headData addObject:@"年龄"];
-    [headData addObject:@"性别"];
-    [headData addObject:@"身份"];
-    [headData addObject:@"电话"];
-    leftTableData = [NSMutableArray arrayWithCapacity:10];
-    NSMutableArray *one = [NSMutableArray arrayWithCapacity:10];
-    for (int i = 0; i < 10; i++) {
-        [one addObject:[NSString stringWithFormat:@"ki-%d", i]];
+#pragma UITableView
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _resultArray.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"MonthTotalCell";
+    MonthTotalCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"MonthTotalCell" owner:self options:nil];
+        cell = [cells lastObject];
     }
-    [leftTableData addObject:one];
-//    NSMutableArray *two = [NSMutableArray arrayWithCapacity:10];
-//    for (int i = 3; i < 10; i++) {
-//        [two addObject:[NSString stringWithFormat:@"ki-%d", i]];
-//    }
-//    [leftTableData addObject:two];
+    MonthTotal *info = [_resultArray objectAtIndex:indexPath.row];
+    [cell setContent:info];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //当你点击时说明要看此条新闻，那么就标注此新闻已被看过
+    MonthTotal *info = [_resultArray objectAtIndex:indexPath.row];
+    info.islook = @"1";
+    //改变数据库查看状态
+    [monthDal updateData:info.unit withIsLook:@"1"];
+    //改变resultarry数据
+    [_resultArray setObject:info atIndexedSubscript:indexPath.row];
     
-    
-    
-    rightTableData = [NSMutableArray arrayWithCapacity:10];
-    
-    NSMutableArray *oneR = [NSMutableArray arrayWithCapacity:10];
-    for (int i = 0; i < 10; i++) {
-        NSMutableArray *ary = [NSMutableArray arrayWithCapacity:10];
-        for (int j = 0; j < 5; j++) {
-            if (j == 1) {
-                [ary addObject:[NSNumber numberWithInt:random() % 5]];
-            }else if (j == 2) {
-                [ary addObject:[NSNumber numberWithInt:random() % 10]];
-            }
-            else {
-                [ary addObject:[NSString stringWithFormat:@"column %d %d", i, j]];
-            }
-        }
-        [oneR addObject:ary];
-    }
-    [rightTableData addObject:oneR];
-    
-//    NSMutableArray *twoR = [NSMutableArray arrayWithCapacity:10];
-//    for (int i = 3; i < 10; i++) {
-//        NSMutableArray *ary = [NSMutableArray arrayWithCapacity:10];
-//        for (int j = 0; j < 5; j++) {
-//            if (j == 1) {
-//                [ary addObject:[NSNumber numberWithInt:random() % 5]];
-//            }else if (j == 2) {
-//                [ary addObject:[NSNumber numberWithInt:random() % 5]];
-//            }else {
-//                [ary addObject:[NSString stringWithFormat:@"column %d %d", i, j]];
-//            }
-//        }
-//        [twoR addObject:ary];
-//    }
-//    [rightTableData addObject:twoR];
 }
-
-
-#pragma mark - XCMultiTableViewDataSource
-
-
-- (NSArray *)arrayDataForTopHeaderInTableView:(XCMultiTableView *)tableView {
-    return [headData copy];
-}
-- (NSArray *)arrayDataForLeftHeaderInTableView:(XCMultiTableView *)tableView InSection:(NSUInteger)section {
-    return [leftTableData objectAtIndex:section];
-}
-
-- (NSArray *)arrayDataForContentInTableView:(XCMultiTableView *)tableView InSection:(NSUInteger)section {
-    return [rightTableData objectAtIndex:section];
-}
-
-
-- (NSUInteger)numberOfSectionsInTableView:(XCMultiTableView *)tableView {
-    return [leftTableData count];
-}
-
-- (CGFloat)tableView:(XCMultiTableView *)tableView contentTableCellWidth:(NSUInteger)column {
-    if (column == 0) {
-        return 100.0f;
-    }
-    return 100.0f;
-}
-
-- (CGFloat)tableView:(XCMultiTableView *)tableView cellHeightInRow:(NSUInteger)row InSection:(NSUInteger)section {
-    if (section == 0) {
-        return 40.0f;
-    }else {
-        return 40.0f;
-    }
-}
-
-//- (UIColor *)tableView:(XCMultiTableView *)tableView bgColorInSection:(NSUInteger)section InRow:(NSUInteger)row InColumn:(NSUInteger)column {
-//    if (row == 1 && section == 0) {
-//        return [UIColor whiteColor];//[UIColor colorWithWhite:223.0f/255.0f alpha:1.0];
-//    }
-//    return [UIColor clearColor];
-//}
-
-- (UIColor *)tableView:(XCMultiTableView *)tableView headerBgColorInColumn:(NSUInteger)column {
-    //这个是表头第一个的颜色
-    if (column == -1) {
-        return [UIColor colorWithWhite:243.0f/255.0f alpha:1.0];
-    }else{ //if (column == 1) {
-        return [UIColor colorWithWhite:243.0f/255.0f alpha:1.0];
-    }
-    //return [UIColor clearColor];
-}
-
 @end

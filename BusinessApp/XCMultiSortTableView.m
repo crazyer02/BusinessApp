@@ -156,6 +156,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         leftHeaderTableView.frame = CGRectMake(0, topHeaderHeight + boldSeperatorLineWidth, leftHeaderWidth, superHeight - topHeaderHeight - boldSeperatorLineWidth);
         //右下
         contentScrollView.frame = CGRectMake(leftHeaderWidth + boldSeperatorLineWidth, topHeaderHeight + boldSeperatorLineWidth, superWidth - leftHeaderWidth - boldSeperatorLineWidth, superHeight - topHeaderHeight - boldSeperatorLineWidth);
+        //contentScrollView.frame = CGRectMake(leftHeaderWidth + boldSeperatorLineWidth, topHeaderHeight + boldSeperatorLineWidth, superWidth - leftHeaderWidth - boldSeperatorLineWidth, superHeight - topHeaderHeight - boldSeperatorLineWidth);
     }else {
         topHeaderScrollView.frame = CGRectMake(0, 0, superWidth, topHeaderHeight);
         contentScrollView.frame = CGRectMake(0, topHeaderHeight + boldSeperatorLineWidth, superWidth, superHeight - topHeaderHeight - boldSeperatorLineWidth);
@@ -384,6 +385,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     topHeaderScrollView.contentSize = CGSizeMake(width, topHeaderHeight);
     contentScrollView.contentSize = CGSizeMake(width, self.bounds.size.height - topHeaderHeight - boldSeperatorLineWidth);
     
+    //contenttable左边做一个leftheader的宽度的偏移量
     contentTableView.frame = CGRectMake(0.0f, 0.0f, width, self.bounds.size.height - topHeaderHeight - boldSeperatorLineWidth);
 }
 
@@ -411,16 +413,22 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
 - (void)setUpTopHeaderScrollView {
     
     NSUInteger count = [datasource arrayDataForTopHeaderInTableView:self].count;
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < count; i++)
+    {
         
         CGFloat topHeaderW = [self accessContentTableViewCellWidth:i];
         CGFloat topHeaderH = [self accessTopHeaderHeight];
         
         CGFloat widthP = [[columnPointCollection objectAtIndex:i] floatValue];
         
+        //把表头也做了偏移量
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, topHeaderW, topHeaderH)];
         view.clipsToBounds = YES;
+//        if (i>0) {
+//                    widthP-=leftHeaderWidth;
+//        }
         view.center = CGPointMake(widthP, topHeaderH / 2.0f);
+        
         view.tag = i;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -447,8 +455,14 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         if ([columnSortedTapFlags objectForKey:columnStr] == nil) {
             [columnSortedTapFlags setObject:[NSNumber numberWithInt:TableColumnSortTypeNone] forKey:columnStr];
         }
-       
+        
+        
+//        if (i==0) {
+//            view.frame = CGRectMake(0.0f-leftHeaderWidth, 0.0f, topHeaderW, topHeaderH);
+//            
+//        }
         [topHeaderScrollView addSubview:view];
+
     }
     
     [topHeaderScrollView reDraw];

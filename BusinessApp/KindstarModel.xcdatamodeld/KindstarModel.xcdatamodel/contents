@@ -6,6 +6,12 @@
         <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="MonthTotal" syncable="YES">
+        <attribute name="islook" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ybidnum" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="" syncable="YES">
         <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,6 +20,7 @@
     </entity>
     <elements>
         <element name="CheckOut" positionX="-1026" positionY="-234" width="128" height="105"/>
+        <element name="MonthTotal" positionX="-1044" positionY="-243" width="128" height="105"/>
         <element name="User" positionX="-1071" positionY="-306" width="135" height="105"/>
     </elements>
 </model>

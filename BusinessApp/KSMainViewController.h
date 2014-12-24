@@ -12,15 +12,18 @@
 #import "MYBlurIntroductionView.h"
 #import "KSUserDal.h"
 #import "User.h"
-#import "XCMultiSortTableView.h"
+#import "KSMonthTotalDal.h"
+#import "MonthTotalCell.h"
 
-@interface KSMainViewController : UIViewController<MYIntroductionDelegate,XCMultiTableViewDataSource>
 
-//@property (nonatomic, strong) KSUser * user;
-//@property (nonatomic, strong) KSUserDB * userDB;
+@interface KSMainViewController : UIViewController<MYIntroductionDelegate>{
+    
+    IBOutlet UITableView *monthTableView;
+    KSMonthTotalDal *monthDal;
+}
+
 @property (nonatomic, strong) KSUserDal * userDal;
 @property (nonatomic, strong) User * user;
 
-@property (strong, nonatomic) IBOutlet XCMultiTableView *tableView;
-
+@property (nonatomic, strong) NSMutableArray *resultArray;
 @end

@@ -38,4 +38,10 @@
  *  @return <#return value description#>
  */
 -(NSString*)AccessSpecimenNum:(NSString *)logid type:(NSString *)type;
+
+/**
+ *  访问web根据用户ID访问月结账记录
+ */
+-(NSString*)GetMonthTotal:(NSString *)logid;
+
 @end

@@ -65,7 +65,12 @@
 		AECE59D01A1CF06A0033DC9F /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CA1A1CF06A0033DC9F /* BEMCircle.m */; };
 		AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CC1A1CF06A0033DC9F /* BEMLine.m */; };
 		AECE59D21A1CF06A0033DC9F /* BEMSimpleLineGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */; };
+		AED008DE1A4423F300EFF3E0 /* KSSaleDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED008DD1A4423F300EFF3E0 /* KSSaleDayViewController.m */; };
+		AED008E11A49790C00EFF3E0 /* MonthTotal.m in Sources */ = {isa = PBXBuildFile; fileRef = AED008E01A49790C00EFF3E0 /* MonthTotal.m */; };
+		AED008E41A497EFE00EFF3E0 /* KSMonthTotalDal.m in Sources */ = {isa = PBXBuildFile; fileRef = AED008E31A497EFE00EFF3E0 /* KSMonthTotalDal.m */; };
 		AED834171A14FF5F008B151E /* KSLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834161A14FF5F008B151E /* KSLineViewController.m */; };
+		AED94A491A4B08CB00780EAD /* MonthTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AED94A471A4B08CB00780EAD /* MonthTotalCell.m */; };
+		AED94A4A1A4B08CB00780EAD /* MonthTotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED94A481A4B08CB00780EAD /* MonthTotalCell.xib */; };
 		AED9C2891A25833B003D6741 /* KSWebAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9C2881A25833B003D6741 /* KSWebAccess.m */; };
 		AED9C2901A2C3B38003D6741 /* AMBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9C28B1A2C3B38003D6741 /* AMBlurView.m */; };
 		AED9C2911A2C3B38003D6741 /* MYBlurIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9C28D1A2C3B38003D6741 /* MYBlurIntroductionView.m */; };
@@ -193,8 +198,17 @@
 		AECE59CC1A1CF06A0033DC9F /* BEMLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMLine.m; sourceTree = "<group>"; };
 		AECE59CD1A1CF06A0033DC9F /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
 		AECE59CE1A1CF06A0033DC9F /* BEMSimpleLineGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BEMSimpleLineGraphView.m; sourceTree = "<group>"; };
+		AED008DC1A4423F300EFF3E0 /* KSSaleDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSSaleDayViewController.h; path = ../KSSaleDayViewController.h; sourceTree = "<group>"; };
+		AED008DD1A4423F300EFF3E0 /* KSSaleDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSSaleDayViewController.m; path = ../KSSaleDayViewController.m; sourceTree = "<group>"; };
+		AED008DF1A49790C00EFF3E0 /* MonthTotal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthTotal.h; sourceTree = "<group>"; };
+		AED008E01A49790C00EFF3E0 /* MonthTotal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthTotal.m; sourceTree = "<group>"; };
+		AED008E21A497EFE00EFF3E0 /* KSMonthTotalDal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMonthTotalDal.h; sourceTree = "<group>"; };
+		AED008E31A497EFE00EFF3E0 /* KSMonthTotalDal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSMonthTotalDal.m; sourceTree = "<group>"; };
 		AED834151A14FF5F008B151E /* KSLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSLineViewController.h; path = ../KSLineViewController.h; sourceTree = "<group>"; };
 		AED834161A14FF5F008B151E /* KSLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSLineViewController.m; path = ../KSLineViewController.m; sourceTree = "<group>"; };
+		AED94A461A4B08CB00780EAD /* MonthTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthTotalCell.h; sourceTree = "<group>"; };
+		AED94A471A4B08CB00780EAD /* MonthTotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthTotalCell.m; sourceTree = "<group>"; };
+		AED94A481A4B08CB00780EAD /* MonthTotalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthTotalCell.xib; sourceTree = "<group>"; };
 		AED9C2871A25833B003D6741 /* KSWebAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWebAccess.h; sourceTree = "<group>"; };
 		AED9C2881A25833B003D6741 /* KSWebAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSWebAccess.m; sourceTree = "<group>"; };
 		AED9C28A1A2C3B38003D6741 /* AMBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMBlurView.h; sourceTree = "<group>"; };
@@ -316,6 +330,8 @@
 				AE0AFE6019FD7394008381B5 /* KSUser.m */,
 				AE0AFE6219FD7441008381B5 /* KSUserDB.h */,
 				AE0AFE6319FD7441008381B5 /* KSUserDB.m */,
+				AED008DF1A49790C00EFF3E0 /* MonthTotal.h */,
+				AED008E01A49790C00EFF3E0 /* MonthTotal.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -428,6 +444,8 @@
 				AED834161A14FF5F008B151E /* KSLineViewController.m */,
 				AE73E1FC19FA207900292837 /* KSMainViewController.h */,
 				AE73E1FD19FA207900292837 /* KSMainViewController.m */,
+				AED008DC1A4423F300EFF3E0 /* KSSaleDayViewController.h */,
+				AED008DD1A4423F300EFF3E0 /* KSSaleDayViewController.m */,
 				AEAD4CEE19FF8ED60078F89F /* KSLogedViewController.h */,
 				AEAD4CEF19FF8ED60078F89F /* KSLogedViewController.m */,
 				AE5B306319EFCCC400E44365 /* KSViewController.h */,
@@ -489,6 +507,16 @@
 			name = LineGraph;
 			sourceTree = "<group>";
 		};
+		AED94A451A4B088900780EAD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AED94A461A4B08CB00780EAD /* MonthTotalCell.h */,
+				AED94A471A4B08CB00780EAD /* MonthTotalCell.m */,
+				AED94A481A4B08CB00780EAD /* MonthTotalCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		AED9C2861A25822E003D6741 /* Function */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +542,7 @@
 		AED9C2941A2C3B8C003D6741 /* CustomPanels */ = {
 			isa = PBXGroup;
 			children = (
+				AED94A451A4B088900780EAD /* Cell */,
 				AED9C2951A2C3BC2003D6741 /* TestHeader.xib */,
 				AED9C2961A2C3BC2003D6741 /* TestPanel3.xib */,
 				AED9C2971A2C3BC2003D6741 /* MYCustomPanel.h */,
@@ -555,6 +584,8 @@
 				AEE4E71A1A2F17C000564347 /* CoreDateManager.m */,
 				AEE4E71C1A2F186100564347 /* KSUserDal.h */,
 				AEE4E71D1A2F186100564347 /* KSUserDal.m */,
+				AED008E21A497EFE00EFF3E0 /* KSMonthTotalDal.h */,
+				AED008E31A497EFE00EFF3E0 /* KSMonthTotalDal.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -642,6 +673,7 @@
 				AE08933C1A0A08CD006D860F /* camera_enabled@2x.png in Resources */,
 				AED9C2A31A2C3D53003D6741 /* ForkImage.png in Resources */,
 				AE0893411A0A08CD006D860F /* user_disabled@2x.png in Resources */,
+				AED94A4A1A4B08CB00780EAD /* MonthTotalCell.xib in Resources */,
 				AE0893401A0A08CD006D860F /* globe_enabled@2x.png in Resources */,
 				AED9C2A51A2C3D53003D6741 /* Toronto, ON.jpg in Resources */,
 				AED9C2A61A2C3D53003D6741 /* CheckMarkWhite.png in Resources */,
@@ -677,6 +709,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED008DE1A4423F300EFF3E0 /* KSSaleDayViewController.m in Sources */,
 				AE5B306519EFCCC400E44365 /* KSViewController.m in Sources */,
 				AEDAC74F1A2DCB9300B050E2 /* CheckOut.m in Sources */,
 				AEDAC73E1A2D914300B050E2 /* KindstarModel.xcdatamodeld in Sources */,
@@ -685,6 +718,7 @@
 				AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */,
 				AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */,
 				AEE4E71B1A2F17C000564347 /* CoreDateManager.m in Sources */,
+				AED008E41A497EFE00EFF3E0 /* KSMonthTotalDal.m in Sources */,
 				AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */,
 				AED9C2891A25833B003D6741 /* KSWebAccess.m in Sources */,
 				AE08934A1A0A259F006D860F /* RKTabView.m in Sources */,
@@ -699,7 +733,9 @@
 				AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */,
 				AED9C2901A2C3B38003D6741 /* AMBlurView.m in Sources */,
 				AED9DE301A30A88700305685 /* XCMultiSortTableView.m in Sources */,
+				AED008E11A49790C00EFF3E0 /* MonthTotal.m in Sources */,
 				AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */,
+				AED94A491A4B08CB00780EAD /* MonthTotalCell.m in Sources */,
 				AE0AFE6119FD7394008381B5 /* KSUser.m in Sources */,
 				AECE59D21A1CF06A0033DC9F /* BEMSimpleLineGraphView.m in Sources */,
 				AEDAC74C1A2DCB9200B050E2 /* BusinessApp.m in Sources */,
