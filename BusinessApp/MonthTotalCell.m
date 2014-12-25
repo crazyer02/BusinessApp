@@ -29,16 +29,18 @@
     [super setSelected:selected animated:animated];
     if (selected) {
         _TitleLabel.textColor = [UIColor darkGrayColor];
+        _priceLabel.textColor=[UIColor darkGrayColor];
     }
 }
 
 -(void)setContent:(MonthTotal*)info
 {
-    _numberLabel.text=info.ybidnum;
+    _numberLabel.text=[NSString stringWithFormat:@"%@个条码",info.ybidnum];
     _TitleLabel.text = info.unit;
-    _priceLabel.text = info.total;
+    _priceLabel.text = [NSString stringWithFormat:@"¥%@",info.total];
     if ([info.islook isEqualToString:@"1"]) {
         _TitleLabel.textColor = [UIColor darkGrayColor];
+        _priceLabel.textColor=[UIColor darkGrayColor];
     }
 }
 

@@ -118,6 +118,7 @@
             //[coreManager deleteData];
             [self writeDate];
         }else{
+            //[self writeDate];
             //没有超过8小时一更新就从数据库中读
             NSMutableArray *array = [monthDal selectData:10 andOffset:0];
             _resultArray = [NSMutableArray arrayWithArray:array];
@@ -138,7 +139,7 @@
         GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
         
         NSArray* nodes=[doc.rootElement elementsForName:@"QueryItem"];
-        
+        _resultArray = [NSMutableArray arrayWithCapacity:nodes.count];
         for (GDataXMLElement *ele in nodes) {
             MonthTotal *info=[[MonthTotal alloc]init];
             GDataXMLElement *totalElement=[[ele elementsForName:@"Total"]objectAtIndex:0];
@@ -292,7 +293,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    return 60;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -319,4 +320,6 @@
     [_resultArray setObject:info atIndexedSubscript:indexPath.row];
     
 }
+
+
 @end

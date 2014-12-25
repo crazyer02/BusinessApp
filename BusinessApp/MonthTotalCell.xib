@@ -21,15 +21,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="number" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="Blz-sb-Aei">
-                        <rect key="frame" x="24" y="31" width="144" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="43" y="32" width="125" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tag.png" translatesAutoresizingMaskIntoConstraints="NO" id="ELt-DT-sWc">
+                        <rect key="frame" x="24" y="35" width="14" height="14"/>
+                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="199" translatesAutoresizingMaskIntoConstraints="NO" id="sl1-8W-tOF">
                         <rect key="frame" x="176" y="16" width="136" height="27"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -39,7 +42,10 @@
                 <outlet property="numberLabel" destination="Blz-sb-Aei" id="N52-ld-7VE"/>
                 <outlet property="priceLabel" destination="sl1-8W-tOF" id="wYb-M7-a9b"/>
             </connections>
-            <point key="canvasLocation" x="272" y="373"/>
+            <point key="canvasLocation" x="272" y="370"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Tag.png" width="30" height="30"/>
+    </resources>
 </document>
