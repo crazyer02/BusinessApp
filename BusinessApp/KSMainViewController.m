@@ -15,6 +15,10 @@
 #import "GDataXMLNode.h"
 #import "MonthTotal.h"
 //#import "XCMultiSortTableViewDefault.h"
+#import "MJRefresh.h"
+
+NSString *const MJTableViewCellIdentifier = @"MonthTotalCell";
+NSInteger pageNumber=0;
 
 @interface KSMainViewController()<RKTabViewDelegate>
 
@@ -78,27 +82,33 @@
 {
     [super viewDidLoad];
     
+    // 1.注册cell
+    //[monthTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MJTableViewCellIdentifier];
+    
+    // 2.集成刷新控件
+    [self setupRefresh];
+    
     //
     //    RKTabItem *mastercardTabItem = [RKTabItem createUsualItemWithImageEnabled:nil imageDisabled:[UIImage imageNamed:@"mastercard"]];
     
-    RKTabItem *globeTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"globe_enabled"] imageDisabled:[UIImage imageNamed:@"globe_disabled"]];
-    globeTabItem.titleString=@"globe";
-    globeTabItem.tabState = TabStateEnabled;
-    RKTabItem *cameraTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled"] imageDisabled:[UIImage imageNamed:@"camera_disabled"]];
-    cameraTabItem.titleString=@"camera";
-    RKTabItem *cloudTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"cloud_enabled"] imageDisabled:[UIImage imageNamed:@"cloud_disabled"]];
-    cloudTabItem.titleString=@"cloud";
-    RKTabItem *userTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"user_enabled"] imageDisabled:[UIImage imageNamed:@"user_disabled"]];
-    userTabItem.titleString=@"user";
-    RKTabItem *watchTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"watch_enabled"] imageDisabled:[UIImage imageNamed:@"watch_disabled"]];
-    watchTabItem.titleString=@"watch";
-    
-    
-    self.titledTabsView.darkensBackgroundForEnabledTabs = YES;
-    self.titledTabsView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
-    self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
-    
-    self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
+//    RKTabItem *globeTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"globe_enabled"] imageDisabled:[UIImage imageNamed:@"globe_disabled"]];
+//    globeTabItem.titleString=@"globe";
+//    globeTabItem.tabState = TabStateEnabled;
+//    RKTabItem *cameraTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"camera_enabled"] imageDisabled:[UIImage imageNamed:@"camera_disabled"]];
+//    cameraTabItem.titleString=@"camera";
+//    RKTabItem *cloudTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"cloud_enabled"] imageDisabled:[UIImage imageNamed:@"cloud_disabled"]];
+//    cloudTabItem.titleString=@"cloud";
+//    RKTabItem *userTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"user_enabled"] imageDisabled:[UIImage imageNamed:@"user_disabled"]];
+//    userTabItem.titleString=@"user";
+//    RKTabItem *watchTabItem = [RKTabItem createUsualItemWithImageEnabled:[UIImage imageNamed:@"watch_enabled"] imageDisabled:[UIImage imageNamed:@"watch_disabled"]];
+//    watchTabItem.titleString=@"watch";
+//    
+//    
+//    self.titledTabsView.darkensBackgroundForEnabledTabs = YES;
+//    self.titledTabsView.horizontalInsets = HorizontalEdgeInsetsMake(25, 25);
+//    self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
+//    
+//    self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
     
     monthDal=[[KSMonthTotalDal alloc]init];
     //更新时间
@@ -118,7 +128,7 @@
             //[coreManager deleteData];
             [self writeDate];
         }else{
-            //[self writeDate];
+            
             //没有超过8小时一更新就从数据库中读
             NSMutableArray *array = [monthDal selectData:10 andOffset:0];
             _resultArray = [NSMutableArray arrayWithArray:array];
@@ -298,8 +308,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MonthTotalCell";
-    MonthTotalCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //static NSString *CellIdentifier = @"MonthTotalCell";
+//    [monthTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MJTableViewCellIdentifier];
+    MonthTotalCell *cell = [tableView dequeueReusableCellWithIdentifier:MJTableViewCellIdentifier];
     if (cell == nil) {
         NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"MonthTotalCell" owner:self options:nil];
         cell = [cells lastObject];
@@ -322,4 +333,74 @@
 }
 
 
+#pragma 上拉下拉刷新
+
+/**
+ 为了保证内部不泄露，在dealloc中释放占用的内存
+ */
+- (void)dealloc
+{
+    NSLog(@"MJTableViewController--dealloc---");
+}
+
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
+    [monthTableView addHeaderWithTarget:self action:@selector(headerRereshing)];
+#warning 自动刷新(一进入程序就下拉刷新)
+    [monthTableView headerBeginRefreshing];
+    
+    // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
+    [monthTableView addFooterWithTarget:self action:@selector(footerRereshing)];
+    
+    // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
+    monthTableView.headerPullToRefreshText = @"↓下拉刷新";
+    monthTableView.headerReleaseToRefreshText = @"↑松开刷新";
+    monthTableView.headerRefreshingText = @"刷新中……";
+    
+    monthTableView.footerPullToRefreshText = @"↑上拉加载更多数据";
+    monthTableView.footerReleaseToRefreshText = @"↓松开马上加载更多数据了";
+    monthTableView.footerRefreshingText = @"加载更多……";
+}
+
+#pragma mark 开始进入刷新状态
+- (void)headerRereshing
+{
+//    // 1.添加假数据
+//    for (int i = 0; i<5; i++) {
+//        [self.fakeData insertObject:MJRandomData atIndex:0];
+//    }
+    
+    // 2.2秒后刷新表格UI
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [monthTableView reloadData];
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [monthTableView headerEndRefreshing];
+    });
+}
+
+- (void)footerRereshing
+{
+    pageNumber++;
+    // 1.添加假数据
+    NSMutableArray *array = [monthDal selectData:10 andOffset:pageNumber];
+    //_resultArray = [NSMutableArray arrayWithArray:array];
+    //建立一个NSIndexSet.
+    NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange:
+                           NSMakeRange(0,[array count])];
+    [_resultArray insertObjects:array atIndexes:indexes];
+    
+    // 2.2秒后刷新表格UI
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        [monthTableView reloadData];
+        
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        [monthTableView footerEndRefreshing];
+    });
+}
 @end
