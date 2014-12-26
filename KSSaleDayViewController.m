@@ -8,6 +8,9 @@
 
 #import "KSSaleDayViewController.h"
 #import "KSMainViewController.h"
+#import "KSSrBaseDal.h"
+#import "KSWebAccess.h"
+#import "GDataXMLNode.h"
 
 @interface KSSaleDayViewController()<XCMultiTableViewDataSource>
 
@@ -32,6 +35,15 @@
 {
     [super viewDidLoad];
 
+    srBaseDal=[[KSSrBaseDal alloc]init];
+    NSString *maxId =[srBaseDal getMaxId];
+    if ([maxId isEqual:@"0"]) {
+        //如果无此对象，表示第一次，那么就读数据写到数据库中
+        [self writeDate];
+        
+    }
+    else{
+    }
     [self initData];
     
     [self.tableView initWithFrame:CGRectInset(self.tableView.bounds,0,0)];
@@ -39,6 +51,39 @@
     self.tableView.leftHeaderEnable = YES;
     //指定数据委托
     self.tableView.datasource = self;
+}
+
+-(void)writeDate
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%f",[NSDate timeIntervalSinceReferenceDate]] forKey:@"updateDate"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    KSWebAccess *webAccess=[[KSWebAccess alloc]init];
+    NSString *response=[webAccess GetMonthTotal:_reciveUser.logid];
+    if (nil!=response||response.length>0||![response isEqualToString:@""])
+    {
+        GDataXMLDocument* doc=[[GDataXMLDocument alloc]initWithXMLString:response options:0 error:nil];
+        
+        NSArray* nodes=[doc.rootElement elementsForName:@"QueryItem"];
+        _resultArray = [NSMutableArray arrayWithCapacity:nodes.count];
+        for (GDataXMLElement *ele in nodes) {
+            MonthTotal *info=[[MonthTotal alloc]init];
+            GDataXMLElement *totalElement=[[ele elementsForName:@"Total"]objectAtIndex:0];
+            info.total= [totalElement stringValue];
+            
+            GDataXMLElement *unitElement=[[ele elementsForName:@"Unit"]objectAtIndex:0];
+            info.unit= [unitElement stringValue];
+            
+            GDataXMLElement *numElement=[[ele elementsForName:@"YbidNum"]objectAtIndex:0];
+            info.ybidnum= [numElement stringValue];
+            
+            [_resultArray addObject:info];
+        }
+    }
+    
+    //把数据写到数据库
+    [srBaseDal processCoreDate:_resultArray];
+
 }
 
 /**
@@ -62,8 +107,7 @@
     //        [two addObject:[NSString stringWithFormat:@"ki-%d", i]];
     //    }
     //    [leftTableData addObject:two];
-    
-    
+
     
     rightTableData = [NSMutableArray arrayWithCapacity:10];
     

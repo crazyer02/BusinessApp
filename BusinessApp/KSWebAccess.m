@@ -67,6 +67,17 @@
     return [self WebAppAccess:resultMessage];
 }
 
+//-(NSString*)GetMonthTotal:(NSString *)logid
+//{
+//    logid=@"01154";
+//    
+//    NSString * resultMessage=[kReachabilityUrl stringByAppendingString:[NSString stringWithFormat:@"/GetMonthTotal/%@",logid]];
+//    
+//    NSLog(@"%@",resultMessage);
+//    
+//    return [self WebAppAccess:resultMessage];
+//}
+
 #pragma mark - private function
 - (NSString*)WebAppAccess:(NSString *)resultMessage
 {

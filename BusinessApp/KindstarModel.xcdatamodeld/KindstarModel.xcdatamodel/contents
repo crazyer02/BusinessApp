@@ -6,6 +6,40 @@
         <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ybidnum" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="SrBase" syncable="YES">
+        <attribute name="brxm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="byh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bz" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cdrq" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cpx" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cpzy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fuzenren" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guishu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hezuozhuangtai" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ind" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jiesuanfangshi" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jsjg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jspj" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jszk" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jymddm" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jymdmc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="jymdsf" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="khks" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="leibei" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="newjsjg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qrry" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qrsj" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qrzt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sheng" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shi" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tsjg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xian" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="xjjg" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ybid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yiyuanjibie" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zhangqi" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="User" representedClassName="" syncable="YES">
         <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="descrip" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,7 +47,8 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MonthTotal" positionX="-1044" positionY="-243" width="128" height="105"/>
+        <element name="MonthTotal" positionX="-1044" positionY="-243" width="128" height="103"/>
         <element name="User" positionX="-1071" positionY="-306" width="135" height="105"/>
+        <element name="SrBase" positionX="-1053" positionY="-243" width="128" height="523"/>
     </elements>
 </model>

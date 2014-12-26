@@ -10,8 +10,12 @@
 #import "XCMultiSortTableView.h"
 #import "MonthTotal.h"
 #import "User.h"
+#import "KSSrBaseDal.h"
 
 @interface KSSaleDayViewController : UIViewController<XCMultiTableViewDataSource>
+{
+   KSSrBaseDal *srBaseDal;
+}
 
 @property (strong, nonatomic) IBOutlet XCMultiTableView *tableView;
 
@@ -20,4 +24,6 @@
  */
 @property(nonatomic,weak)User *reciveUser;
 @property(nonatomic,weak)MonthTotal *reciveDay;
+
+@property (nonatomic, strong) NSMutableArray *resultArray;
 @end

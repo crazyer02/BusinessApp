@@ -188,6 +188,7 @@
     if ([context save:&error]) {
         //更新成功
         NSLog(@"更新成功");
-    }}
+    }
+}
 
 @end

@@ -100,6 +100,8 @@
 		AEE877561A4C22AF00F1F7B0 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8774D1A4C22AF00F1F7B0 /* UIScrollView+MJExtension.m */; };
 		AEE877571A4C22AF00F1F7B0 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8774F1A4C22AF00F1F7B0 /* UIScrollView+MJRefresh.m */; };
 		AEE877581A4C22AF00F1F7B0 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE877511A4C22AF00F1F7B0 /* UIView+MJExtension.m */; };
+		AEE8775B1A4D61C700F1F7B0 /* SrBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8775A1A4D61C700F1F7B0 /* SrBase.m */; };
+		AEE8775E1A4D676B00F1F7B0 /* KSSrBaseDal.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8775D1A4D676B00F1F7B0 /* KSSrBaseDal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +270,10 @@
 		AEE8774F1A4C22AF00F1F7B0 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		AEE877501A4C22AF00F1F7B0 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		AEE877511A4C22AF00F1F7B0 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		AEE877591A4D61C700F1F7B0 /* SrBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SrBase.h; sourceTree = "<group>"; };
+		AEE8775A1A4D61C700F1F7B0 /* SrBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SrBase.m; sourceTree = "<group>"; };
+		AEE8775C1A4D676B00F1F7B0 /* KSSrBaseDal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSrBaseDal.h; sourceTree = "<group>"; };
+		AEE8775D1A4D676B00F1F7B0 /* KSSrBaseDal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSrBaseDal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +362,8 @@
 				AE0AFE6319FD7441008381B5 /* KSUserDB.m */,
 				AED008DF1A49790C00EFF3E0 /* MonthTotal.h */,
 				AED008E01A49790C00EFF3E0 /* MonthTotal.m */,
+				AEE877591A4D61C700F1F7B0 /* SrBase.h */,
+				AEE8775A1A4D61C700F1F7B0 /* SrBase.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -612,6 +620,8 @@
 				AEE4E71D1A2F186100564347 /* KSUserDal.m */,
 				AED008E21A497EFE00EFF3E0 /* KSMonthTotalDal.h */,
 				AED008E31A497EFE00EFF3E0 /* KSMonthTotalDal.m */,
+				AEE8775C1A4D676B00F1F7B0 /* KSSrBaseDal.h */,
+				AEE8775D1A4D676B00F1F7B0 /* KSSrBaseDal.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -767,6 +777,7 @@
 				AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */,
 				AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */,
 				AEE4E71B1A2F17C000564347 /* CoreDateManager.m in Sources */,
+				AEE8775B1A4D61C700F1F7B0 /* SrBase.m in Sources */,
 				AED008E41A497EFE00EFF3E0 /* KSMonthTotalDal.m in Sources */,
 				AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */,
 				AED9C2891A25833B003D6741 /* KSWebAccess.m in Sources */,
@@ -780,6 +791,7 @@
 				AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */,
 				AED9C29C1A2C3BC2003D6741 /* MYCustomPanel.m in Sources */,
 				AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */,
+				AEE8775E1A4D676B00F1F7B0 /* KSSrBaseDal.m in Sources */,
 				AEE877541A4C22AF00F1F7B0 /* MJRefreshFooterView.m in Sources */,
 				AED9C2901A2C3B38003D6741 /* AMBlurView.m in Sources */,
 				AED9DE301A30A88700305685 /* XCMultiSortTableView.m in Sources */,

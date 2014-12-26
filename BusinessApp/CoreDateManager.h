@@ -10,6 +10,7 @@
 #import "User.h"
 #define TableName @"User"
 #define MonthTableName @"MonthTotal"
+#define SrBaseTableName @"SrBase"
 
 @interface CoreDateManager : NSObject
 
