@@ -26,4 +26,5 @@
 @property (nonatomic, strong) User * user;
 
 @property (nonatomic, strong) NSMutableArray *resultArray;
+@property (nonatomic,strong) MonthTotal *daydata;
 @end

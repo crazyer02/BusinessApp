@@ -19,5 +19,7 @@
 
 - (void)updateData:(NSString*)unit  withIsLook:(NSString*)islook;
 
-- (NSMutableArray*)selectData:(int)pageSize andOffset:(int)currentPage;
+-(void)deleteData;
+
+- (NSMutableArray*)selectData:(int)pageSize andOffset:(int)offset;
 @end

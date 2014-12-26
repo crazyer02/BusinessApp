@@ -8,7 +8,7 @@
 
 #import "KSMainViewController.h"
 #import "KSUserDB.h"
-#import "RKTabView.h"
+//#import "RKTabView.h"
 #import "KSAppDelegate.h"
 #import "MYCustomPanel.h"
 #import "KSWebAccess.h"
@@ -16,14 +16,15 @@
 #import "MonthTotal.h"
 //#import "XCMultiSortTableViewDefault.h"
 #import "MJRefresh.h"
+#import "KSSaleDayViewController.h"
 
 NSString *const MJTableViewCellIdentifier = @"MonthTotalCell";
 NSInteger pageNumber=0;
 
-@interface KSMainViewController()<RKTabViewDelegate>
+@interface KSMainViewController()//<RKTabViewDelegate>
 
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *loginBarButtonItem;
-@property (nonatomic,strong) IBOutlet RKTabView *titledTabsView;
+//@property (nonatomic,strong) IBOutlet RKTabView *titledTabsView;
 
 @end
 
@@ -125,10 +126,11 @@ NSInteger pageNumber=0;
         //8小时一更新
         if ((now - update)>10*60*60) {
             //如果超出8小时一更新就把数据库清空再重新写
-            //[coreManager deleteData];
+            //[monthDal deleteData];
             [self writeDate];
         }else{
-            
+            //[monthDal deleteData];
+            //[self writeDate];
             //没有超过8小时一更新就从数据库中读
             NSMutableArray *array = [monthDal selectData:10 andOffset:0];
             _resultArray = [NSMutableArray arrayWithArray:array];
@@ -169,24 +171,24 @@ NSInteger pageNumber=0;
     [monthDal insertCoreData:_resultArray];
     [monthTableView reloadData];
 }
-
-#pragma mark - RKTabViewDelegate
-
-- (void)tabView:(RKTabView *)tabView tabBecameEnabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
-    NSLog(@"Tab  %d became enabled on tab view", index);
-}
-
-- (void)tabView:(RKTabView *)tabView tabBecameDisabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
-    NSLog(@"Tab  %d became disabled on tab view", index);
-}
+//
+//#pragma mark - RKTabViewDelegate
+//
+//- (void)tabView:(RKTabView *)tabView tabBecameEnabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
+//    NSLog(@"Tab  %d became enabled on tab view", index);
+//}
+//
+//- (void)tabView:(RKTabView *)tabView tabBecameDisabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
+//    NSLog(@"Tab  %d became disabled on tab view", index);
+//}
 
 -(void) viewWillAppear:(BOOL)animated
 {
     
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"is_first"]) {
-        
+        [self buildIntro];
     }
-    [self buildIntro];
+    
     [self initMainPage];
 }
 
@@ -214,6 +216,12 @@ NSInteger pageNumber=0;
     if ([segue.identifier isEqualToString:@"doLogedPage"])
     {
         id theSegue=segue.destinationViewController;
+        [theSegue setValue:_user forKey:@"reciveUser"];
+    }
+    if ([segue.identifier isEqualToString:@"doSaleDayPage"])
+    {
+        id theSegue=segue.destinationViewController;
+        [theSegue setValue:_daydata forKey:@"reciveDay"];
         [theSegue setValue:_user forKey:@"reciveUser"];
     }
 }
@@ -323,13 +331,14 @@ NSInteger pageNumber=0;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //当你点击时说明要看此条新闻，那么就标注此新闻已被看过
-    MonthTotal *info = [_resultArray objectAtIndex:indexPath.row];
-    info.islook = @"1";
+    _daydata= [_resultArray objectAtIndex:indexPath.row];
+    _daydata.islook = @"1";
     //改变数据库查看状态
-    [monthDal updateData:info.unit withIsLook:@"1"];
+    [monthDal updateData:_daydata.unit withIsLook:@"1"];
     //改变resultarry数据
-    [_resultArray setObject:info atIndexedSubscript:indexPath.row];
+    [_resultArray setObject:_daydata atIndexedSubscript:indexPath.row];
     
+    [self performSegueWithIdentifier:@"doSaleDayPage" sender:self];
 }
 
 
@@ -350,7 +359,7 @@ NSInteger pageNumber=0;
 {
     // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
     [monthTableView addHeaderWithTarget:self action:@selector(headerRereshing)];
-#warning 自动刷新(一进入程序就下拉刷新)
+//#warning 自动刷新(一进入程序就下拉刷新)
     [monthTableView headerBeginRefreshing];
     
     // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
@@ -369,10 +378,13 @@ NSInteger pageNumber=0;
 #pragma mark 开始进入刷新状态
 - (void)headerRereshing
 {
-//    // 1.添加假数据
-//    for (int i = 0; i<5; i++) {
-//        [self.fakeData insertObject:MJRandomData atIndex:0];
-//    }
+    // 1.添加假数据
+
+    [self writeDate];
+    //没有超过8小时一更新就从数据库中读
+    NSMutableArray *array = [monthDal selectData:10 andOffset:0];
+    _resultArray = [NSMutableArray arrayWithArray:array];
+    [monthTableView reloadData];
     
     // 2.2秒后刷新表格UI
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -387,11 +399,11 @@ NSInteger pageNumber=0;
 {
     pageNumber++;
     // 1.添加假数据
-    NSMutableArray *array = [monthDal selectData:10 andOffset:pageNumber];
+    NSMutableArray *array = [monthDal selectData:10 andOffset:pageNumber*10];
     //_resultArray = [NSMutableArray arrayWithArray:array];
     //建立一个NSIndexSet.
     NSIndexSet *indexes = [NSIndexSet indexSetWithIndexesInRange:
-                           NSMakeRange(0,[array count])];
+                           NSMakeRange(_resultArray.count,[array count])];
     [_resultArray insertObjects:array atIndexes:indexes];
     
     // 2.2秒后刷新表格UI

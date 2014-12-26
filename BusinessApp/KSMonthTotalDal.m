@@ -33,9 +33,35 @@
 - (void)insertCoreData:(NSMutableArray*)dataArray
 {
     NSManagedObjectContext *context =_con; //[self managedObjectContext];
-    for (MonthTotal *model in dataArray) {
-        [self insertModel:context model:model];
+    
+    //找出数据库中所有的数据
+    NSMutableArray *array = [self selectData:32 andOffset:0];
+    for(MonthTotal *model in dataArray)
+    {
+        BOOL isNotExists=false;
+        for (MonthTotal *info in array)
+        {
+            //NSLog(@"unit:%@; %@",model.unit, info.unit);
+            if ([model.unit isEqualToString: info.unit] && ![model.total isEqualToString: info.total])
+            {
+                [self updateModel:context model:model];
+                isNotExists=true;
+                break;
+            } else if([model.unit isEqualToString: info.unit] && [model.total isEqualToString: info.total]){
+                isNotExists=true;
+                break;
+            }
+            isNotExists=false;
+        }
+        
+        if (!isNotExists)  {
+            [self insertModel:context model:model];
+        }
     }
+    
+//    for (MonthTotal *model in dataArray) {
+//        [self insertModel:context model:model];
+//    }
 }
 
 -(void)processCoreDate:(NSMutableArray*)dataArray
@@ -70,7 +96,7 @@
 }
 
 //查询
-- (NSMutableArray*)selectData:(int)pageSize andOffset:(int)currentPage
+- (NSMutableArray*)selectData:(int)pageSize andOffset:(int)offset
 {
     NSManagedObjectContext *context = _con;
     
@@ -78,12 +104,13 @@
     //setFetchLimit
     // 查询的偏移量
     //setFetchOffset
-    
+    NSSortDescriptor * sort = [NSSortDescriptor sortDescriptorWithKey:@"unit" ascending:NO];
+    NSArray * sortDescriptors = [NSArray arrayWithObject: sort];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     [fetchRequest setFetchLimit:pageSize];
-    [fetchRequest setFetchOffset:currentPage];
-    
+    [fetchRequest setFetchOffset:offset];
+    [fetchRequest setSortDescriptors: sortDescriptors];
     NSEntityDescription *entity = [NSEntityDescription entityForName:MonthTableName inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     NSError *error;
@@ -97,6 +124,31 @@
     }
     return resultArray;
 }
+
+//删除
+-(void)deleteData
+{
+    NSManagedObjectContext *context = _con;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:MonthTableName inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setIncludesPropertyValues:NO];
+    [request setEntity:entity];
+    NSError *error = nil;
+    NSArray *datas = [context executeFetchRequest:request error:&error];
+    if (!error && datas && [datas count])
+    {
+        for (NSManagedObject *obj in datas)
+        {
+            [context deleteObject:obj];
+        }
+        if (![context save:&error])
+        {
+            NSLog(@"error:%@",error);
+        }
+    }
+}
+
 #pragma mark - private function
 
 - (void)insertModel:(NSManagedObjectContext *)context model:(MonthTotal *)model
@@ -113,5 +165,29 @@
     }
 }
 
+- (void)updateModel:(NSManagedObjectContext *)context model:(MonthTotal *)model
+{
+    
+    NSPredicate *predicate = [NSPredicate
+                              predicateWithFormat:@"unit = %@",model.unit];
+    
+    //首先你需要建立一个request
+    NSFetchRequest * request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:MonthTableName inManagedObjectContext:context]];
+    [request setPredicate:predicate];//这里相当于sqlite中的查询条件，具体格式参考苹果文档
+    
+    NSError *error = nil;
+    //这里获取到的是一个数组，你需要取出你要更新的那个obj
+    NSArray *result = [context executeFetchRequest:request error:&error];
+    for (MonthTotal *info in result) {
+        info.islook = model.islook;
+        info.unit=model.unit;
+    }
+    
+    //保存
+    if ([context save:&error]) {
+        //更新成功
+        NSLog(@"更新成功");
+    }}
 
 @end

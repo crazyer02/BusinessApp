@@ -274,20 +274,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" id="JE5-4N-Eul" customClass="XCMultiTableView">
-                                <rect key="frame" x="0.0" y="32" width="320" height="377"/>
+                                <rect key="frame" x="0.0" y="63" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.9456521739" green="0.6178650135" blue="0.077900101299999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mfJ-Lg-qHM"/>
                     <connections>
                         <outlet property="tableView" destination="JE5-4N-Eul" id="P5H-lS-fFb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoo-jv-Q6o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1277" y="565"/>
+            <point key="canvasLocation" x="1293" y="556"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Mdj-NC-oOE">
@@ -317,16 +317,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="28E-ke-bcn" customClass="RKTabView">
-                                <rect key="frame" x="0.0" y="425" width="320" height="55"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="delegate" destination="7xx-Z4-Bji" id="dtX-nz-xL6"/>
-                                </connections>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kL6-Mg-G3a">
-                                <rect key="frame" x="0.0" y="56" width="320" height="368"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -347,9 +339,9 @@
                     <connections>
                         <outlet property="loginBarButtonItem" destination="mPn-wa-tPx" id="bc3-zs-6Ur"/>
                         <outlet property="monthTableView" destination="kL6-Mg-G3a" id="aBd-EC-tqD"/>
-                        <outlet property="titledTabsView" destination="28E-ke-bcn" id="PGQ-qA-IjJ"/>
                         <segue destination="vXZ-lx-hvc" kind="push" identifier="doLogidPage" id="j7D-p5-JMo"/>
                         <segue destination="iGn-v3-8nw" kind="push" identifier="doLogedPage" id="TnT-BH-TVf"/>
+                        <segue destination="X7a-Lq-Xwa" kind="push" identifier="doSaleDayPage" id="2fm-0y-A7p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LIo-ZB-JE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -401,7 +393,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="1vN-Jl-Y5x"/>
         <segue reference="j7D-p5-JMo"/>
-        <segue reference="hEj-cs-PkL"/>
     </inferredMetricsTieBreakers>
 </document>

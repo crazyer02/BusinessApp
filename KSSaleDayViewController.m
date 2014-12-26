@@ -77,7 +77,7 @@
                 [ary addObject:[NSNumber numberWithInt:random() % 10]];
             }
             else {
-                [ary addObject:[NSString stringWithFormat:@"column %d %d", i, j]];
+                [ary addObject:[NSString stringWithFormat:@"column %@ %@", _reciveDay.unit, _reciveUser.username]];
             }
         }
         [oneR addObject:ary];
