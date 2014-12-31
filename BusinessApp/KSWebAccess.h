@@ -44,4 +44,14 @@
  */
 -(NSString*)GetMonthTotal:(NSString *)logid;
 
+/**
+ *  访问web根据id访问当天的记录
+ *
+ *  @param logid <#logid description#>
+ *  @param date  <#date description#>
+ *
+ *  @return <#return value description#>
+ */
+-(NSString*)QueryCheckAccount:(NSString *)logid andDate:(NSString *)date andMaxBaseId:(NSNumber*)maxId;
+
 @end

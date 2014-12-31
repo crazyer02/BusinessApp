@@ -11,6 +11,21 @@
 #import "SrBase.h"
 @implementation KSSrBaseDal
 
+/**
+ *  初始化重写
+ *
+ *  @return <#return value description#>
+ */
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        //========== 首先查看有没有建立message的数据库，如果未建立，则建立数据库=========
+        _con=[[CoreDateManager defaultCoreDateManager] managedObjectContext];
+    }
+    return self;
+}
+
 -(void)processCoreDate:(NSMutableArray*)dataArray
 {
     NSManagedObjectContext *context =_con; //[self managedObjectContext];
@@ -26,6 +41,12 @@
 - (NSMutableArray*)selectData:(int)pageSize andOffset:(int)offset andDate:(NSString*)cdrq
 {
     NSManagedObjectContext *context = _con;
+    //把字符串传唤成如：12-01 00:00
+    if(cdrq)
+    {
+        cdrq= [cdrq substringWithRange:NSMakeRange(5,5)];
+        cdrq=[cdrq stringByAppendingString:@" 00:00"];
+    }
     NSPredicate *predicate = [NSPredicate
                               predicateWithFormat:@"cdrq = %@",cdrq];
     // 限定查询结果的数量
@@ -36,8 +57,10 @@
     NSArray * sortDescriptors = [NSArray arrayWithObject: sort];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setPredicate:predicate];
-    [fetchRequest setFetchLimit:pageSize];
-    [fetchRequest setFetchOffset:offset];
+    if (pageSize!=-1) {
+        [fetchRequest setFetchLimit:pageSize];
+        [fetchRequest setFetchOffset:offset];
+    }
     [fetchRequest setSortDescriptors: sortDescriptors];
     NSEntityDescription *entity = [NSEntityDescription entityForName:SrBaseTableName inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
@@ -46,45 +69,54 @@
     NSMutableArray *resultArray = [NSMutableArray array];
     
     for (SrBase *info in fetchedObjects) {
-        NSLog(@"Id:%@", info.ind);
-        //NSLog(@"total:%@", info.total);
+        NSLog(@"Id:%@ ; brxm:%@; cdrq:%@", info.ind,info.brxm,info.cdrq);
         [resultArray addObject:info];
     }
     return resultArray;
 }
 
--(NSString*) getMaxId
+-(NSNumber*) getMaxId:(NSString*)cdrq
 {
     NSManagedObjectContext *context = _con;
+    //把字符串传唤成如：12-01 00:00
+    if(cdrq)
+    {
+        cdrq= [cdrq substringWithRange:NSMakeRange(5,5)];
+        cdrq=[cdrq stringByAppendingString:@" 00:00"];
+    }
+    NSPredicate *predicate = [NSPredicate
+                              predicateWithFormat:@"cdrq = %@",cdrq];
     NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:@"ind"];
     
     NSExpression *maxSalaryExpression = [NSExpression expressionForFunction:@"max:"                                                                  arguments:[NSArray arrayWithObject:keyPathExpression]];
     
     NSExpressionDescription *expressionDescription = [[NSExpressionDescription alloc] init];
-    
-    [expressionDescription setName:@"maxSalary"];
-    
+    [expressionDescription setName:@"maxInd"];
     [expressionDescription setExpression:maxSalaryExpression];
+    [expressionDescription setExpressionResultType:NSInteger32AttributeType];
     
-    [expressionDescription setExpressionResultType:NSDecimalAttributeType];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
     NSEntityDescription *entity = [NSEntityDescription entityForName:SrBaseTableName inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
+    [fetchRequest setResultType:NSDictionaryResultType];
+    
     NSError *error;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
-    for (SrBase *info in fetchedObjects) {
-        return info.ind;
+    if (fetchedObjects && fetchedObjects.count > 0)
+    {
+        return [fetchedObjects[0] objectForKey:@"maxInd"];
     }
-    return @"0";
+    return [NSNumber numberWithInt:0];
 }
 #pragma mark - private function
 
 - (void)processModel:(NSManagedObjectContext *)context model:(SrBase *)model
 {
     NSPredicate *predicate = [NSPredicate
-                              predicateWithFormat:@"ind = %@",model.ind];
+                              predicateWithFormat:@"ind = %d",model.ind];
     
     //首先你需要建立一个request
     NSFetchRequest * request = [[NSFetchRequest alloc] init];
@@ -108,7 +140,38 @@
 - (void)insertModel:(NSManagedObjectContext *)context model:(SrBase *)model
 {
     SrBase *info = [NSEntityDescription insertNewObjectForEntityForName:SrBaseTableName inManagedObjectContext:context];
-    [info initWithModel:model];
+    info.brxm = model.brxm;
+    info.byh=model.byh;
+    info.bz=model.bz;
+    info.cdrq=model.cdrq;
+    info.cpx=model.cpx;
+    info.cpzy=model.cpzy;
+    info.fuzenren=model.fuzenren;
+    info.gname=model.gname;
+    info.guishu=model.guishu;
+    info.hezuozhuangtai=model.hezuozhuangtai;
+    info.ind=model.ind;
+    info.jiesuanfangshi=model.jiesuanfangshi;
+    info.jsjg=model.jsjg;
+    info.jspj=model.jspj;
+    info.jszk=model.jszk;
+    info.jymddm=model.jymddm;
+    info.jymdmc=model.jymdmc;
+    info.jymdsf=model.jymdsf;
+    info.khks=model.khks;
+    info.leibei=model.leibei;
+    info.newjsjg=model.newjsjg;
+    info.qrry=model.qrry;
+    info.qrsj=model.qrsj;
+    info.qrzt=model.qrzt;
+    info.sheng=model.sheng;
+    info.shi=model.shi;
+    info.tsjg=model.tsjg;
+    info.xian=model.xian;
+    info.xjjg=model.xjjg;
+    info.ybid=model.ybid;
+    info.yiyuanjibie=model.yiyuanjibie;
+    info.zhangqi=model.zhangqi;
     NSError *error;
     if(![context save:&error])
     {

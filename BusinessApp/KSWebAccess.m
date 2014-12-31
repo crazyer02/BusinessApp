@@ -67,16 +67,16 @@
     return [self WebAppAccess:resultMessage];
 }
 
-//-(NSString*)GetMonthTotal:(NSString *)logid
-//{
-//    logid=@"01154";
-//    
-//    NSString * resultMessage=[kReachabilityUrl stringByAppendingString:[NSString stringWithFormat:@"/GetMonthTotal/%@",logid]];
-//    
-//    NSLog(@"%@",resultMessage);
-//    
-//    return [self WebAppAccess:resultMessage];
-//}
+-(NSString*)QueryCheckAccount:(NSString *)logid andDate:(NSString *)date andMaxBaseId:(NSNumber*)maxId
+{
+    logid=@"01154";
+    
+    NSString * resultMessage=[kReachabilityUrl stringByAppendingString:[NSString stringWithFormat:@"/QueryCheckAccount/%@/%@/%@/0/0/0",logid,date,maxId]];
+    
+    NSLog(@"%@",resultMessage);
+    
+    return [self WebAppAccess:resultMessage];
+}
 
 #pragma mark - private function
 - (NSString*)WebAppAccess:(NSString *)resultMessage

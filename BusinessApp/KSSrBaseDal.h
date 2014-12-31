@@ -16,7 +16,7 @@
 
 -(void)deleteData;
 
-- (NSMutableArray*)selectData:(int)pageSize andOffset:(int)offset;
+- (NSMutableArray*)selectData:(int)pageSize andOffset:(int)offset andDate:(NSString*)date;
 
--(NSString*)getMaxId;
+-(NSNumber*)getMaxId:(NSString*)cdrq;
 @end

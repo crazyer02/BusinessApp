@@ -19,7 +19,7 @@
 @property (nonatomic, copy) NSString *gname;
 @property (nonatomic, copy) NSString *guishu;
 @property (nonatomic, copy) NSString *hezuozhuangtai;
-@property (nonatomic, copy) NSString *ind;
+@property (nonatomic, assign) NSNumber *ind;
 @property (nonatomic, copy) NSString *jiesuanfangshi;
 @property (nonatomic, copy) NSString *jsjg;
 @property (nonatomic, copy) NSString *jspj;

@@ -10,7 +10,7 @@
 
 #import "XCMultiSortTableViewDefault.h"
 #import "XCMultiSortTableViewBGScrollView.h"
-
+#import "MJRefresh.h"
 #import "UIView+XCMultiSortTableView.h"
 
 #define AddHeightTo(v, h) { CGRect f = v.frame; f.size.height += h; v.frame = f; }
@@ -74,6 +74,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     self = [super initWithFrame:frame];
     if (self) {
         
+        
         //self.layer.borderColor = [[UIColor colorWithWhite:XCMultiTableView_BoraerColorGray alpha:1.0f] CGColor];
         //self.layer.cornerRadius = XCMultiTableView_CornerRadius;
         //self.layer.borderWidth = XCMultiTableView_BorderWidth;
@@ -133,6 +134,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         contentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         contentTableView.backgroundColor = [UIColor clearColor];
         [contentScrollView addSubview:contentTableView];
+        
         
     }
     return self;
