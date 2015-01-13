@@ -13,7 +13,7 @@
 #import "GDataXMLNode.h"
 #import "SrBase.h"
 
-@interface KSSaleDayViewController()<XCMultiTableViewDataSource>
+@interface KSSaleDayViewController()<UITableViewDelegate,XCMultiTableViewDataSource>
 @end
 
 @implementation KSSaleDayViewController{
@@ -37,12 +37,12 @@
     [super viewDidLoad];
     
     srBaseDal=[[KSSrBaseDal alloc]init];
-  
+    
     
     [self writeDate];
     NSMutableArray *array = [srBaseDal selectData:-1 andOffset:0 andDate:_reciveDay.unit];
     _resultArray = [NSMutableArray arrayWithArray:array];
-
+    
     [self initData];
     
     [self.tableView initWithFrame:CGRectInset(self.tableView.bounds,0,0)];
@@ -156,6 +156,15 @@
     [rightTableData addObject:oneR];
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"doShowDayDetail"])
+    {
+        id theSegue=segue.destinationViewController;
+        [theSegue setValue:_srBasedata forKey:@"reciveDayDetail"];
+    }
+}
+
 #pragma mark - XCMultiTableViewDataSource
 
 
@@ -207,7 +216,17 @@
         return 40.0f;
     }
 }
-
+/**
+ *  选中其中的某一行
+ *
+ *  @param tableView <#tableView description#>
+ *  @param indexPath <#indexPath description#>
+ */
+- (void)tableView:(XCMultiTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    _srBasedata= [_resultArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"doShowDayDetail" sender:self];
+}
 //- (UIColor *)tableView:(XCMultiTableView *)tableView bgColorInSection:(NSUInteger)section InRow:(NSUInteger)row InColumn:(NSUInteger)column {
 //    if (row == 1 && section == 0) {
 //        return [UIColor whiteColor];//[UIColor colorWithWhite:223.0f/255.0f alpha:1.0];

@@ -54,5 +54,6 @@ typedef NS_ENUM(NSUInteger, SortColumnType) {
 - (CGFloat)topHeaderHeightInTableView:(XCMultiTableView *)tableView;
 - (UIColor *)tableView:(XCMultiTableView *)tableView bgColorInSection:(NSUInteger)section InRow:(NSUInteger)row InColumn:(NSUInteger)column;
 - (UIColor *)tableView:(XCMultiTableView *)tableView headerBgColorInColumn:(NSUInteger)column;
-
+//cell selected
+- (void)tableView:(XCMultiTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

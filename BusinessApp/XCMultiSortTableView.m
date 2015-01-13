@@ -241,6 +241,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         target = nil;
     }
     [target selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+    [datasource tableView:self didSelectRowAtIndexPath: indexPath];
 }
 
 /**

@@ -100,6 +100,7 @@
     [fetchRequest setEntity:entity];
     [fetchRequest setPredicate:predicate];
     [fetchRequest setPropertiesToFetch:[NSArray arrayWithObject:expressionDescription]];
+    //这里不加则后面会报异常错误
     [fetchRequest setResultType:NSDictionaryResultType];
     
     NSError *error;

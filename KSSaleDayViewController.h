@@ -11,6 +11,7 @@
 #import "MonthTotal.h"
 #import "User.h"
 #import "KSSrBaseDal.h"
+#import "SrBase.h"
 
 @interface KSSaleDayViewController : UIViewController<XCMultiTableViewDataSource>
 {
@@ -26,4 +27,5 @@
 @property(nonatomic,weak)MonthTotal *reciveDay;
 
 @property (nonatomic, strong) NSMutableArray *resultArray;
+@property (nonatomic,strong) SrBase *srBasedata;
 @end

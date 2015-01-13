@@ -102,6 +102,7 @@
 		AEE877581A4C22AF00F1F7B0 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE877511A4C22AF00F1F7B0 /* UIView+MJExtension.m */; };
 		AEE8775B1A4D61C700F1F7B0 /* SrBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8775A1A4D61C700F1F7B0 /* SrBase.m */; };
 		AEE8775E1A4D676B00F1F7B0 /* KSSrBaseDal.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8775D1A4D676B00F1F7B0 /* KSSrBaseDal.m */; };
+		AEE877611A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE877601A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +275,8 @@
 		AEE8775A1A4D61C700F1F7B0 /* SrBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SrBase.m; sourceTree = "<group>"; };
 		AEE8775C1A4D676B00F1F7B0 /* KSSrBaseDal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSrBaseDal.h; sourceTree = "<group>"; };
 		AEE8775D1A4D676B00F1F7B0 /* KSSrBaseDal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSrBaseDal.m; sourceTree = "<group>"; };
+		AEE8775F1A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSaleDayDetailViewController.h; sourceTree = "<group>"; };
+		AEE877601A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSaleDayDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +482,8 @@
 				AE73E1FD19FA207900292837 /* KSMainViewController.m */,
 				AED008DC1A4423F300EFF3E0 /* KSSaleDayViewController.h */,
 				AED008DD1A4423F300EFF3E0 /* KSSaleDayViewController.m */,
+				AEE8775F1A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.h */,
+				AEE877601A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m */,
 				AEAD4CEE19FF8ED60078F89F /* KSLogedViewController.h */,
 				AEAD4CEF19FF8ED60078F89F /* KSLogedViewController.m */,
 				AE5B306319EFCCC400E44365 /* KSViewController.h */,
@@ -775,6 +780,7 @@
 				AE25F5EF19F57D9F00439FC2 /* ASIFormDataRequest.m in Sources */,
 				AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */,
 				AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */,
+				AEE877611A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m in Sources */,
 				AECE59D11A1CF06A0033DC9F /* BEMLine.m in Sources */,
 				AEE4E71B1A2F17C000564347 /* CoreDateManager.m in Sources */,
 				AEE8775B1A4D61C700F1F7B0 /* SrBase.m in Sources */,
