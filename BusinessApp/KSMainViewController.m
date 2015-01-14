@@ -19,8 +19,9 @@
 #import "KSSaleDayViewController.h"
 
 NSString *const MJTableViewCellIdentifier = @"MonthTotalCell";
+NSString *const MJTableViewHeadIdentifier = @"MonthTotalHeader";
 NSInteger pageNumber=0;
-
+double totalPrice=0;
 @interface KSMainViewController()//<RKTabViewDelegate>
 
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *loginBarButtonItem;
@@ -29,7 +30,7 @@ NSInteger pageNumber=0;
 @end
 
 @implementation KSMainViewController{
-
+    MonthTotalHeader *head;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -85,6 +86,20 @@ NSInteger pageNumber=0;
     // 1.注册cell
     //[monthTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:MJTableViewCellIdentifier];
     
+    //添加总和
+//    CGRect r=[UIScreen mainScreen].applicationFrame;
+//    UIView *headerView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, r.size.width, 40)];
+     head= [monthTableView dequeueReusableCellWithIdentifier:MJTableViewHeadIdentifier];
+    if (head == nil) {
+        NSArray *cells = [[NSBundle mainBundle] loadNibNamed:@"MonthTotalHeader" owner:self options:nil];
+        head = [cells lastObject];
+    }
+    //[self  addBottomLineWithWidth:head viewWidth:1 bgColor:kSeparatorLineColor];
+    [self addBottomLineWithWidth:head viewWidth:320 widthLine:1 color:[UIColor colorWithWhite:223.0f/255.0f alpha:1.0] indentWidth:0];
+    monthTableView.tableHeaderView = head;
+    
+    //monthTableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    //monthTableView.scrollIndicatorInsets = UIEdgeInsetsMake(44, 0, 0, 0);
     // 2.集成刷新控件
     [self setupRefresh];
     
@@ -108,6 +123,8 @@ NSInteger pageNumber=0;
 //    self.titledTabsView.titlesFontColor = [UIColor colorWithWhite:0.9f alpha:0.8f];
 //    
 //    self.titledTabsView.tabItems = [[NSArray alloc] initWithObjects:globeTabItem, cameraTabItem,cloudTabItem,userTabItem,watchTabItem,nil];
+    
+   
     
     monthDal=[[KSMonthTotalDal alloc]init];
     //更新时间
@@ -382,8 +399,8 @@ NSInteger pageNumber=0;
     //没有超过8小时一更新就从数据库中读
     NSMutableArray *array = [monthDal selectData:10 andOffset:0];
     _resultArray = [NSMutableArray arrayWithArray:array];
-    [monthTableView reloadData];
-    
+    //[monthTableView reloadData];
+    [self refreshHeader];
     // 2.2秒后刷新表格UI
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新表格
@@ -392,6 +409,8 @@ NSInteger pageNumber=0;
         [monthTableView headerEndRefreshing];
     });
 }
+
+
 
 - (void)footerRereshing
 {
@@ -404,6 +423,7 @@ NSInteger pageNumber=0;
                            NSMakeRange(_resultArray.count,[array count])];
     [_resultArray insertObjects:array atIndexes:indexes];
     
+    [self refreshHeader];
     // 2.2秒后刷新表格UI
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // 刷新表格
@@ -412,5 +432,45 @@ NSInteger pageNumber=0;
         // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
         [monthTableView footerEndRefreshing];
     });
+}
+
+- (void)addBottomLineWithWidth:(UIView*) view viewWidth:(CGFloat)width widthLine:(CGFloat)widthLine color:(UIColor *)color indentWidth:(CGFloat)indentWidth
+{
+    UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0.0-indentWidth, view.frame.size.height - widthLine,width,widthLine )];
+    bottomLine.backgroundColor = color;
+    bottomLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    [view addSubview:bottomLine];
+}
+
+- (void)refreshHeader
+{
+    for(MonthTotal *model in _resultArray)
+    {
+        totalPrice = totalPrice + [model.total doubleValue] ;
+    }
+    NSString *updateDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"updateDate"];
+    if (!updateDate) {
+        updateDate=@"暂无更新";
+        
+    }else{
+        //有此对象说明只要从数据库中读数据
+        NSTimeInterval update = updateDate.doubleValue;
+        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
+        //8小时一更新
+        if ((now - update)<1*60) {
+updateDate=@"刚刚更新";
+        }
+        else if ((now - update)<60*60) {
+            updateDate=[NSString stringWithFormat:@"更新于%.0f分钟前",((now-update)/60)];
+        }
+        else if ((now - update)<24*60*60) {
+            updateDate=[NSString stringWithFormat:@"更新于%.0f小时前",((now-update)/60*60)];
+        }
+        else{
+           updateDate=[NSString stringWithFormat:@"更新于%.0f天前",((now-update)/24*60*60)];
+        }
+    }
+
+    [head setContent:[NSString stringWithFormat:@"%.2f",totalPrice]  refreshTime:updateDate];
 }
 @end

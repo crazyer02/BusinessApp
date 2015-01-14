@@ -68,6 +68,8 @@
 		AED008DE1A4423F300EFF3E0 /* KSSaleDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED008DD1A4423F300EFF3E0 /* KSSaleDayViewController.m */; };
 		AED008E11A49790C00EFF3E0 /* MonthTotal.m in Sources */ = {isa = PBXBuildFile; fileRef = AED008E01A49790C00EFF3E0 /* MonthTotal.m */; };
 		AED008E41A497EFE00EFF3E0 /* KSMonthTotalDal.m in Sources */ = {isa = PBXBuildFile; fileRef = AED008E31A497EFE00EFF3E0 /* KSMonthTotalDal.m */; };
+		AED1657B1A65003D0028B894 /* MonthTotalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AED165791A65003D0028B894 /* MonthTotalHeader.m */; };
+		AED1657C1A65003D0028B894 /* MonthTotalHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED1657A1A65003D0028B894 /* MonthTotalHeader.xib */; };
 		AED834171A14FF5F008B151E /* KSLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AED834161A14FF5F008B151E /* KSLineViewController.m */; };
 		AED94A491A4B08CB00780EAD /* MonthTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AED94A471A4B08CB00780EAD /* MonthTotalCell.m */; };
 		AED94A4A1A4B08CB00780EAD /* MonthTotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED94A481A4B08CB00780EAD /* MonthTotalCell.xib */; };
@@ -215,6 +217,9 @@
 		AED008E01A49790C00EFF3E0 /* MonthTotal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthTotal.m; sourceTree = "<group>"; };
 		AED008E21A497EFE00EFF3E0 /* KSMonthTotalDal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMonthTotalDal.h; sourceTree = "<group>"; };
 		AED008E31A497EFE00EFF3E0 /* KSMonthTotalDal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSMonthTotalDal.m; sourceTree = "<group>"; };
+		AED165781A65003D0028B894 /* MonthTotalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthTotalHeader.h; sourceTree = "<group>"; };
+		AED165791A65003D0028B894 /* MonthTotalHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonthTotalHeader.m; sourceTree = "<group>"; };
+		AED1657A1A65003D0028B894 /* MonthTotalHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthTotalHeader.xib; sourceTree = "<group>"; };
 		AED834151A14FF5F008B151E /* KSLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSLineViewController.h; path = ../KSLineViewController.h; sourceTree = "<group>"; };
 		AED834161A14FF5F008B151E /* KSLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KSLineViewController.m; path = ../KSLineViewController.m; sourceTree = "<group>"; };
 		AED94A461A4B08CB00780EAD /* MonthTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonthTotalCell.h; sourceTree = "<group>"; };
@@ -551,6 +556,9 @@
 				AED94A461A4B08CB00780EAD /* MonthTotalCell.h */,
 				AED94A471A4B08CB00780EAD /* MonthTotalCell.m */,
 				AED94A481A4B08CB00780EAD /* MonthTotalCell.xib */,
+				AED165781A65003D0028B894 /* MonthTotalHeader.h */,
+				AED165791A65003D0028B894 /* MonthTotalHeader.m */,
+				AED1657A1A65003D0028B894 /* MonthTotalHeader.xib */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -738,6 +746,7 @@
 				AE0893411A0A08CD006D860F /* user_disabled@2x.png in Resources */,
 				AED94A4A1A4B08CB00780EAD /* MonthTotalCell.xib in Resources */,
 				AEE877411A4C0C9A00F1F7B0 /* Tag.png in Resources */,
+				AED1657C1A65003D0028B894 /* MonthTotalHeader.xib in Resources */,
 				AE0893401A0A08CD006D860F /* globe_enabled@2x.png in Resources */,
 				AED9C2A51A2C3D53003D6741 /* Toronto, ON.jpg in Resources */,
 				AED9C2A61A2C3D53003D6741 /* CheckMarkWhite.png in Resources */,
@@ -797,6 +806,7 @@
 				AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */,
 				AED9C29C1A2C3BC2003D6741 /* MYCustomPanel.m in Sources */,
 				AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */,
+				AED1657B1A65003D0028B894 /* MonthTotalHeader.m in Sources */,
 				AEE8775E1A4D676B00F1F7B0 /* KSSrBaseDal.m in Sources */,
 				AEE877541A4C22AF00F1F7B0 /* MJRefreshFooterView.m in Sources */,
 				AED9C2901A2C3B38003D6741 /* AMBlurView.m in Sources */,

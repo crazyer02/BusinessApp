@@ -549,7 +549,7 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
     [[cell.contentView subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
     NSMutableArray *ary = [[contentDataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    
+    NSString *zk=[NSString stringWithFormat:@"%@", [ary objectAtIndex:2]];
     for (int i = 0; i < count; i++) {
         
         CGFloat cellW = [self accessContentTableViewCellWidth:i];
@@ -561,12 +561,21 @@ typedef NS_ENUM(NSUInteger, TableColumnSortType) {
         view.center = CGPointMake(width, cellH / 2.0f);
         view.clipsToBounds = YES;
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, cellW-10, cellH)];
         label.text = [NSString stringWithFormat:@"%@", [ary objectAtIndex:i]];
-        
-        [label sizeToFit];
-        label.center = CGPointMake(cellW / 2.0f, cellH / 2.0f);
-        
+        label.font=[UIFont systemFontOfSize:15];
+        if (![zk isEqualToString:@"1"]&&i<3)
+        {
+            label.textColor=[UIColor redColor];
+        }
+        if(i==3)
+        {
+            label.textColor=[UIColor blueColor];
+        }
+        //[label sizeToFit];
+        //label.center = CGPointMake(cellW / 2.0f, cellH / 2.0f);
+        label.textAlignment=NSTextAlignmentRight;
+        label.lineBreakMode=NSLineBreakByTruncatingTail;
         UIColor *color = [self bgColorInSection:indexPath.section InRow:indexPath.row InColumn:i];
         
         view.backgroundColor = color;

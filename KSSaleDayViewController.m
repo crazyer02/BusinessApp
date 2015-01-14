@@ -145,7 +145,7 @@
             [ary addObject:[NSString stringWithFormat:@"¥%@",info.newjsjg]];
             [ary addObject:[NSString stringWithFormat:@"¥%@",info.jsjg]];
             [ary addObject:info.jszk];
-            [ary addObject:info.jspj];
+            [ary addObject:[NSString stringWithFormat:@"¥%@",info.jspj]];
             [ary addObject:info.byh];
             [ary addObject:info.ybid];
             [ary addObject:info.jymdmc];
@@ -205,6 +205,9 @@
         case 6:
             width=220.0f;
             break;
+        case 7:
+            width=80.0f;
+            break;
     }
     return width;
 }
@@ -227,9 +230,19 @@
     _srBasedata= [_resultArray objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"doShowDayDetail" sender:self];
 }
+/**
+ *  设置行的颜色
+ *
+ *  @param tableView <#tableView description#>
+ *  @param section   <#section description#>
+ *  @param row       <#row description#>
+ *  @param column    <#column description#>
+ *
+ *  @return <#return value description#>
+ */
 //- (UIColor *)tableView:(XCMultiTableView *)tableView bgColorInSection:(NSUInteger)section InRow:(NSUInteger)row InColumn:(NSUInteger)column {
 //    if (row == 1 && section == 0) {
-//        return [UIColor whiteColor];//[UIColor colorWithWhite:223.0f/255.0f alpha:1.0];
+//        return [UIColor colorWithRed:250 green:0 blue:0 alpha:0.8];//[UIColor colorWithWhite:223.0f/255.0f alpha:1.0];
 //    }
 //    return [UIColor clearColor];
 //}

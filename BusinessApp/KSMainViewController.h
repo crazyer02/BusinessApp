@@ -14,6 +14,7 @@
 #import "User.h"
 #import "KSMonthTotalDal.h"
 #import "MonthTotalCell.h"
+#import "MonthTotalHeader.h"
 
 
 @interface KSMainViewController : UIViewController<MYIntroductionDelegate>{
