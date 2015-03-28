@@ -36,6 +36,7 @@
                         <rect key="frame" x="237" y="8" width="14" height="14"/>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="labelRefreshTime" destination="0Ca-Q5-SbA" id="2GA-We-JsN"/>

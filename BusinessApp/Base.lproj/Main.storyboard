@@ -290,7 +290,7 @@
             </objects>
             <point key="canvasLocation" x="1293" y="560"/>
         </scene>
-        <!--Sale Day Detail View Controller-->
+        <!--明细数据-->
         <scene sceneID="1MN-eV-0us">
             <objects>
                 <viewController id="t1H-mY-ShY" customClass="KSSaleDayDetailViewController" sceneMemberID="viewController">
@@ -751,7 +751,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="URZ-WW-ffn"/>
+                    <navigationItem key="navigationItem" title="明细数据" id="URZ-WW-ffn"/>
                     <connections>
                         <outlet property="labelXian" destination="kjg-tc-k28" id="iDd-M5-hnf"/>
                         <outlet property="labelbrlb" destination="lG3-UX-FGP" id="q1M-BP-iEH"/>

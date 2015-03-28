@@ -399,7 +399,6 @@ double totalPrice=0;
     //没有超过8小时一更新就从数据库中读
     NSMutableArray *array = [monthDal selectData:10 andOffset:0];
     _resultArray = [NSMutableArray arrayWithArray:array];
-    //[monthTableView reloadData];
     [self refreshHeader];
     // 2.2秒后刷新表格UI
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -444,6 +443,7 @@ double totalPrice=0;
 
 - (void)refreshHeader
 {
+    totalPrice=0;
     for(MonthTotal *model in _resultArray)
     {
         totalPrice = totalPrice + [model.total doubleValue] ;
