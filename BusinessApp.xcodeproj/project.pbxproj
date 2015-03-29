@@ -19,13 +19,7 @@
 		AE0893441A0A08CD006D860F /* watch_enabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE08933A1A0A08CD006D860F /* watch_enabled@2x.png */; };
 		AE0893491A0A259F006D860F /* RKTabItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0893461A0A259F006D860F /* RKTabItem.m */; };
 		AE08934A1A0A259F006D860F /* RKTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0893481A0A259F006D860F /* RKTabView.m */; };
-		AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AE0AFE4719FD42B5008381B5 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0AFE4619FD42B5008381B5 /* libsqlite3.dylib */; };
-		AE0AFE5719FD65AE008381B5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE4E19FD65AE008381B5 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AE0AFE5819FD65AE008381B5 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5019FD65AE008381B5 /* FMDatabaseAdditions.m */; };
-		AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5219FD65AE008381B5 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AE0AFE5A19FD65AE008381B5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5419FD65AE008381B5 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		AE0AFE5B19FD65AE008381B5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5619FD65AE008381B5 /* FMResultSet.m */; };
 		AE0AFE5E19FD6687008381B5 /* KSDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE5D19FD6687008381B5 /* KSDBManager.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		AE0AFE6119FD7394008381B5 /* KSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE6019FD7394008381B5 /* KSUser.m */; };
 		AE0AFE6419FD7441008381B5 /* KSUserDB.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0AFE6319FD7441008381B5 /* KSUserDB.m */; };
@@ -59,7 +53,6 @@
 		AE5B307819EFCCC400E44365 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE5B307619EFCCC400E44365 /* InfoPlist.strings */; };
 		AE5B307A19EFCCC400E44365 /* BusinessAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5B307919EFCCC400E44365 /* BusinessAppTests.m */; };
 		AE73E1FE19FA207900292837 /* KSMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE73E1FD19FA207900292837 /* KSMainViewController.m */; };
-		AEAD4CEA19FF8C2D0078F89F /* index_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEAD4CE919FF8C2D0078F89F /* index_01.jpg */; };
 		AEAD4CF019FF8ED60078F89F /* KSLogedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEAD4CEF19FF8ED60078F89F /* KSLogedViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59C81A1CF06A0033DC9F /* BEMAnimations.m */; };
 		AECE59D01A1CF06A0033DC9F /* BEMCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = AECE59CA1A1CF06A0033DC9F /* BEMCircle.m */; };
@@ -89,7 +82,6 @@
 		AED9DE301A30A88700305685 /* XCMultiSortTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9DE2B1A30A88700305685 /* XCMultiSortTableView.m */; };
 		AED9DE311A30A88700305685 /* XCMultiSortTableViewBGScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = AED9DE2D1A30A88700305685 /* XCMultiSortTableViewBGScrollView.m */; };
 		AEDAC73E1A2D914300B050E2 /* KindstarModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEDAC73C1A2D914300B050E2 /* KindstarModel.xcdatamodeld */; };
-		AEDAC7491A2DC82100B050E2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDAC7481A2DC82100B050E2 /* User.m */; };
 		AEDAC74C1A2DCB9200B050E2 /* BusinessApp.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDAC74B1A2DCB9200B050E2 /* BusinessApp.m */; };
 		AEDAC74F1A2DCB9300B050E2 /* CheckOut.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDAC74E1A2DCB9300B050E2 /* CheckOut.m */; };
 		AEE4E71B1A2F17C000564347 /* CoreDateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4E71A1A2F17C000564347 /* CoreDateManager.m */; };
@@ -105,6 +97,14 @@
 		AEE8775B1A4D61C700F1F7B0 /* SrBase.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8775A1A4D61C700F1F7B0 /* SrBase.m */; };
 		AEE8775E1A4D676B00F1F7B0 /* KSSrBaseDal.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE8775D1A4D676B00F1F7B0 /* KSSrBaseDal.m */; };
 		AEE877611A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE877601A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m */; };
+		C161CA5A1AC7BFCB0015271B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = C161CA591AC7BFCB0015271B /* User.m */; };
+		C161CA5D1AC7FE3C0015271B /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C161CA5C1AC7FE3C0015271B /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C161CA681AC80EBD0015271B /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = C161CA5F1AC80EBD0015271B /* FMDatabase.m */; };
+		C161CA691AC80EBD0015271B /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C161CA611AC80EBD0015271B /* FMDatabaseAdditions.m */; };
+		C161CA6A1AC80EBD0015271B /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = C161CA631AC80EBD0015271B /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C161CA6B1AC80EBD0015271B /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = C161CA651AC80EBD0015271B /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C161CA6C1AC80EBD0015271B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = C161CA671AC80EBD0015271B /* FMResultSet.m */; };
+		C161CA6E1AC810BE0015271B /* index_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C161CA6D1AC810BE0015271B /* index_01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,19 +132,7 @@
 		AE0893461A0A259F006D860F /* RKTabItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKTabItem.m; sourceTree = "<group>"; };
 		AE0893471A0A259F006D860F /* RKTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTabView.h; sourceTree = "<group>"; };
 		AE0893481A0A259F006D860F /* RKTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKTabView.m; sourceTree = "<group>"; };
-		AE0AFE4319FA5DC8008381B5 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = ../../../../Downloads/ThemeParser/Classes/GDataXMLNode.h; sourceTree = "<group>"; };
-		AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = ../../../../Downloads/ThemeParser/Classes/GDataXMLNode.m; sourceTree = "<group>"; };
 		AE0AFE4619FD42B5008381B5 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		AE0AFE4D19FD65AE008381B5 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabase.h"; sourceTree = "<group>"; };
-		AE0AFE4E19FD65AE008381B5 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabase.m"; sourceTree = "<group>"; };
-		AE0AFE4F19FD65AE008381B5 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabaseAdditions.h"; sourceTree = "<group>"; };
-		AE0AFE5019FD65AE008381B5 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabaseAdditions.m"; sourceTree = "<group>"; };
-		AE0AFE5119FD65AE008381B5 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabasePool.h"; sourceTree = "<group>"; };
-		AE0AFE5219FD65AE008381B5 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabasePool.m"; sourceTree = "<group>"; };
-		AE0AFE5319FD65AE008381B5 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabaseQueue.h"; sourceTree = "<group>"; };
-		AE0AFE5419FD65AE008381B5 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMDatabaseQueue.m"; sourceTree = "<group>"; };
-		AE0AFE5519FD65AE008381B5 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMResultSet.h"; sourceTree = "<group>"; };
-		AE0AFE5619FD65AE008381B5 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = "../../../../Downloads/lovesunstar-database/SDatabase/SDatabase/FMDB/FMResultSet.m"; sourceTree = "<group>"; };
 		AE0AFE5C19FD6687008381B5 /* KSDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDBManager.h; sourceTree = "<group>"; };
 		AE0AFE5D19FD6687008381B5 /* KSDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDBManager.m; sourceTree = "<group>"; };
 		AE0AFE5F19FD7394008381B5 /* KSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSUser.h; sourceTree = "<group>"; };
@@ -200,7 +188,6 @@
 		AE5B307919EFCCC400E44365 /* BusinessAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BusinessAppTests.m; sourceTree = "<group>"; };
 		AE73E1FC19FA207900292837 /* KSMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSMainViewController.h; sourceTree = "<group>"; };
 		AE73E1FD19FA207900292837 /* KSMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSMainViewController.m; sourceTree = "<group>"; };
-		AEAD4CE919FF8C2D0078F89F /* index_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = index_01.jpg; path = ../../../../Downloads/index_01.jpg; sourceTree = "<group>"; };
 		AEAD4CEE19FF8ED60078F89F /* KSLogedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSLogedViewController.h; sourceTree = "<group>"; };
 		AEAD4CEF19FF8ED60078F89F /* KSLogedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSLogedViewController.m; sourceTree = "<group>"; };
 		AECE59C71A1CF06A0033DC9F /* BEMAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEMAnimations.h; sourceTree = "<group>"; };
@@ -250,8 +237,6 @@
 		AED9DE2D1A30A88700305685 /* XCMultiSortTableViewBGScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCMultiSortTableViewBGScrollView.m; sourceTree = "<group>"; };
 		AED9DE2E1A30A88700305685 /* XCMultiSortTableViewDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCMultiSortTableViewDefault.h; sourceTree = "<group>"; };
 		AEDAC73D1A2D914300B050E2 /* KindstarModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KindstarModel.xcdatamodel; sourceTree = "<group>"; };
-		AEDAC7471A2DC82100B050E2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../../User.h; sourceTree = "<group>"; };
-		AEDAC7481A2DC82100B050E2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../../User.m; sourceTree = "<group>"; };
 		AEDAC74A1A2DCB9200B050E2 /* BusinessApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessApp.h; sourceTree = SOURCE_ROOT; };
 		AEDAC74B1A2DCB9200B050E2 /* BusinessApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessApp.m; sourceTree = SOURCE_ROOT; };
 		AEDAC74D1A2DCB9300B050E2 /* CheckOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOut.h; sourceTree = "<group>"; };
@@ -282,6 +267,21 @@
 		AEE8775D1A4D676B00F1F7B0 /* KSSrBaseDal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSrBaseDal.m; sourceTree = "<group>"; };
 		AEE8775F1A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSaleDayDetailViewController.h; sourceTree = "<group>"; };
 		AEE877601A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSaleDayDetailViewController.m; sourceTree = "<group>"; };
+		C161CA581AC7BFCB0015271B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C161CA591AC7BFCB0015271B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C161CA5B1AC7FE3B0015271B /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		C161CA5C1AC7FE3C0015271B /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		C161CA5E1AC80EBD0015271B /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		C161CA5F1AC80EBD0015271B /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		C161CA601AC80EBD0015271B /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		C161CA611AC80EBD0015271B /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		C161CA621AC80EBD0015271B /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		C161CA631AC80EBD0015271B /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		C161CA641AC80EBD0015271B /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		C161CA651AC80EBD0015271B /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		C161CA661AC80EBD0015271B /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		C161CA671AC80EBD0015271B /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		C161CA6D1AC810BE0015271B /* index_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = index_01.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,8 +351,8 @@
 		AE0AFE4219FA5DB0008381B5 /* GXML */ = {
 			isa = PBXGroup;
 			children = (
-				AE0AFE4319FA5DC8008381B5 /* GDataXMLNode.h */,
-				AE0AFE4419FA5DC8008381B5 /* GDataXMLNode.m */,
+				C161CA5B1AC7FE3B0015271B /* GDataXMLNode.h */,
+				C161CA5C1AC7FE3C0015271B /* GDataXMLNode.m */,
 			);
 			name = GXML;
 			sourceTree = "<group>";
@@ -360,8 +360,6 @@
 		AE0AFE4819FD56D9008381B5 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				AEDAC7471A2DC82100B050E2 /* User.h */,
-				AEDAC7481A2DC82100B050E2 /* User.m */,
 				AE0AFE5C19FD6687008381B5 /* KSDBManager.h */,
 				AE0AFE5D19FD6687008381B5 /* KSDBManager.m */,
 				AE0AFE5F19FD7394008381B5 /* KSUser.h */,
@@ -372,6 +370,8 @@
 				AED008E01A49790C00EFF3E0 /* MonthTotal.m */,
 				AEE877591A4D61C700F1F7B0 /* SrBase.h */,
 				AEE8775A1A4D61C700F1F7B0 /* SrBase.m */,
+				C161CA581AC7BFCB0015271B /* User.h */,
+				C161CA591AC7BFCB0015271B /* User.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -379,16 +379,16 @@
 		AE0AFE4C19FD657B008381B5 /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				AE0AFE4D19FD65AE008381B5 /* FMDatabase.h */,
-				AE0AFE4E19FD65AE008381B5 /* FMDatabase.m */,
-				AE0AFE4F19FD65AE008381B5 /* FMDatabaseAdditions.h */,
-				AE0AFE5019FD65AE008381B5 /* FMDatabaseAdditions.m */,
-				AE0AFE5119FD65AE008381B5 /* FMDatabasePool.h */,
-				AE0AFE5219FD65AE008381B5 /* FMDatabasePool.m */,
-				AE0AFE5319FD65AE008381B5 /* FMDatabaseQueue.h */,
-				AE0AFE5419FD65AE008381B5 /* FMDatabaseQueue.m */,
-				AE0AFE5519FD65AE008381B5 /* FMResultSet.h */,
-				AE0AFE5619FD65AE008381B5 /* FMResultSet.m */,
+				C161CA5E1AC80EBD0015271B /* FMDatabase.h */,
+				C161CA5F1AC80EBD0015271B /* FMDatabase.m */,
+				C161CA601AC80EBD0015271B /* FMDatabaseAdditions.h */,
+				C161CA611AC80EBD0015271B /* FMDatabaseAdditions.m */,
+				C161CA621AC80EBD0015271B /* FMDatabasePool.h */,
+				C161CA631AC80EBD0015271B /* FMDatabasePool.m */,
+				C161CA641AC80EBD0015271B /* FMDatabaseQueue.h */,
+				C161CA651AC80EBD0015271B /* FMDatabaseQueue.m */,
+				C161CA661AC80EBD0015271B /* FMResultSet.h */,
+				C161CA671AC80EBD0015271B /* FMResultSet.m */,
 			);
 			name = FMDB;
 			sourceTree = "<group>";
@@ -506,7 +506,7 @@
 			children = (
 				AED9C29E1A2C3D3E003D6741 /* Images */,
 				AE0F67011A07D5AB00B94238 /* blurred_background.png */,
-				AEAD4CE919FF8C2D0078F89F /* index_01.jpg */,
+				C161CA6D1AC810BE0015271B /* index_01.jpg */,
 				AE5B305D19EFCCC400E44365 /* KSAppDelegate.h */,
 				AE5B305E19EFCCC400E44365 /* KSAppDelegate.m */,
 				AE5B305619EFCCC400E44365 /* BusinessApp-Info.plist */,
@@ -754,6 +754,7 @@
 				AE08933E1A0A08CD006D860F /* cloud_enabled@2x.png in Resources */,
 				AE0893441A0A08CD006D860F /* watch_enabled@2x.png in Resources */,
 				AED9C29A1A2C3BC2003D6741 /* TestHeader.xib in Resources */,
+				C161CA6E1AC810BE0015271B /* index_01.jpg in Resources */,
 				AED9C2A41A2C3D53003D6741 /* HeaderImage.png in Resources */,
 				AE5B305919EFCCC400E44365 /* InfoPlist.strings in Resources */,
 				AE0893421A0A08CD006D860F /* user_enabled@2x.png in Resources */,
@@ -762,7 +763,6 @@
 				AE0F67021A07D5AB00B94238 /* blurred_background.png in Resources */,
 				AE5B306219EFCCC400E44365 /* Main.storyboard in Resources */,
 				AED9C29D1A2C3BC2003D6741 /* MYCustomPanel.xib in Resources */,
-				AEAD4CEA19FF8C2D0078F89F /* index_01.jpg in Resources */,
 				AED9C29B1A2C3BC2003D6741 /* TestPanel3.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,6 +787,7 @@
 				AEDAC74F1A2DCB9300B050E2 /* CheckOut.m in Sources */,
 				AEDAC73E1A2D914300B050E2 /* KindstarModel.xcdatamodeld in Sources */,
 				AE25F5EF19F57D9F00439FC2 /* ASIFormDataRequest.m in Sources */,
+				C161CA6A1AC80EBD0015271B /* FMDatabasePool.m in Sources */,
 				AE25F5F219F57D9F00439FC2 /* ASINetworkQueue.m in Sources */,
 				AECE59CF1A1CF06A0033DC9F /* BEMAnimations.m in Sources */,
 				AEE877611A5A8A4100F1F7B0 /* KSSaleDayDetailViewController.m in Sources */,
@@ -794,20 +795,19 @@
 				AEE4E71B1A2F17C000564347 /* CoreDateManager.m in Sources */,
 				AEE8775B1A4D61C700F1F7B0 /* SrBase.m in Sources */,
 				AED008E41A497EFE00EFF3E0 /* KSMonthTotalDal.m in Sources */,
-				AE0AFE4519FA5DC8008381B5 /* GDataXMLNode.m in Sources */,
 				AED9C2891A25833B003D6741 /* KSWebAccess.m in Sources */,
 				AE08934A1A0A259F006D860F /* RKTabView.m in Sources */,
 				AED9DE311A30A88700305685 /* XCMultiSortTableViewBGScrollView.m in Sources */,
 				AE0F67001A000D2500B94238 /* MBProgressHUD.m in Sources */,
 				AEE4E71E1A2F186100564347 /* KSUserDal.m in Sources */,
 				AE0AFE5E19FD6687008381B5 /* KSDBManager.m in Sources */,
-				AE0AFE5719FD65AE008381B5 /* FMDatabase.m in Sources */,
 				AED9C2911A2C3B38003D6741 /* MYBlurIntroductionView.m in Sources */,
 				AE25F5ED19F57D9F00439FC2 /* ASIAuthenticationDialog.m in Sources */,
 				AED9C29C1A2C3BC2003D6741 /* MYCustomPanel.m in Sources */,
-				AE0AFE5919FD65AE008381B5 /* FMDatabasePool.m in Sources */,
+				C161CA5A1AC7BFCB0015271B /* User.m in Sources */,
 				AED1657B1A65003D0028B894 /* MonthTotalHeader.m in Sources */,
 				AEE8775E1A4D676B00F1F7B0 /* KSSrBaseDal.m in Sources */,
+				C161CA6B1AC80EBD0015271B /* FMDatabaseQueue.m in Sources */,
 				AEE877541A4C22AF00F1F7B0 /* MJRefreshFooterView.m in Sources */,
 				AED9C2901A2C3B38003D6741 /* AMBlurView.m in Sources */,
 				AED9DE301A30A88700305685 /* XCMultiSortTableView.m in Sources */,
@@ -815,11 +815,11 @@
 				AED008E11A49790C00EFF3E0 /* MonthTotal.m in Sources */,
 				AE25F5F319F57D9F00439FC2 /* Reachability.m in Sources */,
 				AED94A491A4B08CB00780EAD /* MonthTotalCell.m in Sources */,
+				C161CA5D1AC7FE3C0015271B /* GDataXMLNode.m in Sources */,
 				AE0AFE6119FD7394008381B5 /* KSUser.m in Sources */,
 				AECE59D21A1CF06A0033DC9F /* BEMSimpleLineGraphView.m in Sources */,
 				AEDAC74C1A2DCB9200B050E2 /* BusinessApp.m in Sources */,
 				AE25F5EE19F57D9F00439FC2 /* ASIDownloadCache.m in Sources */,
-				AEDAC7491A2DC82100B050E2 /* User.m in Sources */,
 				AE73E1FE19FA207900292837 /* KSMainViewController.m in Sources */,
 				AE25F5F119F57D9F00439FC2 /* ASIInputStream.m in Sources */,
 				AEE877551A4C22AF00F1F7B0 /* MJRefreshHeaderView.m in Sources */,
@@ -829,17 +829,17 @@
 				AEE877571A4C22AF00F1F7B0 /* UIScrollView+MJRefresh.m in Sources */,
 				AEE877561A4C22AF00F1F7B0 /* UIScrollView+MJExtension.m in Sources */,
 				AED9C2921A2C3B38003D6741 /* MYIntroductionPanel.m in Sources */,
-				AE0AFE5A19FD65AE008381B5 /* FMDatabaseQueue.m in Sources */,
+				C161CA681AC80EBD0015271B /* FMDatabase.m in Sources */,
+				C161CA6C1AC80EBD0015271B /* FMResultSet.m in Sources */,
 				AEAD4CF019FF8ED60078F89F /* KSLogedViewController.m in Sources */,
 				AE5B305B19EFCCC400E44365 /* main.m in Sources */,
 				AE0AFE6419FD7441008381B5 /* KSUserDB.m in Sources */,
 				AEE877521A4C22AF00F1F7B0 /* MJRefreshBaseView.m in Sources */,
-				AE0AFE5B19FD65AE008381B5 /* FMResultSet.m in Sources */,
 				AEE877581A4C22AF00F1F7B0 /* UIView+MJExtension.m in Sources */,
 				AED834171A14FF5F008B151E /* KSLineViewController.m in Sources */,
 				AED9DE2F1A30A88700305685 /* UIView+XCMultiSortTableView.m in Sources */,
-				AE0AFE5819FD65AE008381B5 /* FMDatabaseAdditions.m in Sources */,
 				AECE59D01A1CF06A0033DC9F /* BEMCircle.m in Sources */,
+				C161CA691AC80EBD0015271B /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
