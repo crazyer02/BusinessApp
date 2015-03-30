@@ -709,7 +709,11 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Kindstar;
 				TargetAttributes = {
+					AE5B304A19EFCCC400E44365 = {
+						DevelopmentTeam = 36L52348JM;
+					};
 					AE5B306B19EFCCC400E44365 = {
+						DevelopmentTeam = 36L52348JM;
 						TestTargetID = AE5B304A19EFCCC400E44365;
 					};
 				};
@@ -999,6 +1003,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BusinessApp.app/BusinessApp";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1012,6 +1018,7 @@
 				);
 				INFOPLIST_FILE = "BusinessAppTests/BusinessAppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1021,6 +1028,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BusinessApp.app/BusinessApp";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1030,6 +1039,7 @@
 				GCC_PREFIX_HEADER = "BusinessApp/BusinessApp-Prefix.pch";
 				INFOPLIST_FILE = "BusinessAppTests/BusinessAppTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
