@@ -54,4 +54,6 @@
  */
 -(NSString*)QueryCheckAccount:(NSString *)logid andDate:(NSString *)date andMaxBaseId:(NSNumber*)maxId;
 
+
+-(NSString*)GetReportPdf;//:(NSString *)date andYqdh:(NSString *)yqdh andYbbh:(NSString*)ybbh;
 @end

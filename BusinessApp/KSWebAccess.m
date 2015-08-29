@@ -78,6 +78,27 @@
     return [self WebAppAccess:resultMessage];
 }
 
+/**
+ *  获取报告的pdf二进制数据
+ *
+ *  @param date <#date description#>
+ *  @param yqdh <#yqdh description#>
+ *  @param ybbh <#ybbh description#>
+ *
+ *  @return <#return value description#>
+ */
+-(NSString*)GetReportPdf//:(NSString *)date andYqdh:(NSString *)yqdh andYbbh:(NSString*)ybbh
+{
+   NSString * date=@"2013-12-02 00:00:00";
+   NSString * yqdh=@"ACL-TOP700";
+   NSString * ybbh=@"2013";
+    NSString * resultMessage=[kReachabilityUrl stringByAppendingString:[NSString stringWithFormat:@"/QueryCheckAccount/%@/%@/%@/1",date,yqdh,ybbh]];
+    
+    //NSLog(@"%@",resultMessage);
+    
+    return [self WebAppAccess:resultMessage];
+}
+
 #pragma mark - private function
 - (NSString*)WebAppAccess:(NSString *)resultMessage
 {

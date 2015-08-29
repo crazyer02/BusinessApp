@@ -37,7 +37,8 @@ BOOL isSuccess;
 }
 
 
-- (BOOL)Login {
+- (BOOL)Login
+{
     KSWebAccess *webAccess=[[KSWebAccess alloc]init];
     if (![webAccess isExiststenceNetwork]) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"网络连接"
