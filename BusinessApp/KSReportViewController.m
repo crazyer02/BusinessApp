@@ -10,7 +10,9 @@
 #import "KSWebAccess.h"
 
 @interface KSReportViewController ()
-
+{
+    BOOL hasPDF;
+}
 @end
 
 @implementation KSReportViewController
@@ -18,7 +20,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.pathToDownloadTo=[[NSString alloc]init];
     
+    [self ReloadReportPdfData];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    hasPDF = [fileManager fileExistsAtPath:_pathToDownloadTo];
+    if (hasPDF) {
+        [self loadDocument:_pathToDownloadTo inView:_webview];
+    }
     
 }
 
@@ -28,14 +38,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (BOOL)ReloadReportPdfData
 {
@@ -50,19 +60,74 @@
         [alertView show];
         return NO;
     }
-    NSString *response=[webAccess GetReportPdf];
+    NSData *response=[webAccess GetReportPdf] ;
     if (response.length==0) {
         return NO;
+    }
+    
+    NSString *filename = @"test.pdf";
+    
+    // Get the path to the App's Documents directory
+    NSString *docPath = [self documentsDirectoryPath];
+    // Combine the filename and the path to the documents dir into the full path
+    _pathToDownloadTo = [NSString stringWithFormat:@"%@/%@", docPath, filename];
+    NSLog(@"pathToDownloadTo: %@", _pathToDownloadTo);
+    
+    // Load the file from the remote server
+    // NSData *tmp = [NSData dataWithContentsOfURL:theRessourcesURL];
+    // Save the loaded data if loaded successfully
+    if (response != nil) {
         
+        NSError *error = nil;
+        // Write the contents of our tmp object into a file
+        [response writeToFile:_pathToDownloadTo options:NSDataWritingAtomic error:&error];
+        if (error != nil) {
+            NSLog(@"Failed to save the file: %@", [error description]);
+        } else {
+            // Display an UIAlertView that shows the users we saved the file :)
+            UIAlertView *filenameAlert = [[UIAlertView alloc] initWithTitle:@"File saved" message:[NSString stringWithFormat:@"The file %@ has been saved.", filename] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [filenameAlert show];
+        }
     }
     return NO;
 }
 
--(void)loadDocument:(NSString *)documentName inView:(UIWebView *)webView
+-(void)loadDocument:(NSString *)path inView:(UIWebView *)webView
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:documentName ofType:nil];
+    //NSString *path = [[NSBundle mainBundle] pathForResource:documentName ofType:nil];
     NSURL *url = [NSURL fileURLWithPath:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
+
+/**
+ Just a small helper function
+ that returns the path to our
+ Documents directory
+ **/
+- (NSString *)documentsDirectoryPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+    return documentsDirectoryPath;
+}
+
+//#pragma mark - UIWebViewDelegate
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+//    //if(navigationType == UIWebViewNavigationTypeLinkClicked) {
+//    NSURL *requestedURL = [request URL];
+//    // ...Check if the URL points to a file you're looking for...
+//    // Then load the file
+//    if (!hasPDF) {
+//        NSData *fileData = [[NSData alloc] initWithContentsOfURL:requestedURL];
+//        // Get the path to the App's Documents directory
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//        NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+//        [fileData writeToFile:[NSString stringWithFormat:@"%@/%@", documentsDirectory, [requestedURL lastPathComponent]] atomically:YES];
+//    }
+//    
+//    //}
+//    return YES;
+//}
 @end

@@ -10,4 +10,7 @@
 
 @interface KSReportViewController : UIViewController
 
+@property (strong, nonatomic) NSString *pathToDownloadTo;
+@property (strong, nonatomic) IBOutlet UIWebView *webview;
+
 @end
